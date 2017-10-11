@@ -1,0 +1,40 @@
+#端口号
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nyzp?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+  velocity:
+    suffix: .html
+    cache: false
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    date-tool-attribute: dateTool
+    number-tool-attribute: numberTool
+    toolbox-config-location: toolbox.xml
+    expose-spring-macro-helpers: true
+    expose-request-attributes: true
+    expose-session-attributes: true
+    properties.file.resource.loader.cache: false
+    properties.parser.pool.size: 50
+    properties:
+      velocimacro:
+        permissions.allow.inline.to.replace.global: true
+        library: /templates/common/page.html
+  http:
+    multipart:
+      maxFileSize: 100MB
+      maxRequestSize: 100MB
+      enabled: true
+
+mybatis:
+  mapperLocations: classpath:mapper/**.xml
+  config: mybatis-config.xml
+  rows_per_transaction: 500
+
+

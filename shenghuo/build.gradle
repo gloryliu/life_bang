@@ -24,6 +24,13 @@ repositories {
 
 
 dependencies {
+	compile fileTree(include: ['*.jar'], dir: 'libs')
+
 	compile('org.springframework.boot:spring-boot-starter')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+	compile "mysql:mysql-connector-java"
+	compile "org.mybatis:mybatis:3.3.1"
+	compile "org.mybatis:mybatis-spring:1.2.4"
+
 }
