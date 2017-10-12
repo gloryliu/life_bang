@@ -11,16 +11,17 @@ buildscript {
 	}
 }
 
+apply plugin: 'war'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-	baseName = 'shenghuo'+getDate()
+	baseName = 'shenghuo'
 	version =  '0.1.0'
 }
 
-version = '0.0.1-SNAPSHOT'
+version = ''
 sourceCompatibility = 1.8
 
 repositories {
@@ -30,24 +31,26 @@ repositories {
 
 dependencies {
 	compile fileTree(include: ['*.jar'], dir: 'libs')
-
-	compile('org.springframework.boot:spring-boot-starter')
-	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile "org.springframework.boot:spring-boot-starter-web"
 	compile "org.springframework.boot:spring-boot-starter-velocity"
 	compile "org.springframework:spring-jdbc:4.2.3.RELEASE"
 	compile "com.zaxxer:HikariCP"
-
 	compile "mysql:mysql-connector-java"
 	compile "org.mybatis:mybatis:3.3.1"
 	compile "org.mybatis:mybatis-spring:1.2.4"
 	compile "org.mybatis.generator:mybatis-generator-core:1.3.2"
 	compile "com.github.pagehelper:pagehelper:4.1.0"
+	compile 'com.qiniu:qiniu-java-sdk:7.2.+'
+
+	compile "javax.servlet:javax.servlet-api:3.1-b07"
 
 	compile('io.springfox:springfox-swagger2:2.2.2')
 	compile('io.springfox:springfox-swagger-ui:2.2.2')
 
-}
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
 
 task wrapper(type: Wrapper) {
 	gradleVersion = "${gradleVersion}"
@@ -55,8 +58,6 @@ task wrapper(type: Wrapper) {
 tasks.withType(JavaCompile) {
 	options.encoding = "UTF-8"
 }
-
-
 
 def getDate() {
 	def date = new Date()
