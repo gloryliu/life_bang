@@ -1,0 +1,115 @@
+<!--分页插件
+使用方法说明：父页面扩展jquery方法：如下
+    jQuery.extend({
+        'pageList':function(){
+            userObj.getUserList();//列表查询接口
+        }
+    });
+html页面引入分页插件：#parse("/")-->
+#macro(page)
+<script src="/js/lib/jquery.twbsPagination.min.js" ></script>
+<div class="row mb20">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+        <div class="dataTables_length">
+            <label class="pull-right">共<span class="mars-col" id="totalCount"></span>条记录 每页
+                <select id="pageSize" style="display: inline-block;width: 75px;" class="form-control input-sm">
+                    <option>10</option>
+                    <option>30</option>
+                    <option>50</option>
+                    <option>60</option>
+                    <option>100</option>
+                </select>条记录</label>
+        </div>
+    </div>
+</div>
+<div class="row mb20 draggable">
+    <div class="col-md-12 jy-page text-left">
+        <nav id="pagination">
+            <ul class="pagination" id="pagination-holder"></ul>
+        </nav>
+        <div class="link">
+            <span>共 <em id="pageCount"></em> 页</span>
+            <span>到第 <input type="text" id="page_num" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')"> 页</span>
+            <button class="btn btn-default" id="go_page" >确定</button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        basePageObj.bindEvent()
+    });
+     var basePageObj = {
+         pageObj:{
+             startPage: 1,
+             pageSize: '10',
+             pageNo: '1'
+         },
+         bindEvent:function () {
+             /*分页查询信息*/
+             $("#searchButton").on("click",function () {
+                 basePageObj.clearPagination();
+                 $.pageList();
+             });
+             /*设置每页显示条数*/
+             $('#pageSize').on("change",function() {
+                 var pageSize = $("#pageSize").val();
+                 basePageObj.setPageSize(pageSize);
+             });
+             /*跳转指定页*/
+             $('#go_page').on("click",function() {
+                 var pageNo = $("#page_num").val();
+                 var pageCount = $("#pageCount").text();
+                 if(pageNo > 0 && pageNo <= pageCount){
+                     basePageObj.setPageNo(pageNo);
+                 } else {
+                     layer.alert("页码数字录入有误！");
+                 }
+             });
+         },
+         "pagination":function (pageSize,pageCount) {/*分页样式组合*/
+             $('#pagination-holder').twbsPagination({
+                 totalPages:pageCount,
+                 first:"首页",
+                 prev:"上一页",
+                 next:"下一页",
+                 last:"尾页",
+                 startPage: parseInt(basePageObj.pageObj.startPage),
+                 paginationClass:"pagination",
+                 visiblePages:pageSize,
+                 initiateStartPageClick:false,
+                 onPageClick: function (event, page) {
+                     basePageObj.pageObj.pageNo = page;
+                     $.pageList();
+                 }
+             });
+         },
+         "getSearch":function () {/*分页查询信息*/
+             $('#page_num').attr("value","");
+             $('#pagination-holder').remove();
+             $("#pagination").append('<ul id="pagination-holder"></ul>');
+             $.pageList();
+         },
+         "clearPagination":function () {/*清理掉分页信息*/
+             basePageObj.pageObj.pageNo=1;
+             basePageObj.pageObj.pageSize=10;
+             $('#page_num').attr("value","");
+             $('#pagination-holder').remove();
+             $("#pagination").append('<ul id="pagination-holder"></ul>');
+         },
+         "setPageSize":function (pageSize) {  /*设置每页显示条数*/
+             basePageObj.pageObj.pageSize = pageSize;
+             basePageObj.pageObj.pageNo = 1;
+             basePageObj.getSearch();
+         },
+         "setPageNo":function (pageNo) {  /*跳到多少页*/
+             basePageObj.clearPagination();
+             basePageObj.pageObj.pageNo = pageNo;
+             basePageObj.pageObj.startPage = pageNo;
+             basePageObj.pageObj.pageSize = $("#pageSize").val();
+             $.pageList();
+         }
+     }
+</script>
+#end

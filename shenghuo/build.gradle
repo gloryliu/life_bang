@@ -1,6 +1,7 @@
 buildscript {
 	ext {
-		springBootVersion = '1.4.7.RELEASE'
+		springBootVersion = '1.4.4.RELEASE'
+		jdkVersion = "1.8"
 	}
 	repositories {
 		mavenCentral()
@@ -11,10 +12,14 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
-group = 'com.glory'
+jar {
+	baseName = 'shenghuo'+getDate()
+	version =  '0.1.0'
+}
+
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
@@ -28,9 +33,33 @@ dependencies {
 
 	compile('org.springframework.boot:spring-boot-starter')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile "org.springframework.boot:spring-boot-starter-velocity"
+	compile "org.springframework:spring-jdbc:4.2.3.RELEASE"
+	compile "com.zaxxer:HikariCP"
 
 	compile "mysql:mysql-connector-java"
 	compile "org.mybatis:mybatis:3.3.1"
 	compile "org.mybatis:mybatis-spring:1.2.4"
+	compile "org.mybatis.generator:mybatis-generator-core:1.3.2"
+	compile "com.github.pagehelper:pagehelper:4.1.0"
 
+	compile('io.springfox:springfox-swagger2:2.2.2')
+	compile('io.springfox:springfox-swagger-ui:2.2.2')
+
+}
+
+
+task wrapper(type: Wrapper) {
+	gradleVersion = "${gradleVersion}"
+}
+tasks.withType(JavaCompile) {
+	options.encoding = "UTF-8"
+}
+
+
+
+def getDate() {
+	def date = new Date()
+	def formattedDate = date.format('yyyyMMdd_HHmm')
+	return formattedDate
 }

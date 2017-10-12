@@ -5,9 +5,9 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/nyzp?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/shenghuo?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password: root
+    password:
   velocity:
     suffix: .html
     cache: false
