@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.UserMapper">
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="com.glory.shenghuo.api.user.pojo.UserPoJo">
+        INSERT INTO tb_user (user_name,pwd,head_img,user_type,create_time,phone)
+        VALUES (#{userName},#{pwd},#{headImg},#{userType},#{createTime},#{phone})
+    </insert>
+
+    <select id="findUserByPhone" parameterType="String" resultType="com.glory.shenghuo.api.user.pojo.UserPoJo">
+        SELECT id AS userId,
+        user_name,
+        pwd,
+        head_img,
+        user_type,
+        create_time,
+        phone FROM tb_user WHERE phone=#{phone}
+    </select>
+
+    <select id="findUserByUserId" parameterType="Integer" resultType="com.glory.shenghuo.api.user.pojo.UserPoJo">
+        SELECT id AS userId,
+        user_name,
+        pwd,
+        head_img,
+        user_type,
+        create_time,
+        phone FROM tb_user WHERE id=#{userId}
+    </select>
+
+    <update id="updateUser" parameterType="com.glory.shenghuo.api.user.pojo.UserPoJo">
+        UPDATE tb_user SET
+        user_name = #{userName},
+        pwd = #{pwd},
+        head_img = #{headImg},
+        user_type = #{userType},
+        create_time = #{createTime},
+        phone = #{phone}
+        WHERE id = #{userId}
+    </update>
+
+
+</mapper>

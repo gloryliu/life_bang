@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.DeliveryAddressMapper">
+
+    <!--新增收货地址-->
+    <insert id="insert" parameterType="com.glory.shenghuo.api.deliveryaddress.pojo.DeliveryAddressPojo">
+        INSERT INTO tb_deliveryaddress
+        (name,detail,phone,userId)
+        VALUES (#{name},#{detail},#{phone},#{userId})
+    </insert>
+
+    <!--编辑收货地址-->
+    <update id="update" parameterType="com.glory.shenghuo.api.deliveryaddress.pojo.DeliveryAddressPojo">
+        UPDATE tb_deliveryaddress SET
+        name=#{name},
+        detail=#{detail},
+        phone=#{phone}
+        WHERE id=#{id} AND userId=#{userId}
+    </update>
+
+    <!--根据id获取收货地址-->
+    <select id="getDeliveryAddressById"  parameterType="Integer" resultType="com.glory.shenghuo.api.deliveryaddress.pojo.DeliveryAddressPojo">
+        SELECT * FROM tb_deliveryaddress WHERE id=#{id}
+    </select>
+
+    <!--根据id删除记录-->
+    <delete id="deleteById" parameterType="Integer">
+        DELETE FROM tb_deliveryaddress WHERE id=#{id}
+    </delete>
+
+    <!--获取用户的收货地址列表-->
+    <select id="getAllListByUserid" parameterType="Integer" resultType="com.glory.shenghuo.api.deliveryaddress.pojo.DeliveryAddressPojo">
+        SELECT * FROM tb_deliveryaddress WHERE userId=#{userId}
+    </select>
+</mapper>
