@@ -8,6 +8,6 @@ public class TestController {
 
     @RequestMapping("/haha")
     public String test(){
-        return "index/index";
+        return "/producttype/product_type_list";
     }
 }

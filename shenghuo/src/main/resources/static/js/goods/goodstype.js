@@ -1,18 +1,6 @@
-$(function () {
-    /*初始化查询*/
-    goodstypeObj.getAllList();
-});
 
 var goodstypeObj = {
-    "getAllList": function () {/*获取组合列表信息*/
-        var ajaxObj = {url: '/resource/goodstype/getAllList', async:true, method: "GET"};
-        commonJS.loading("open");
-        commonJS.sendAjaxRequest(ajaxObj, function (value) {
-            $("#data").html($("#dataTemplate").render(value));
-        });
-        commonJS.loading("close");
-    },
-    "insertupdate": function (id) {/*新增*/
+    "insertupdate": function (id,parent,text,action) {/*新增*/
         $("#typename").val("");
         layer.open({
             title: "填写名称",

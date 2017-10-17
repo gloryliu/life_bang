@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类型列表</title>
+
+    <script src="/js/common/common.js"></script>
+    <link rel="stylesheet" href="/jstree/themes/default/style.css" />
+    <script src="/js/lib/jquery.min.js"></script>
+    <script src="/jstree/jstree.js"></script>
+
+    <script src="/js/lib/layer.js"></script>
+    <!-- 业务处理js -->
+    <script src="/js/goods/goodstype.js"></script>
+
+    <script>
+        $(function() {
+            var ctxMenu = $('#jstreeMenu');
+
+            $('#jstree').jstree({
+                "plugins" : [
+                    "contextmenu"
+                ],
+                'core' : {
+                    'data' : {
+                        "url" : "/resource/productType/list",
+                        "dataType" : "json" // needed only if you do not supply JSON headers
+                    }
+                },
+                "contextmenu":{
+                    select_node:false,
+                    show_at_node:true,
+                    items:{
+                        "添加":{
+                            "label":"添加",
+                            "icon"              : "glyphicon glyphicon-plus",
+                            "action":function(data){
+                                var inst = $.jstree.reference(data.reference),
+                                    obj = inst.get_node(data.reference);
+                                console.log(obj);
+                                goodstypeObj.insertupdate(1,2,"很好",1)
+                            }
+                        },
+                        "编辑":{
+                            "label":"编辑",
+                            "icon"              : "glyphicon glyphicon-plus",
+                            "action":function(data){
+                                var inst = $.jstree.reference(data.reference),
+                                    obj = inst.get_node(data.reference);
+                                inst.create_node(obj, {}, "last", function (new_node) {
+                                    try {
+                                        new_node.text="新建设备";
+                                        inst.edit(new_node);
+                                    } catch (ex) {
+                                        setTimeout(function () { inst.edit(new_node); },0);
+                                    }
+                                });
+                            }
+                        },
+                        "删除":{
+                            "label":"删除",
+                            "icon"              : "glyphicon glyphicon-plus",
+                            "action":function(data){
+                                var inst = $.jstree.reference(data.reference),
+                                    obj = inst.get_node(data.reference);
+                                inst.create_node(obj, {}, "last", function (new_node) {
+                                    try {
+                                        new_node.text="新建设备";
+                                        inst.edit(new_node);
+                                    } catch (ex) {
+                                        setTimeout(function () { inst.edit(new_node); },0);
+                                    }
+                                });
+                            }
+                        }
+                    }
+                }
+
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div id="jstree"></div>
+
+<div id="typenameDiv" style="display:none; margin: 12px;" class="center">
+    <div class="form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <span>填写类别名称</span>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="typename" maxlength="30" placeholder="请填写名称，限30个字符"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

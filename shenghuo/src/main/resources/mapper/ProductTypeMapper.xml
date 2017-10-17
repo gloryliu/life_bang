@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.ProductTypeMapper">
+
+    <insert id="add" parameterType="com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo">
+        INSERT INTO tb_producttype
+        (parent_id,text)
+        VALUES (#{parentId},#{text})
+    </insert>
+
+    <update id="update" parameterType="com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo">
+        UPDATE tb_producttype SET
+        parent_id=#{parentId},
+        text=#{text},
+        delete_flag=#{deleteFlag}
+        WHERE id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        UPDATE tb_producttype SET
+        delete_flag = 1
+        WHERE id=#{id}
+    </delete>
+
+    <select id="getListByParentId" parameterType="Integer" resultType="com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo">
+        SELECT * FROM tb_producttype WHERE parent_id=#{id} AND delete_flag=0
+    </select>
+
+
+</mapper>
