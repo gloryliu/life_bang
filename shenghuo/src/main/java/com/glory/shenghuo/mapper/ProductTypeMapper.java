@@ -4,7 +4,7 @@ import com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo;
 
 import java.util.ArrayList;
 
-public interface ProductTypeMapper {
+public interface ProductTypeMapper extends BaseMapper{
 
 
     int add(ProductTypePoJo typePoJo);
@@ -12,6 +12,8 @@ public interface ProductTypeMapper {
     int update(ProductTypePoJo typePoJo);
 
     int delete(int id);
+
+    ArrayList<ProductTypePoJo> getAllList();
 
     ArrayList<ProductTypePoJo> getListByParentId(int id);
 

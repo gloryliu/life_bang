@@ -4,6 +4,7 @@ import com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo;
 import com.glory.shenghuo.common.MyResponseUtil;
 import com.glory.shenghuo.mapper.ProductTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,11 @@ public class ProductTypeService {
     @Autowired
     private ProductTypeMapper productTypeMapper;
 
+    /**
+     * 添加菜单
+     * @param param
+     * @return
+     */
     public ResponseEntity<Object> add(ProductTypePoJo param){
 
         if(productTypeMapper.add(param)>0){
@@ -24,6 +30,11 @@ public class ProductTypeService {
         }
     }
 
+    /**
+     * 更新菜单
+     * @param param
+     * @return
+     */
     public ResponseEntity<Object> update(ProductTypePoJo param){
 
         if(productTypeMapper.update(param)>0){
@@ -33,6 +44,11 @@ public class ProductTypeService {
         }
     }
 
+    /**
+     * 删除菜单
+     * @param id
+     * @return
+     */
     public ResponseEntity<Object> delete(int id){
 
         if(productTypeMapper.delete(id)>0){
@@ -42,12 +58,63 @@ public class ProductTypeService {
         }
     }
 
-    public ResponseEntity<Object> getTypeList(int id){
+    /**
+     * 获取菜单
+     * @return
+     */
+    public ResponseEntity<Object> getTypeList(){
 
-        ArrayList<ProductTypePoJo> menuList = productTypeMapper.getListByParentId(id);
-        for (ProductTypePoJo menu: menuList) {
-            ArrayList<ProductTypePoJo> child
+        ProductTypePoJo topMenu = new ProductTypePoJo();
+        topMenu.setId(0);
+        topMenu.setParentId(0);
+        topMenu.setText("分类列表");
+
+        ArrayList<ProductTypePoJo> rootMenu = productTypeMapper.getAllList();
+
+        ArrayList<ProductTypePoJo> menuList = new ArrayList<>();
+
+        for (int i=0;i<rootMenu.size();i++){
+            if(rootMenu.get(i).getParentId()==0){
+                menuList.add(rootMenu.get(i));
+            }
         }
+
+        for (ProductTypePoJo menu:menuList) {
+            menu.setChildren(getChild(menu.getId(),rootMenu));
+        }
+
+        topMenu.setChildren(menuList);
+
+        return new ResponseEntity<Object>(topMenu, HttpStatus.OK);
+    }
+
+    /**
+     * 递归获取子菜单
+     * @param id
+     * @param rootMenu
+     * @return
+     */
+    private ArrayList<ProductTypePoJo> getChild(int id,ArrayList<ProductTypePoJo> rootMenu){
+
+        ArrayList<ProductTypePoJo> childList = new ArrayList<>();
+
+        for (ProductTypePoJo menu:rootMenu) {
+            if(menu.getParentId()==id){
+                childList.add(menu);
+            }
+        }
+
+        for (ProductTypePoJo menu:childList) {
+            if(menu.getIsLeaf()==0){
+                menu.setChildren(getChild(menu.getId(),rootMenu));
+            }
+        }
+
+        if(childList.size()==0){
+            return null;
+        }
+
+        return childList;
     }
 
 }

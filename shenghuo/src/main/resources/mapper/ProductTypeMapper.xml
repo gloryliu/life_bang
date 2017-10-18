@@ -28,5 +28,8 @@
         SELECT * FROM tb_producttype WHERE parent_id=#{id} AND delete_flag=0
     </select>
 
+    <select id="getAllList" resultType="com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo">
+        SELECT  * FROM tb_producttype WHERE delete_flag=0
+    </select>
 
 </mapper>

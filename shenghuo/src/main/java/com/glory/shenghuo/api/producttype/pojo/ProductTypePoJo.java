@@ -9,6 +9,7 @@ public class ProductTypePoJo implements Serializable{
     private int parentId;
     private String text;
     private int deleteFlag;
+    private int isLeaf;
 
     private ArrayList<ProductTypePoJo> children;
 
@@ -50,5 +51,13 @@ public class ProductTypePoJo implements Serializable{
 
     public void setChildren(ArrayList<ProductTypePoJo> children) {
         this.children = children;
+    }
+
+    public int getIsLeaf() {
+        return isLeaf;
+    }
+
+    public void setIsLeaf(int isLeaf) {
+        this.isLeaf = isLeaf;
     }
 }
