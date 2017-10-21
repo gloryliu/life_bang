@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<frameset rows="100,*" cols="*" scrolling="No" framespacing="0" frameborder="no" border="0">
+    <frame src="/controller/admin/head" name="headmenu"  title="mainFrame"><!-- 引用头部 -->
+    <frameset rows="100*" cols="220,*" scrolling="No" framespacing="0" frameborder="no" border="0">
+        <frame src="/controller/admin/left" name="leftmenu" id="mainFrame" title="mainFrame">
+        <frame src="/controller/admin/main" name="main" scrolling="yes" noresize="noresize" id="rightFrame" title="rightFrame">
+    </frameset>
+</frameset>
+</html>

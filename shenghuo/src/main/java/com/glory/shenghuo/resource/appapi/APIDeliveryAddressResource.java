@@ -1,4 +1,4 @@
-package com.glory.shenghuo.resource;
+package com.glory.shenghuo.resource.appapi;
 
 import com.glory.shenghuo.api.deliveryaddress.param.DeliveryAddressParam;
 import com.glory.shenghuo.api.deliveryaddress.pojo.DeliveryAddressPojo;
@@ -19,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @create 2017-06-21 21:20
  **/
 @RestController
-@RequestMapping("/resource/deliveryAddress")
+@RequestMapping("/api/deliveryAddress")
 @Api(value = "address", description = "用户收货地址接口")
-public class DeliveryAddressResource {
+public class APIDeliveryAddressResource {
 
     @Autowired
     private DeliveryAddressService deliveryAddressService;

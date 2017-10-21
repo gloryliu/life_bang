@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
   
 import com.baidu.ueditor.ActionEnter;  
 
-@
 @WebServlet(name = "UEditorServlet", urlPatterns = "/ueditor/UEditor")
 public class UEditorController extends HttpServlet {  
   

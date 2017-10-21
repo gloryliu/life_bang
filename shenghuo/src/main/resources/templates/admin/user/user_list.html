@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户列表</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="">
+    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/css/mars.css" rel="stylesheet">
+
+    <script src="/js/lib/jquery.min.js?v=2.1.4"></script>
+    <script src="/js/lib/jsrender.min.js"></script>
+    <script src="/js/lib/layer.js"></script>
+    <script src="/js/lib/WdatePicker.js"></script>
+    <script src="/js/common/common.js"></script>
+    <!-- 业务处理js -->
+    <script src="/js/user/user_list.js"></script>
+</head>
+<body class="gray-bg">
+<div class="wrapper-content animated fadeInRight">
+    <div class="row mb20">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="#">用户管理</a>
+                </li>
+                <li class="active">用户列表</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row mb20">
+        <div class="col-md-12">
+            <div class="jy-formBox w-label">
+                <!--<div class="row mb15 form-inline">
+                    <div class="col-xs-6 col-sm-3 col-md-3 pr0">
+                        <div class="form-group">
+                            <label>用户名称</label>
+                            <input type="text" class="form-control" id="userName" placeholder="用户名称">
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 pr0">
+                        <div class="form-group w20">
+                            <label>用户性别</label>
+                            <select class="form-control" name="userSex" id="userSex">
+                                <option value="">请选择</option>
+                                <option value="1">男</option>
+                                <option value="0">女</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="row mb15 form-inline">
+                    <div class="col-xs-6 col-sm-3 col-md-3 pr0">
+                        <div class="form-group">
+                            <label>用户手机</label>
+                            <input type="text" class="form-control" id="phone" placeholder="用户手机">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5 pr0">
+                        <div class="form-group date-2">
+                            <label>会员到期时间</label>
+                            <div>
+                                <div class="date-frame">
+                                    <input id="endtimeStart" class="mars-date form-control layer-date" onfocus="WdatePicker({lang:'zh-cn',dateFmt: 'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'endtimeEnd\');}'})"> <i class="mars-fa-calendar fa fa-calendar" ></i>
+                                </div> <span class="data-ga">-</span>
+                                <div class="date-frame">
+                                    <input id="endtimeEnd" class="mars-date form-control layer-date" onfocus="WdatePicker({lang:'zh-cn',dateFmt: 'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'endtimeStart\');}'})"> <i class="mars-fa-calendar fa fa-calendar"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="searchButton">查询</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb20">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-condensed mb0">
+                    <thead>
+                    <tr>
+                        <th>用户ID</th>
+                        <th>昵称</th>
+                        <th>真实姓名</th>
+                        <th>身份证号</th>
+                        <th>实名认证</th>
+                        <th>手机号</th>
+                        <th>性别</th>
+                        <th>生日</th>
+                        <th>会员等级</th>
+                        <th>会员缴费时间</th>
+                        <th>会员结束时间</th>
+                    </tr>
+                    </thead>
+                    <tbody id="data"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    #page()
+</div>
+</body>
+
+<!-- 列表模板 -->
+<script id="dataTemplate" type="text/x-jsrender">
+    <tr>
+        <td>{{:userId}}</td>
+        <td>{{:nickname}}</td>
+        <td>{{:name}}</td>
+        <td>{{:id}}</td>
+        <td>{{if autouser == "2"}}完成认证
+            {{else id!=null}}<button type="button" class="btn btn-default" onclick="userObj.userAuth({{:userId}},2)">通过</button>
+            {{else}}未认证
+            {{/if}}</td>
+        <td>{{:phone}}</td>
+        <td>{{if sex == "1"}}男
+            {{else}}女
+            {{/if}}</td>
+        <td>{{if birthday != null}}{{format:birthday}}{{/if}}</td>
+        <td>{{:vipgrade}}</td>
+        <td>{{if paytime != null}}{{format:paytime}}{{/if}}</td>
+        <td>{{if endtime != null}}{{format:endtime}}{{/if}}</td>
+    </tr>
+</script>
+</html>

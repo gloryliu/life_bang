@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.AdminMapper">
+    <insert id="insert" parameterType="com.glory.shenghuo.api.admin.pojo.AdminPojo">
+      INSERT INTO tb_admin (role,adminname,adminpwd,phone,name)
+      VALUES (#{role},#{adminname},#{adminpwd},#{phone},#{name})
+    </insert>
+    <update id="update" parameterType="com.glory.shenghuo.api.admin.pojo.AdminPojo">
+        UPDATE tb_admin SET
+        adminname=#{adminname},
+        adminpwd=#{adminpwd},
+        phone=#{phone},
+        name=#{name}
+        WHERE id=#{id}
+    </update>
+    <select id="getAdminByMap" parameterType="Map" resultType="com.glory.shenghuo.api.admin.pojo.AdminPojo">
+      SELECT * FROM tb_admin WHERE adminname=#{adminname} AND adminpwd=#{adminpwd}
+    </select>
+    <select id="getAllList" resultType="com.glory.shenghuo.api.admin.pojo.AdminPojo">
+        SELECT * FROM tb_admin WHERE role!=0
+    </select>
+    <delete id="deleteById" parameterType="Integer" >
+        DELETE FROM tb_admin WHERE id=#{id}
+    </delete>
+</mapper>

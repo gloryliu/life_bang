@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/public.css" />
+    <!--<script type="text/javascript" src="/js/jquery.min.js"></script>-->
+    <script src="/js/lib/jquery.min.js?v=2.1.4"></script>
+    <script src="/js/common/common.js"></script>
+    <script type="text/javascript" src="/js/public.js"></script>
+    <title>头部</title>
+    <script>
+        $(function () {
+            $("#logout").click(function(){
+                logoutObj.logout();
+            });
+
+        });
+
+        var logoutObj = {
+            "logout": function () {
+                var ajaxObj = {url: '/controller/admin/logout', async:true, method: "GET"};
+                commonJS.sendAjaxRequest(ajaxObj, function (value) {
+                });
+            }
+        };
+    </script>
+</head>
+<body>
+<!-- 头部 -->
+<div class="head">
+    <div class="headL">
+        <img class="headLogo"  />
+    </div>
+    <div class="headR">
+        <p class="p1">
+            欢迎，
+            ${adminName}
+        </p>
+        <p class="p2">
+            <a target="_parent" href="#" id="logout" class="goOut">退出</a>
+        </p>
+    </div>
+    <!-- onclick="{if(confirm(&quot;确定退出吗&quot;)){return true;}return false;}" -->
+</div>
+
+<div class="closeOut">
+    <div class="coDiv">
+        <p class="p1">
+            <span>X</span>
+        </p>
+        <p class="p2">确定退出当前用户？</p>
+        <P class="p3">
+            <a class="ok yes" href="#">确定</a><a class="ok no" href="#">取消</a>
+        </p>
+    </div>
+</div>
+
+
+
+</body>
+</html>

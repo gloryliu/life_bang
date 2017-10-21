@@ -1,4 +1,4 @@
-package com.glory.shenghuo.resource;
+package com.glory.shenghuo.resource.appapi;
 
 import com.glory.shenghuo.api.user.param.*;
 import com.glory.shenghuo.service.UserService;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/resource/user")
+@RequestMapping("/api/user")
 @Api(value = "user", description = "用户相关接口")
-public class UserResource {
+public class APIUserResource {
 
 
     @Autowired
