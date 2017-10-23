@@ -151,7 +151,7 @@
             swf: '../../dist/Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: '/sys/uploadHeadPic',
+            server: '/sys/uploadGoodsImg',
             // runtimeOrder: 'flash',
 
             accept: {
