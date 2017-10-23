@@ -28,7 +28,7 @@ public class GoodsController {
         if (type != null && type != 0){
             map.put("type",type);//type=1，编辑；其他值，新增
         }
-        return "goods/goods_edit";
+        return "admin/goods/goods_edit";
     }
 
     @RequestMapping("/detail")
@@ -36,7 +36,7 @@ public class GoodsController {
         if (goodsId != null && goodsId != 0){
             map.put("goodsId",goodsId);
         }
-        return "goods/goods_detail";
+        return "admin/goods/goods_detail";
     }
 
     @RequestMapping("/list")
