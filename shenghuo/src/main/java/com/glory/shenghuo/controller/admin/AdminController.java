@@ -4,9 +4,10 @@ import com.glory.shenghuo.api.admin.pojo.AdminPojo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletRequest;
-
+@ApiIgnore
 @Controller
 @RequestMapping("/controller/admin")
 public class AdminController {

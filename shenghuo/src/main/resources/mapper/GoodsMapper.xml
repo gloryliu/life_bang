@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.GoodsMapper">
+
+    <insert id="insert" parameterType="com.glory.shenghuo.api.goods.pojo.GoodsPojo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_goods (goods_name,goods_price,goods_type,goods_detail,stock,is_banner,goods_img)
+        VALUES (#{goodsName},#{goodsPrice},#{goodsType},#{goodsDetail},#{stock},#{isBanner},#{goodsImg})
+    </insert>
+
+    <update id="update" parameterType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
+        UPDATE tb_goods SET
+        goods_name=#{goodsName},
+        goods_price=#{goodsPrice},
+        goods_type=#{goodsType},
+        goods_detail=#{goodsDetail},
+        stock=#{stock},
+        is_banner=#{isBanner},
+        goods_img=#{goodsImg}
+        WHERE id=#{id}
+    </update>
+
+    <select id="getDetail" parameterType="Integer" resultType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
+        SELECT * FROM tb_goods WHERE id=#{id}
+    </select>
+
+    <select id="getAllList" resultType="com.glory.shenghuo.api.goods.pojo.GoodsPojo" parameterType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
+        SELECT
+          *
+        FROM tb_goods
+        where 1 = 1
+        <if test="id!=null and id!=0 ">
+            AND id = #{id}
+        </if>
+        <if test="name!=null and name!=''">
+            AND name like CONCAT('%', #{name}, '%')
+        </if>
+        <if test="goodstype!=null and goodstype!=0 ">
+            AND goodstype = #{goodstype}
+        </if>
+        <if test="shop!=null and shop!=0 ">
+            AND shop = #{shop}
+        </if>
+    </select>
+
+
+</mapper>

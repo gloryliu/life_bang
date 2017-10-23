@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;  
 import javax.servlet.http.HttpServletResponse;  
   
-import com.baidu.ueditor.ActionEnter;  
+import com.baidu.ueditor.ActionEnter;
+import springfox.documentation.annotations.ApiIgnore;
 
+@ApiIgnore
 @WebServlet(name = "UEditorServlet", urlPatterns = "/ueditor/UEditor")
 public class UEditorController extends HttpServlet {  
   

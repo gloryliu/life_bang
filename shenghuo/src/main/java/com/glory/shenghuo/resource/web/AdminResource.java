@@ -1,4 +1,4 @@
-package com.glory.shenghuo.resource;
+package com.glory.shenghuo.resource.web;
 
 
 import com.glory.shenghuo.api.admin.pojo.AdminPojo;
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/resource/admin")
+@ApiIgnore
 public class AdminResource {
 
     @Autowired

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品详情</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="">
+    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/css/mars.css" rel="stylesheet">
+
+    <script src="/js/lib/jquery.min.js?v=2.1.4"></script>
+    <script src="/js/lib/jsrender.min.js"></script>
+    <script src="/js/lib/layer.js"></script>
+    <script src="/js/common/common.js"></script>
+    <!-- 业务处理js -->
+    <script src="/js/goods/goods_detail.js"></script>
+    <style>
+        .smallImage{
+            width: 110px;
+            height: 110px;
+        }
+    </style>
+</head>
+<input value="${goodsId}" type="hidden" id="goodsId">
+<body class="gray-bg">
+<div class="wrapper-content animated fadeInRight">
+    <div class="row mb20">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="#">商品管理</a>
+                </li>
+                <li class="active">查看商品详情</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>商品名称</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="name" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>商品库存</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="stock" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>商品租凭单价</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="price" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>商品押金</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="deposit" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>一星会员折扣</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="stars1" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>二星会员折扣</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="stars2" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>三星会员折扣</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="stars3" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>四星会员折扣</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="stars4" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>五星会员折扣</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="stars5" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>购买单价</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="purchase" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>商品租凭计费方式</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <select id="billingmode" class="form-control" style="width: 150px" disabled>
+                        <option value="1">按天计费</option>
+                        <option value="2">按小时计费</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>商品类别</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <select id="goodstype" class="form-control" style="width: 150px" disabled>
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>商品门店</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <select id="shop" class="form-control" style="width: 150px" disabled>
+                        <option value="">请选择</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>商品详情</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <p class="form-control-static" id="goodsdetail" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0">商品图片</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <span id="banner"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0">详情图片</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <span id="detail"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb20">
+        <div class="col-md-12">
+            <div class="jyall-btn-bg">
+                <button type="button" class="btn btn-default" onclick="history.go(-1)">返回</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script id="goodstype_template" type="text/x-jsrender">
+    <option value="{{:id}}" >{{:typename}}</option>
+</script>
+<script id="shop_template" type="text/x-jsrender">
+    <option value="{{:id}}" >{{:shopname}}</option>
+</script>
+</html>

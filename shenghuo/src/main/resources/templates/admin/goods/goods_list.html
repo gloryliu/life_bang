@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="">
+    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/css/mars.css" rel="stylesheet">
+
+    <script src="/js/lib/jquery.min.js?v=2.1.4"></script>
+    <script src="/js/lib/jsrender.min.js"></script>
+    <script src="/js/lib/layer.js"></script>
+    <script src="/js/lib/WdatePicker.js"></script>
+    <script src="/js/common/common.js"></script>
+    <!-- 业务处理js -->
+    <script src="/js/goods/goods_list.js"></script>
+</head>
+<body class="gray-bg">
+<div class="wrapper-content animated fadeInRight">
+    <div class="row mb20">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="#">商品管理</a>
+                </li>
+                <li class="active">商品列表</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row mb20">
+        <div class="col-md-12">
+            <div class="jy-formBox w-label">
+                <div class="row mb15 form-inline">
+                    <div class="col-xs-6 col-sm-3 col-md-3 pr0">
+                        <div class="form-group w20">
+                            <label>商品类别</label>
+                            <select id="goodstype" class="form-control">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 pr0">
+                        <div class="form-group w20">
+                            <label>店铺</label>
+                            <select id="shop" class="form-control">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 pr0">
+                        <div class="form-group">
+                            <label>商品名称</label>
+                            <input type="text" class="form-control" id="name" placeholder="商品名称">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="insert">新增</button>
+                    <button class="btn btn-primary" id="searchButton">查询</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb20">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-condensed mb0">
+                    <thead>
+                    <tr>
+                        <th>操作</th>
+                        <th>id</th>
+                        <th>图片</th>
+                        <th>商品名称</th>
+                        <th>库存</th>
+                        <th>租赁单价</th>
+                        <th>计费方式</th>
+                        <th>押金</th>
+                        <th>购买单价</th>
+                        <th>商品类别</th>
+                        <th>商品门店</th>
+                        <th>商品详情</th>
+                        <th>一星折扣</th>
+                        <th>二星折扣</th>
+                        <th>三星折扣</th>
+                        <th>四星折扣</th>
+                        <th>五星折扣</th>
+                    </tr>
+                    </thead>
+                    <tbody id="data"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    #page()
+</div>
+</body>
+
+<!-- 列表模板 -->
+<script id="dataTemplate" type="text/x-jsrender">
+    <tr>
+        <td>
+            <a href="/controller/goods/edit?type=1&goodsId={{:id}}">编辑</a>
+        </td>
+        <td>{{:id}}</td>
+        <td><img src="{{:goodsImg}}" width="50px" height="50px"></td>
+        <td>{{:name}}</td>
+        <td>{{:stock}}</td>
+        <td>{{:price}}</td>
+        <td>{{if billingmode == "1"}}按天计费
+            {{else billingmode == "2"}}按小时计费
+            {{else }}不确定
+            {{/if}}</td>
+        <td>{{:deposit}}</td>
+        <td>{{:purchase}}</td>
+        <td>{{:typeName}}</td>
+        <td>{{:shopName}}</td>
+        <td>{{:goodsdetail}}</td>
+        <td>{{:stars1}}</td>
+        <td>{{:stars2}}</td>
+        <td>{{:stars3}}</td>
+        <td>{{:stars4}}</td>
+        <td>{{:stars5}}</td>
+    </tr>
+</script>
+<script id="goodstype_template" type="text/x-jsrender">
+    <option value="{{:id}}" >{{:typename}}</option>
+</script>
+<script id="shop_template" type="text/x-jsrender">
+    <option value="{{:id}}" >{{:shopname}}</option>
+</script>
+</html>
