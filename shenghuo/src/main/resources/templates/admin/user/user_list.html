@@ -90,21 +90,11 @@
 <script id="dataTemplate" type="text/x-jsrender">
     <tr>
         <td>{{:userId}}</td>
-        <td>{{:nickname}}</td>
-        <td>{{:name}}</td>
-        <td>{{:id}}</td>
-        <td>{{if autouser == "2"}}完成认证
-            {{else id!=null}}<button type="button" class="btn btn-default" onclick="userObj.userAuth({{:userId}},2)">通过</button>
-            {{else}}未认证
-            {{/if}}</td>
+        <td>{{:userName}}</td>
+        <td>{{:headImg}}</td>
+        <td>{{:userType}}</td>
+         <td>{{if createTime != null}}{{format:createTime}}{{/if}}</td>
         <td>{{:phone}}</td>
-        <td>{{if sex == "1"}}男
-            {{else}}女
-            {{/if}}</td>
-        <td>{{if birthday != null}}{{format:birthday}}{{/if}}</td>
-        <td>{{:vipgrade}}</td>
-        <td>{{if paytime != null}}{{format:paytime}}{{/if}}</td>
-        <td>{{if endtime != null}}{{format:endtime}}{{/if}}</td>
     </tr>
 </script>
 </html>

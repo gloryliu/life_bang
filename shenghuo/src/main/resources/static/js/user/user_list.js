@@ -15,14 +15,14 @@ var userObj = {
     "getCondition": function () {/*获取查询条件*/
         var param = {};
         
-        var endtimeStart = $("#endtimeStart").val();
-        if(endtimeStart)  param["endtimeStart"] = endtimeStart;
-
-        var endtimeEnd = $("#userLoginTimeEnd").val();
-        if(endtimeEnd)  param["endtimeEnd"] = endtimeEnd;
-
-        var phone = $("#phone").val();
-        if(phone)  param["phone"] = phone;
+        // var endtimeStart = $("#endtimeStart").val();
+        // if(endtimeStart)  param["endtimeStart"] = endtimeStart;
+        //
+        // var endtimeEnd = $("#userLoginTimeEnd").val();
+        // if(endtimeEnd)  param["endtimeEnd"] = endtimeEnd;
+        //
+        // var phone = $("#phone").val();
+        // if(phone)  param["phone"] = phone;
 
         param["pageSize"] = basePageObj.pageObj.pageSize;
         param["pageNum"] = basePageObj.pageObj.pageNo;

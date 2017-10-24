@@ -39,5 +39,14 @@
         WHERE id = #{userId}
     </update>
 
+    <select id="getAllList" parameterType="com.glory.shenghuo.api.user.param.UserParam" resultType="com.glory.shenghuo.api.user.pojo.UserPoJo">
+        SELECT id AS userId,
+        user_name,
+        pwd,
+        head_img,
+        user_type,
+        create_time,
+        phone FROM tb_user
+    </select>
 
 </mapper>

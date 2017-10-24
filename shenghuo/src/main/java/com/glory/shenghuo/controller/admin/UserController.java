@@ -17,7 +17,7 @@ public class UserController {
 
     @RequestMapping("/userList")
     public String userList(){
-        return "user/user_list";
+        return "admin/user/user_list";
     }
 
     @RequestMapping("/detail")
