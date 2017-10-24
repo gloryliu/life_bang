@@ -17,7 +17,6 @@
 </head>
 <body>
 <div>
-    <h1>完整demo</h1>
     <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script></div>
 
     <div id="btns">
@@ -89,6 +88,7 @@
         arr.push("内容为：");
         arr.push(UE.getEditor('editor').getContent());
         alert(arr.join("\n"));
+        return UE.getEditor('editor').getContent();
     }
     function getPlainTxt() {
         var arr = [];

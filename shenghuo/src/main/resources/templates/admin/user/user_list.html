@@ -58,19 +58,6 @@
                             <input type="text" class="form-control" id="phone" placeholder="用户手机">
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-5 col-md-5 pr0">
-                        <div class="form-group date-2">
-                            <label>会员到期时间</label>
-                            <div>
-                                <div class="date-frame">
-                                    <input id="endtimeStart" class="mars-date form-control layer-date" onfocus="WdatePicker({lang:'zh-cn',dateFmt: 'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'endtimeEnd\');}'})"> <i class="mars-fa-calendar fa fa-calendar" ></i>
-                                </div> <span class="data-ga">-</span>
-                                <div class="date-frame">
-                                    <input id="endtimeEnd" class="mars-date form-control layer-date" onfocus="WdatePicker({lang:'zh-cn',dateFmt: 'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'endtimeStart\');}'})"> <i class="mars-fa-calendar fa fa-calendar"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <button class="btn btn-primary" id="searchButton">查询</button>
                 </div>
             </div>
@@ -83,16 +70,11 @@
                     <thead>
                     <tr>
                         <th>用户ID</th>
-                        <th>昵称</th>
-                        <th>真实姓名</th>
-                        <th>身份证号</th>
-                        <th>实名认证</th>
+                        <th>用户名</th>
+                        <th>头像</th>
+                        <th>用户类型</th>
+                        <th>注册时间</th>
                         <th>手机号</th>
-                        <th>性别</th>
-                        <th>生日</th>
-                        <th>会员等级</th>
-                        <th>会员缴费时间</th>
-                        <th>会员结束时间</th>
                     </tr>
                     </thead>
                     <tbody id="data"></tbody>

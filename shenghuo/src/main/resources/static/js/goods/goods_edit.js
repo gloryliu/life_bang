@@ -9,9 +9,8 @@ $(function () {
 });
 
 var goodsObj = {
-    "imgtype":"",
+
     "binners":[],
-    "details":[],
     "goodsId":"",
     "type":"",
     "init":function () {
@@ -25,30 +24,21 @@ var goodsObj = {
         var param = {};
         if(goodsObj.binners.length>0){
             var strimage1 = goodsObj.binners.join("|");
-            param["image1"] = strimage1;
+            param["banners"] = strimage1;
         }
 
-        if(goodsObj.details.length>0){
-            var strimage2 = goodsObj.details.join("|");
-            param["image2"] = strimage2;
-        }
 
-        if ($("#stars1").val()) param["stars1"] = $("#stars1").val();
-        if ($("#stars2").val()) param["stars2"] = $("#stars2").val();
-        if ($("#stars3").val()) param["stars3"] = $("#stars3").val();
-        if ($("#stars4").val()) param["stars4"] = $("#stars4").val();
-        if ($("#stars5").val()) param["stars5"] = $("#stars5").val();
-        if ($("#billingmode").val()) param["billingmode"] = $("#billingmode").val();
+        if ($("#goodsName").val()) param["goodsName"] = $("#goodsName").val();
 
-        if ($("#name").val()) param["name"] = $("#name").val();
         if ($("#stock").val()) param["stock"] = $("#stock").val();
-        if ($("#deposit").val()) param["deposit"] = $("#deposit").val();
-        if ($("#price").val()) param["price"] = $("#price").val();
-        if ($("#vipprice").val()) param["vipprice"] = $("#vipprice").val();
-        if ($("#purchase").val()) param["purchase"] = $("#purchase").val();
+
+        if ($("#goodsPrice").val()) param["goodsPrice"] = $("#goodsPrice").val();
+
         if ($("#goodstype").val()) param["goodstype"] = $("#goodstype").val();
-        if ($("#shop").val()) param["shop"] = $("#shop").val();
-        if ($("#goodsdetail").val()) param["goodsdetail"] = $("#goodsdetail").val();
+
+        var contextDetail = window.euditorFrame.getContent();
+        param["goodsDetail"] = contextDetail;
+
         if (goodsObj.type == 1){
             param["id"] = goodsObj.goodsId;
         }
@@ -75,6 +65,7 @@ var goodsObj = {
         });
     },
     "insertupdate": function () {/*新增编辑*/
+
         var param = goodsObj.getParam();
         console.log(param.toString());
         var url = '/resource/goods/insert';
@@ -105,11 +96,7 @@ var goodsObj = {
         });
     },
     "uploadImagCallBack":function (response) {
-        if("1"==goodsObj.imgtype){
-            goodsObj.addBinner(response._raw);
-        }else if("2"==goodsObj.imgtype){
-            goodsObj.addDetail(response._raw);
-        }
+        goodsObj.addBinner(response._raw);
     },
     "addBinner":function (obj) {
 
@@ -120,17 +107,7 @@ var goodsObj = {
             $("#banner").append("<img src='"+item+"' class='smallImage'/>");
         });
     },
-    "addDetail":function (obj) {
-
-        goodsObj.details.push(obj);
-
-        $("#detail").empty();
-        $(goodsObj.details).each(function (i,item) {
-            $("#detail").append("<img src='"+item+"' class='smallImage'/>");
-        });
-    },
-    "selectImg":function (imgtype) {
-        goodsObj.imgtype = imgtype;
+    "selectImg":function () {
         var index = layer.open({
             type: 2,
             content: '/upload',

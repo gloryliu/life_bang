@@ -16,7 +16,7 @@ public class ShenghuoController {
 
     @RequestMapping("/test")
     public String wanba(){
-        return "index/index";
+        return "common/ueditor";
     }
 
     @RequestMapping("/ueditor/webPath")

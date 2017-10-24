@@ -43,14 +43,6 @@
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-3 col-md-3 pr0">
-                        <div class="form-group w20">
-                            <label>店铺</label>
-                            <select id="shop" class="form-control">
-                                <option value="">请选择</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-3 col-md-3 pr0">
                         <div class="form-group">
                             <label>商品名称</label>
                             <input type="text" class="form-control" id="name" placeholder="商品名称">
@@ -73,18 +65,8 @@
                         <th>图片</th>
                         <th>商品名称</th>
                         <th>库存</th>
-                        <th>租赁单价</th>
-                        <th>计费方式</th>
-                        <th>押金</th>
                         <th>购买单价</th>
                         <th>商品类别</th>
-                        <th>商品门店</th>
-                        <th>商品详情</th>
-                        <th>一星折扣</th>
-                        <th>二星折扣</th>
-                        <th>三星折扣</th>
-                        <th>四星折扣</th>
-                        <th>五星折扣</th>
                     </tr>
                     </thead>
                     <tbody id="data"></tbody>
@@ -104,23 +86,10 @@
         </td>
         <td>{{:id}}</td>
         <td><img src="{{:goodsImg}}" width="50px" height="50px"></td>
-        <td>{{:name}}</td>
+        <td>{{:goodsName}}</td>
         <td>{{:stock}}</td>
-        <td>{{:price}}</td>
-        <td>{{if billingmode == "1"}}按天计费
-            {{else billingmode == "2"}}按小时计费
-            {{else }}不确定
-            {{/if}}</td>
-        <td>{{:deposit}}</td>
-        <td>{{:purchase}}</td>
-        <td>{{:typeName}}</td>
-        <td>{{:shopName}}</td>
-        <td>{{:goodsdetail}}</td>
-        <td>{{:stars1}}</td>
-        <td>{{:stars2}}</td>
-        <td>{{:stars3}}</td>
-        <td>{{:stars4}}</td>
-        <td>{{:stars5}}</td>
+        <td>{{:goodsPrice}}</td>
+        <td>{{:goodsType}}</td>
     </tr>
 </script>
 <script id="goodstype_template" type="text/x-jsrender">

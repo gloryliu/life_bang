@@ -9,7 +9,7 @@ import java.util.List;
  * @create 2017-06-18 11:22
  **/
 public class GoodsPojo implements Serializable{
-    private int id = 0;//商品id
+    private int id ;//商品id
     private String goodsName;
     private int goodsPrice;
     private int goodsType;

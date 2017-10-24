@@ -1,6 +1,7 @@
 package com.glory.shenghuo.mapper;
 
-import com.glory.shenghuo.api.user.param.UpdatePhoneParam;
+import com.github.pagehelper.Page;
+import com.glory.shenghuo.api.user.param.UserParam;
 import com.glory.shenghuo.api.user.pojo.UserPoJo;
 
 public interface UserMapper extends BaseMapper{
@@ -32,4 +33,11 @@ public interface UserMapper extends BaseMapper{
      * @return
      */
     int updateUser(UserPoJo userPoJo);
+
+    /**
+     * web获取用户列表
+     * @param userParam
+     * @return
+     */
+    Page<UserPoJo> getAllList(UserParam userParam);
 }

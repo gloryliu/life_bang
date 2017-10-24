@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.glory.shenghuo.mapper.GoodsMapper">
 
-    <insert id="insert" parameterType="com.glory.shenghuo.api.goods.pojo.GoodsPojo" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insert" parameterType="com.glory.shenghuo.api.goods.param.GoodsInsertParam" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO tb_goods (goods_name,goods_price,goods_type,goods_detail,stock,is_banner,goods_img)
         VALUES (#{goodsName},#{goodsPrice},#{goodsType},#{goodsDetail},#{stock},#{isBanner},#{goodsImg})
     </insert>
@@ -25,7 +25,7 @@
         SELECT * FROM tb_goods WHERE id=#{id}
     </select>
 
-    <select id="getAllList" resultType="com.glory.shenghuo.api.goods.pojo.GoodsPojo" parameterType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
+    <select id="getAllList" resultType="com.glory.shenghuo.api.goods.param.GoodsListParam" parameterType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
         SELECT
           *
         FROM tb_goods
@@ -33,15 +33,10 @@
         <if test="id!=null and id!=0 ">
             AND id = #{id}
         </if>
-        <if test="name!=null and name!=''">
-            AND name like CONCAT('%', #{name}, '%')
+        <if test="goodsName!=null and goodsName!=''">
+            AND name like CONCAT('%', #{goodsName}, '%')
         </if>
-        <if test="goodstype!=null and goodstype!=0 ">
-            AND goodstype = #{goodstype}
-        </if>
-        <if test="shop!=null and shop!=0 ">
-            AND shop = #{shop}
-        </if>
+
     </select>
 
 
