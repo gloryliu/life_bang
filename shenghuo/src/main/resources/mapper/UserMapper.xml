@@ -47,6 +47,11 @@
         user_type,
         create_time,
         phone FROM tb_user
+        <where>
+            <if test="phone!=null">
+                AND phone = #{phone}
+            </if>
+        </where>
     </select>
 
 </mapper>

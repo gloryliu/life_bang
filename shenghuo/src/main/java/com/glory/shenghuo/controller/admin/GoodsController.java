@@ -1,8 +1,12 @@
 package com.glory.shenghuo.controller.admin;
 
+import com.glory.shenghuo.api.goods.pojo.GoodsPojo;
+import com.glory.shenghuo.service.GoodsService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import springfox.documentation.annotations.ApiIgnore;
 
 /**
@@ -14,6 +18,9 @@ import springfox.documentation.annotations.ApiIgnore;
 @Controller
 @RequestMapping("/controller/goods")
 public class GoodsController {
+
+    @Autowired
+    private GoodsService goodsService;
 
     @RequestMapping("/goodstype")
     public String goodstype(){
@@ -42,5 +49,21 @@ public class GoodsController {
     @RequestMapping("/list")
     public String goodsList(){
         return "admin/goods/goods_list";
+    }
+
+    /**
+     * 获取商品详情Html
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/getGoodsDetailHtml",method = RequestMethod.GET)
+    public String getGoodsDetailHtml(ModelMap model,int id){
+        GoodsPojo goodsPojo = goodsService.getGoodsById(id);
+        if(goodsPojo!=null){
+            model.put("goodsDetail",goodsPojo.getGoodsDetail());
+        }else{
+            model.put("goodsDetail","没有数据");
+        }
+        return "admin/goods/goodsdetail_html";
     }
 }

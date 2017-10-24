@@ -21,8 +21,8 @@ var userObj = {
         // var endtimeEnd = $("#userLoginTimeEnd").val();
         // if(endtimeEnd)  param["endtimeEnd"] = endtimeEnd;
         //
-        // var phone = $("#phone").val();
-        // if(phone)  param["phone"] = phone;
+        var phone = $("#phone").val();
+        if(phone)  param["phone"] = phone;
 
         param["pageSize"] = basePageObj.pageObj.pageSize;
         param["pageNum"] = basePageObj.pageObj.pageNo;

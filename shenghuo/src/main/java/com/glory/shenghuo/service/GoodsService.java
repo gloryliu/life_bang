@@ -76,4 +76,13 @@ public class GoodsService {
         PageInfo<GoodsPojo> data = new PageInfo<>(goodsPojos);
         return UtilTools.pageChange(data,goodsPojos);
     }
+
+    /**
+     * 根据id获取详情
+     * @param id
+     * @return
+     */
+    public GoodsPojo getGoodsById(int id){
+        return goodsMapper.getDetail(id);
+    }
 }
