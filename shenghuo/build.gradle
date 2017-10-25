@@ -46,6 +46,8 @@ dependencies {
 	compile('io.springfox:springfox-swagger2:2.2.2')
 	compile('io.springfox:springfox-swagger-ui:2.2.2')
 
+	compile 'com.alibaba:fastjson:1.2.39'
+
 	compile group: 'net.coobird', name: 'thumbnailator', version: '0.4.8'
 
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'

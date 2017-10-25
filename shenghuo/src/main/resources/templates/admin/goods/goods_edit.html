@@ -17,6 +17,8 @@
     <script src="/js/lib/jsrender.min.js"></script>
     <script src="/js/lib/layer.js"></script>
     <script src="/js/common/common.js"></script>
+    <script src="/js/lib/jquery.cxselect.min.js"></script>
+
     <!-- 业务处理js -->
     <script src="/js/goods/goods_edit.js"></script>
     <style>
@@ -25,6 +27,8 @@
             height: 110px;
         }
     </style>
+
+
 </head>
 <input value="${goodsId}" type="hidden" id="goodsId">
 <input value="${type}" type="hidden" id="type">
@@ -78,10 +82,16 @@
         <div class="col-md-12">
             <div class="form-group">
                 <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>商品类别</label>
-                <div class="col-xs-4 col-sm-4 col-md-3">
-                    <select id="goodstype" class="form-control">
-                        <option value="">请选择</option>
-                    </select>
+                <div class="col-xs-4 col-sm-4 col-md-3" id="global_location">
+                    <p>
+                        <select class="country" data-first-title="请选择" disabled="disabled"></select>
+
+                        <select class="state" disabled="disabled"></select>
+
+                        <select class="city" disabled="disabled"></select>
+
+                        <select class="region" disabled="disabled"></select>
+                    </p>
                 </div>
             </div>
         </div>
@@ -121,6 +131,7 @@
         </div>
     </div>
 
+
 </div>
 </body>
 <script id="goodstype_template" type="text/x-jsrender">
@@ -128,5 +139,27 @@
 </script>
 <script id="shop_template" type="text/x-jsrender">
     <option value="{{:id}}" >{{:shopname}}</option>
+</script>
+
+
+<script>
+
+
+    $('#global_location').cxSelect({
+
+        url: '/resource/productType/getSelectDomList',
+
+        selects: ['country', 'state', 'city', 'region'],
+
+        required:false,
+
+        firstTitle:"请选择",
+
+        firstValue:"0",
+
+        nodata: 'none'
+
+    });
+
 </script>
 </html>

@@ -1,5 +1,7 @@
 package com.glory.shenghuo.service;
 
+import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.StringUtil;
 import com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo;
 import com.glory.shenghuo.common.MyResponseUtil;
 import com.glory.shenghuo.mapper.ProductTypeMapper;
@@ -86,6 +88,37 @@ public class ProductTypeService {
         topMenu.setChildren(menuList);
 
         return new ResponseEntity<Object>(topMenu, HttpStatus.OK);
+    }
+
+    /**
+     * 添加商品时选择分类
+     * @return
+     */
+    public String getSelectDomList(){
+
+        ArrayList<ProductTypePoJo> rootMenu = productTypeMapper.getAllList();
+
+        ArrayList<ProductTypePoJo> menuList = new ArrayList<>();
+
+        for (int i=0;i<rootMenu.size();i++){
+            if(rootMenu.get(i).getParentId()==0){
+                menuList.add(rootMenu.get(i));
+            }
+        }
+
+        for (ProductTypePoJo menu:menuList) {
+            menu.setChildren(getChild(menu.getId(),rootMenu));
+        }
+
+
+        String json = JSON.toJSONString(menuList);
+        if(StringUtil.isNotEmpty(json)){
+            json = json.replaceAll("id","v")
+                    .replaceAll("text","n")
+                    .replaceAll("children","s");
+        }
+
+        return json;
     }
 
     /**

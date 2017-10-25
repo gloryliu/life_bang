@@ -18,4 +18,9 @@ public class ProductTypeResource {
     public ResponseEntity<Object> getTypeList(){
         return productTypeService.getTypeList();
     }
+
+    @RequestMapping(value = "/getSelectDomList",method = RequestMethod.GET)
+    public String getSelectDomList(){
+        return productTypeService.getSelectDomList();
+    }
 }
