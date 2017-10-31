@@ -23,6 +23,6 @@ public class ServiceController {
         if (type != null && type != 0){
             map.put("type",type);//type=1，编辑；其他值，新增
         }
-        return "admin/goods/goods_edit";
+        return "admin/service/service_edit";
     }
 }
