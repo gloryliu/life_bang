@@ -1,6 +1,7 @@
 package com.glory.shenghuo.resource.web;
 
 import com.glory.shenghuo.api.service.param.ServiceListParam;
+import com.glory.shenghuo.api.service.pojo.ServicePojo;
 import com.glory.shenghuo.service.ServiceService;
 import com.glory.shenghuo.util.PageInfos;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,11 @@ public class ServiceResource {
 
     @Autowired
     private ServiceService serviceService;
+
+    @RequestMapping("/addService")
+    public int addService(ServicePojo pojo){
+        return serviceService.addService(pojo);
+    }
 
     /**
      * web服务列表

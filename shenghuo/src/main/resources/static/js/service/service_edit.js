@@ -8,7 +8,7 @@ $(function () {
     });
 });
 
-var goodsObj = {
+var serviceObj = {
 
     "binners":[],
     "goodsId":"",
@@ -28,16 +28,15 @@ var goodsObj = {
         }
 
 
-        if ($("#goodsName").val()) param["goodsName"] = $("#goodsName").val();
+        if ($("#serviceName").val()) param["serviceName"] = $("#serviceName").val();
 
-        if ($("#stock").val()) param["stock"] = $("#stock").val();
+        if ($("#servicePrice").val()) param["servicePrice"] = $("#servicePrice").val();
 
-        if ($("#goodsPrice").val()) param["goodsPrice"] = $("#goodsPrice").val();
+        if ($("#seeType").val()) param["seeType"] = $("#seeType").val();
 
-        if ($("#goodstype").val()) param["goodstype"] = $("#goodstype").val();
 
         var contextDetail = window.euditorFrame.getContent();
-        param["goodsDetail"] = contextDetail;
+        param["serviceDetail"] = contextDetail;
 
         if (goodsObj.type == 1){
             param["id"] = goodsObj.goodsId;
@@ -68,7 +67,7 @@ var goodsObj = {
 
         var param = goodsObj.getParam();
         console.log(param.toString());
-        var url = '/resource/goods/insert';
+        var url = '/resource/service/addService';
         if (goodsObj.type == 1) {
             url = '/resource/goods/update';
         }

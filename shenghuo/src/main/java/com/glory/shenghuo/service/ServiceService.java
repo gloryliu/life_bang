@@ -17,6 +17,16 @@ public class ServiceService {
     @Autowired
     private ServiceMapper serviceMapper;
 
+
+    /**
+     * web添加服务
+     * @param pojo
+     * @return
+     */
+    public int addService(ServicePojo pojo){
+        return serviceMapper.add(pojo);
+    }
+
     /**
      * web服务列表
      * @param serviceListParam
