@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.ServiceMapper">
+
+    <insert id="add" parameterType="com.glory.shenghuo.api.service.pojo.ServicePojo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_service (service_name,service_price,is_banner,service_detail,service_img,see_type)
+        VALUES (#{serviceName},#{servicePrice},#{isBanner},#{serviceDetail},#{serviceImg},#{seeType})
+    </insert>
+
+    <update id="update" parameterType="com.glory.shenghuo.api.service.pojo.ServicePojo">
+        UPDATE tb_service SET
+        service_name=#{serviceName},
+        service_price=#{servicePrice},
+        is_banner=#{isBanner},
+        service_detail=#{serviceDetail},
+        service_img=#{serviceImg},
+        see_type=#{seeType},
+        WHERE id=#{id}
+    </update>
+
+    <select id="getDetail" parameterType="Integer" resultType="com.glory.shenghuo.api.service.pojo.ServicePojo">
+        SELECT * FROM tb_service WHERE id=#{id}
+    </select>
+
+    <select id="delete" parameterType="Integer">
+        DELETE FROM tb_service WHERE id=#{id}
+    </select>
+
+    <select id="getAllList" resultType="com.glory.shenghuo.api.service.param.ServiceListParam" parameterType="com.glory.shenghuo.api.service.pojo.ServicePojo">
+        SELECT
+          *
+        FROM tb_service
+        where 1 = 1
+        <if test="id!=null and id!=0 ">
+            AND id = #{id}
+        </if>
+        <if test="serviceName!=null and serviceName!=''">
+            AND name like CONCAT('%', #{serviceName}, '%')
+        </if>
+
+    </select>
+
+
+</mapper>

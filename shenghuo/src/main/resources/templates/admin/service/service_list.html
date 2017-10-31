@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务列表列表</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="">
+    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/css/mars.css" rel="stylesheet">
+
+    <script src="/js/lib/jquery.min.js?v=2.1.4"></script>
+    <script src="/js/lib/jsrender.min.js"></script>
+    <script src="/js/lib/layer.js"></script>
+    <script src="/js/lib/WdatePicker.js"></script>
+    <script src="/js/common/common.js"></script>
+    <!-- 业务处理js -->
+    <script src="/js/service/service_list.js"></script>
+</head>
+<body class="gray-bg">
+<div class="wrapper-content animated fadeInRight">
+    <div class="row mb20">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="#">服务管理</a>
+                </li>
+                <li class="active">服务列表</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row mb20">
+        <div class="col-md-12">
+            <div class="jy-formBox w-label">
+                <div class="row mb15 form-inline">
+                    <div class="col-xs-6 col-sm-3 col-md-3 pr0">
+                        <div class="form-group">
+                            <label>商品名称</label>
+                            <input type="text" class="form-control" id="serviceName" placeholder="商品名称">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="insert">新增</button>
+                    <button class="btn btn-primary" id="searchButton">查询</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb20">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-condensed mb0">
+                    <thead>
+                    <tr>
+                        <th>操作</th>
+                        <th>id</th>
+                        <th>图片</th>
+                        <th>服务名称</th>
+                        <th>价格</th>
+                        <th>是否需要实地查看</th>
+                    </tr>
+                    </thead>
+                    <tbody id="data"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    #page()
+</div>
+</body>
+
+<!-- 列表模板 -->
+<script id="dataTemplate" type="text/x-jsrender">
+    <tr>
+        <td>
+            <a href="/controller/goods/edit?type=1&goodsId={{:id}}">编辑</a>
+        </td>
+        <td>{{:id}}</td>
+        <td><img src="{{:serviceImg}}" width="50px" height="50px"></td>
+        <td>{{:serviceName}}</td>
+        <td>{{:servicePrice}}</td>
+       <td>{{if seeType == "1"}}需要
+            {{else}}不需要
+            {{/if}}</td>
+    </tr>
+</script>
+</html>
