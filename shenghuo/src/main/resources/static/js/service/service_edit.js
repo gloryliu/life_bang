@@ -34,6 +34,10 @@ var serviceObj = {
 
         if ($("#seeType").val()) param["seeType"] = $("#seeType").val();
 
+        if ($("#isBanner").val()) param["isBanner"] = $("#isBanner").val();
+
+        if ($("#isRec").val()) param["isRec"] = $("#isRec").val();
+
 
         var contextDetail = window.euditorFrame.getContent();
         param["serviceDetail"] = contextDetail;

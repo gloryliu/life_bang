@@ -18,6 +18,8 @@ public class ServicePojo implements Serializable {
 
     private int seeType;
 
+    private int isRec;
+
     public int getId() {
         return id;
     }
@@ -72,5 +74,13 @@ public class ServicePojo implements Serializable {
 
     public void setSeeType(int seeType) {
         this.seeType = seeType;
+    }
+
+    public int getIsRec() {
+        return isRec;
+    }
+
+    public void setIsRec(int isRec) {
+        this.isRec = isRec;
     }
 }

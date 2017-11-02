@@ -5,8 +5,8 @@
 <mapper namespace="com.glory.shenghuo.mapper.ServiceMapper">
 
     <insert id="add" parameterType="com.glory.shenghuo.api.service.pojo.ServicePojo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO tb_service (service_name,service_price,is_banner,service_detail,service_img,see_type)
-        VALUES (#{serviceName},#{servicePrice},#{isBanner},#{serviceDetail},#{serviceImg},#{seeType})
+        INSERT INTO tb_service (service_name,service_price,is_banner,service_detail,service_img,see_type,is_rec)
+        VALUES (#{serviceName},#{servicePrice},#{isBanner},#{serviceDetail},#{serviceImg},#{seeType},#{isRec})
     </insert>
 
     <update id="update" parameterType="com.glory.shenghuo.api.service.pojo.ServicePojo">
@@ -17,6 +17,7 @@
         service_detail=#{serviceDetail},
         service_img=#{serviceImg},
         see_type=#{seeType},
+        is_rec=#{isRec}
         WHERE id=#{id}
     </update>
 
@@ -28,7 +29,15 @@
         DELETE FROM tb_service WHERE id=#{id}
     </select>
 
-    <select id="getAllList" resultType="com.glory.shenghuo.api.service.param.ServiceListParam" parameterType="com.glory.shenghuo.api.service.pojo.ServicePojo">
+    <select id="getBannerServiceList" resultType="com.glory.shenghuo.api.service.pojo.ServicePojo">
+         SELECT * FROM tb_service WHERE is_banner=1
+    </select>
+
+    <select id="getRecServiceList" resultType="com.glory.shenghuo.api.service.pojo.ServicePojo">
+        SELECT * FROM tb_service WHERE is_rec=1
+    </select>
+
+    <select id="getAllList" resultType="com.glory.shenghuo.api.service.pojo.ServicePojo" parameterType="com.glory.shenghuo.api.service.param.ServiceListParam">
         SELECT
           *
         FROM tb_service

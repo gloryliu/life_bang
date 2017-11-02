@@ -25,7 +25,7 @@
         SELECT * FROM tb_goods WHERE id=#{id}
     </select>
 
-    <select id="getAllList" resultType="com.glory.shenghuo.api.goods.param.GoodsListParam" parameterType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
+    <select id="getAllList" resultType="com.glory.shenghuo.api.goods.pojo.GoodsPojo" parameterType="com.glory.shenghuo.api.goods.param.GoodsListParam">
         SELECT
           *
         FROM tb_goods
@@ -39,5 +39,11 @@
 
     </select>
 
+    <select id="getBannerGoodsList" resultType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
+        SELECT
+          *
+        FROM tb_goods
+        where is_banner = 1
+    </select>
 
 </mapper>
