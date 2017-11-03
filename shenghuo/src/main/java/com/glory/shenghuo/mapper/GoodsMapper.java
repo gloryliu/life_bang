@@ -30,4 +30,7 @@ public interface GoodsMapper extends BaseMapper {
     //获取广告位的商品
     List<GoodsPojo> getBannerGoodsList();
 
+    //获取推荐的商品
+    List<GoodsPojo> getRecGoodsList();
+
 }

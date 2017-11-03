@@ -1,7 +1,9 @@
 package com.glory.shenghuo.resource.appapi;
 
+import com.glory.shenghuo.common.MyResponseUtil;
 import com.glory.shenghuo.service.AppIndexService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +25,16 @@ public class APIAppIndexResource {
     private AppIndexService appIndexService;
 
     @RequestMapping(value = "/getAppIndexData",method = RequestMethod.GET)
-    public ResponseEntity<Object> getAppIndexData(){
-        return appIndexService.getAppIndexData();
+    @ApiImplicitParam(name = "type", value = "1为首页数据，2为建材页面数据", required = true, paramType = "query", dataType = "Integer")
+    public ResponseEntity<Object> getAppIndexData(int type){
+        switch (type){
+            case 1:
+                return appIndexService.getAppIndexData();
+            case 2:
+                return appIndexService.getAppJiancaiData();
+                default:
+                    return MyResponseUtil.error("参数不合法");
+        }
+
     }
 }

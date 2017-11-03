@@ -38,11 +38,6 @@ public class AppIndexService {
         AppIndexJson appIndexJson = new AppIndexJson();
         List<AppBannerJson> bannerJsons = new ArrayList<>();
 
-        List<GoodsPojo> goodsPojoList = goodsMapper.getBannerGoodsList();
-        for (GoodsPojo goods: goodsPojoList) {
-            bannerJsons.add(new AppBannerJson(goods.getId(),goods.getGoodsImg(),1));
-        }
-
         List<ServicePojo> servicePojoList = serviceMapper.getBannerServiceList();
         for (ServicePojo service: servicePojoList) {
             bannerJsons.add(new AppBannerJson(service.getId(),service.getServiceImg(),2));
@@ -52,5 +47,23 @@ public class AppIndexService {
         appIndexJson.setBanners(bannerJsons);
         appIndexJson.setRecService(recServices);
         return MyResponseUtil.ok(appIndexJson);
+    }
+
+    /**
+     * 构建APP建材页面数据
+     * @return
+     */
+    public ResponseEntity<Object> getAppJiancaiData(){
+        AppIndexJson appJiancaiJson = new AppIndexJson();
+        List<AppBannerJson> bannerJsons = new ArrayList<>();
+        List<GoodsPojo> goodsPojoList = goodsMapper.getBannerGoodsList();
+        for (GoodsPojo goods: goodsPojoList) {
+            bannerJsons.add(new AppBannerJson(goods.getId(),goods.getGoodsImg(),1));
+        }
+
+        List<GoodsPojo> recGoods = goodsMapper.getRecGoodsList();
+        appJiancaiJson.setBanners(bannerJsons);
+        appJiancaiJson.setRecGoods(recGoods);
+        return MyResponseUtil.ok(appJiancaiJson);
     }
 }

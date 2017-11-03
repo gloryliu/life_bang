@@ -1,5 +1,6 @@
 package com.glory.shenghuo.api.appindex.json;
 
+import com.glory.shenghuo.api.goods.pojo.GoodsPojo;
 import com.glory.shenghuo.api.service.pojo.ServicePojo;
 
 import java.io.Serializable;
@@ -19,6 +20,9 @@ public class AppIndexJson implements Serializable{
     //推荐的服务
     private List<ServicePojo> recService;
 
+    //特卖
+    private List<GoodsPojo> recGoods;
+
     public List<AppBannerJson> getBanners() {
         return banners;
     }
@@ -33,5 +37,13 @@ public class AppIndexJson implements Serializable{
 
     public void setRecService(List<ServicePojo> recService) {
         this.recService = recService;
+    }
+
+    public List<GoodsPojo> getRecGoods() {
+        return recGoods;
+    }
+
+    public void setRecGoods(List<GoodsPojo> recGoods) {
+        this.recGoods = recGoods;
     }
 }
