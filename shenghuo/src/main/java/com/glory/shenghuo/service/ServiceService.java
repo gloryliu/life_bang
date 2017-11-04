@@ -38,4 +38,13 @@ public class ServiceService {
         PageInfo<ServicePojo> data = new PageInfo<>(page);
         return UtilTools.pageChange(data,page);
     }
+
+    /**
+     * 获取服务的详情
+     * @param id
+     * @return
+     */
+    public ServicePojo getServiceDetail(int id){
+        return serviceMapper.getDetail(id);
+    }
 }

@@ -73,4 +73,29 @@ var goodsListObj = {
             }
         });
     },
+    "changeRecState":function (obj,goodsId) {
+        console.log(obj.checked);
+        layer.confirm('确定要特卖？', {
+            btn: ['确定','取消'] //按钮
+        }, function(){
+
+            var params = {};
+            if(goodsId)  params["goodsId"] = goodsId;
+            if(obj.checked){
+                params["state"] = 1;
+            }else {
+                params["state"] = 0;
+            }
+
+            layer.closeAll('dialog');
+
+            var ajaxObj = {url: '/resource/goods/changeRecGoodsState', async:true, param:params, method: "POST"};
+            commonJS.sendAjaxRequest(ajaxObj, function (value) {
+                goodsListObj.getGoodsList();
+            });
+
+        }, function(){
+            layer.closeAll('dialog');
+        });
+    }
 };

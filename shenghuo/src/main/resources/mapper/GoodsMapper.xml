@@ -46,4 +46,9 @@
         where is_banner = 1
     </select>
 
+    <update id="changeRecGoodsState" parameterType="com.glory.shenghuo.api.goods.param.ChangeRecGoodsStateParam">
+        UPDATE tb_goods SET
+        is_rec=#{state}
+        WHERE id = #{goodsId}
+    </update>
 </mapper>

@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.StringUtil;
+import com.glory.shenghuo.api.goods.param.ChangeRecGoodsStateParam;
 import com.glory.shenghuo.api.goods.param.GoodsInsertParam;
 import com.glory.shenghuo.api.goods.param.GoodsListParam;
 import com.glory.shenghuo.api.goods.pojo.GoodsImagePojo;
@@ -84,5 +85,14 @@ public class GoodsService {
      */
     public GoodsPojo getGoodsById(int id){
         return goodsMapper.getDetail(id);
+    }
+
+    /**
+     * 后台改变商品是否特卖
+     * @param param
+     * @return
+     */
+    public int changeRecGoodsState(ChangeRecGoodsStateParam param){
+        return goodsMapper.changeRecGoodsState(param);
     }
 }

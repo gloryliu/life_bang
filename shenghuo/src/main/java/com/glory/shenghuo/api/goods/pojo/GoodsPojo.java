@@ -9,14 +9,33 @@ import java.util.List;
  * @create 2017-06-18 11:22
  **/
 public class GoodsPojo implements Serializable{
-    private int id ;//商品id
+
+    //商品id
+    private int id ;
+
+    //商品名称
     private String goodsName;
+
+    //商品价格
     private int goodsPrice;
+
+    //商品类型
     private int goodsType;
+
+    //商品详情
     private String goodsDetail;
+
+    //库存
     private int stock;
+
+    //是否在广告位展示商品
     private int isBanner;
+
+    //商品图片
     private String goodsImg;
+
+    //是否特卖商品
+    private int isRec;
 
     public int getId() {
         return id;
@@ -80,5 +99,13 @@ public class GoodsPojo implements Serializable{
 
     public void setGoodsImg(String goodsImg) {
         this.goodsImg = goodsImg;
+    }
+
+    public int getIsRec() {
+        return isRec;
+    }
+
+    public void setIsRec(int isRec) {
+        this.isRec = isRec;
     }
 }
