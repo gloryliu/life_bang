@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.CartMapper" >
+
+    <insert id="add" parameterType="com.glory.shenghuo.api.cart.pojo.CartPojo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_cart (product_id,product_name,product_price,product_count,product_img,product_type,user_id)
+        VALUES (#{productId},#{productName},#{productPrice},#{productCount},#{productImg},#{productType},#{userId})
+    </insert>
+
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM tb_cart WHERE id=#{id}
+    </delete>
+
+    <select id="getCartList" parameterType="Integer" resultType="com.glory.shenghuo.api.cart.pojo.CartPojo">
+        SELECT * FROM tb_cart WHERE user_id=#{userId}
+    </select>
+</mapper>
