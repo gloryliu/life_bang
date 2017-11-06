@@ -34,7 +34,7 @@
             AND id = #{id}
         </if>
         <if test="goodsName!=null and goodsName!=''">
-            AND name like CONCAT('%', #{goodsName}, '%')
+            AND goodsName like CONCAT('%', #{goodsName}, '%')
         </if>
 
     </select>
@@ -51,4 +51,18 @@
         is_rec=#{state}
         WHERE id = #{goodsId}
     </update>
+
+    <select id="appGetGoodsList" parameterType="com.glory.shenghuo.api.goods.param.AppGetDataListParam" resultType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
+        SELECT
+          *
+        FROM tb_goods
+        <where>
+            <if test="classify!=null and classify!=0 ">
+                AND goods_type = #{classify}
+            </if>
+            <if test="keyWord!=null and keyWord!=''">
+                AND goodsName like CONCAT('%', #{keyWord}, '%')
+            </if>
+        </where>
+    </select>
 </mapper>

@@ -38,8 +38,8 @@ public class ServiceController {
      * @param id
      * @return
      */
-    @RequestMapping(value = "/getGoodsDetailHtml",method = RequestMethod.GET)
-    public String getGoodsDetailHtml(ModelMap model,int id){
+    @RequestMapping(value = "/getServiceDetailHtml",method = RequestMethod.GET)
+    public String getServiceDetailHtml(ModelMap model,int id){
         ServicePojo servicePojo = serviceService.getServiceDetail(id);
         if(servicePojo!=null){
             model.put("serviceDetail",servicePojo.getServiceDetail());

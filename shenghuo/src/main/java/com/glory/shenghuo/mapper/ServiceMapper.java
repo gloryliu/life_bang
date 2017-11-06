@@ -1,6 +1,7 @@
 package com.glory.shenghuo.mapper;
 
 import com.github.pagehelper.Page;
+import com.glory.shenghuo.api.goods.param.AppGetDataListParam;
 import com.glory.shenghuo.api.service.param.ServiceListParam;
 import com.glory.shenghuo.api.service.pojo.ServicePojo;
 
@@ -28,4 +29,7 @@ public interface ServiceMapper extends BaseMapper {
 
     //获取推荐的服务列表
     List<ServicePojo> getRecServiceList();
+
+    //app获取服务列表
+    Page<ServicePojo> appGetServiceList(AppGetDataListParam param);
 }

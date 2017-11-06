@@ -4,20 +4,31 @@ import java.io.Serializable;
 
 public class ServicePojo implements Serializable {
 
+    //主键
     private int id;
 
+    //服务名称
     private String serviceName;
 
-    private String servicePrice;
+    //服务价格
+    private int servicePrice;
 
+    //服务类型
+    private int serviceType;
+
+    //是否广告位展示
     private int isBanner;
 
+    //服务详情
     private String serviceDetail;
 
+    //服务图片
     private String serviceImg;
 
+    //考察类型
     private int seeType;
 
+    //是否推荐服务
     private int isRec;
 
     public int getId() {
@@ -36,11 +47,11 @@ public class ServicePojo implements Serializable {
         this.serviceName = serviceName;
     }
 
-    public String getServicePrice() {
+    public int getServicePrice() {
         return servicePrice;
     }
 
-    public void setServicePrice(String servicePrice) {
+    public void setServicePrice(int servicePrice) {
         this.servicePrice = servicePrice;
     }
 
@@ -82,5 +93,13 @@ public class ServicePojo implements Serializable {
 
     public void setIsRec(int isRec) {
         this.isRec = isRec;
+    }
+
+    public int getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(int serviceType) {
+        this.serviceType = serviceType;
     }
 }

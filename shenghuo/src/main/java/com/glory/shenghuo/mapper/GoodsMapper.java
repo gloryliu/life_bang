@@ -2,6 +2,7 @@ package com.glory.shenghuo.mapper;
 
 
 import com.github.pagehelper.Page;
+import com.glory.shenghuo.api.goods.param.AppGetDataListParam;
 import com.glory.shenghuo.api.goods.param.ChangeRecGoodsStateParam;
 import com.glory.shenghuo.api.goods.param.GoodsInsertParam;
 import com.glory.shenghuo.api.goods.param.GoodsListParam;
@@ -37,4 +38,6 @@ public interface GoodsMapper extends BaseMapper {
     //改变是否特卖商品
     int changeRecGoodsState(ChangeRecGoodsStateParam param);
 
+    //app获取建材列表
+    Page<GoodsPojo> appGetGoodsList(AppGetDataListParam param);
 }

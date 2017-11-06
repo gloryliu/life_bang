@@ -4,6 +4,7 @@ import com.glory.shenghuo.common.MyResponseUtil;
 import com.glory.shenghuo.service.AppIndexService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,7 @@ public class APIAppIndexResource {
     @Autowired
     private AppIndexService appIndexService;
 
+    @ApiOperation("获取首页和建材页面数据")
     @RequestMapping(value = "/getAppIndexData",method = RequestMethod.GET)
     @ApiImplicitParam(name = "type", value = "1为首页数据，2为建材页面数据", required = true, paramType = "query", dataType = "Integer")
     public ResponseEntity<Object> getAppIndexData(int type){
