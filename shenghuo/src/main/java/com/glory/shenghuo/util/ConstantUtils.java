@@ -7,7 +7,7 @@ package com.glory.shenghuo.util;
  **/
 public class ConstantUtils {
 
-    public static final boolean isDebug = true;
+    public static final boolean isDebug = false;
     public static String getBaseHost(){
 
         if(!isDebug){

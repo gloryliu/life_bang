@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.OrderMapper">
+
+    <insert id="add" parameterType="com.glory.shenghuo.api.order.pojo.OrderPojo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_order (user_id,create_time,receive_name,receive_phone,receive_address,transport_type)
+        VALUES (#{userId},#{createTime},#{receiveName},#{receivePhone},#{receiveAddress},#{transportType})
+    </insert>
+
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM tb_order WHERE id=#{id}
+    </delete>
+
+    <select id="getOrderDetail" parameterType="Integer" resultType="com.glory.shenghuo.api.order.pojo.OrderPojo">
+        SELECT * FROM tb_order WHERE id=#{id}
+    </select>
+
+    <select id="getAllOrderByUserId" parameterType="Integer" resultType="com.glory.shenghuo.api.order.pojo.OrderPojo">
+        SELECT * FROM tb_order WHERE user_id=#{userId}
+    </select>
+</mapper>

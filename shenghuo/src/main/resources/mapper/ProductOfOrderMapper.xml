@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.ProductOfOrderMapper">
+
+    <insert id="add" parameterType="com.glory.shenghuo.api.order.pojo.ProductOfOrderPojo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tb_order_products (order_id,user_id,product_id,product_type,product_price,
+        product_name,product_count,product_img)
+        VALUES (#{orderId},#{userId},#{productId},#{productType},#{productPrice},
+        #{productName},#{productCount},#{productImg})
+    </insert>
+
+    <select id="getAllProductByOrderId"  parameterType="Integer" resultType="com.glory.shenghuo.api.order.pojo.ProductOfOrderPojo">
+        SELECT * FROM tb_order_products WHERE order_id=#{orderId}
+    </select>
+
+    <delete id="deleteProductByOrderId" parameterType="Integer">
+        DELETE FROM tb_order_products WHERE order_id=#{orderId}
+    </delete>
+</mapper>
