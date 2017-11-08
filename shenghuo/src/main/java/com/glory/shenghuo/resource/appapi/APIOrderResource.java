@@ -26,7 +26,7 @@ public class APIOrderResource {
     @Autowired
     private APIOrderService apiOrderService;
 
-    @ApiOperation("提交订单")
+    @ApiOperation("单品购买提交订单")
     @RequestMapping(value = "/addOrder",method = RequestMethod.POST)
     public ResponseEntity<Object> addOrder(@RequestBody SubmitOrderParam orderParam){
         return apiOrderService.addOrder(orderParam);
