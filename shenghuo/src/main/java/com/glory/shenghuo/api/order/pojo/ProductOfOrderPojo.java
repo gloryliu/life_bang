@@ -16,6 +16,9 @@ public class ProductOfOrderPojo implements Serializable {
     //订单id
     private int orderId;
 
+    //用户id
+    private int userId;
+
     //产品id
     private int productId;
 
@@ -96,5 +99,13 @@ public class ProductOfOrderPojo implements Serializable {
 
     public void setProductImg(String productImg) {
         this.productImg = productImg;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

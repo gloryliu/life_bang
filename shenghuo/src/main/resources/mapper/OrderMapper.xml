@@ -5,8 +5,9 @@
 <mapper namespace="com.glory.shenghuo.mapper.OrderMapper">
 
     <insert id="add" parameterType="com.glory.shenghuo.api.order.pojo.OrderPojo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO tb_order (user_id,create_time,receive_name,receive_phone,receive_address,transport_type)
-        VALUES (#{userId},#{createTime},#{receiveName},#{receivePhone},#{receiveAddress},#{transportType})
+        INSERT INTO tb_order (user_id,create_time,receive_name,receive_phone,receive_address,transport_type,service_time,order_state,order_state_cn)
+        VALUES (#{userId},#{createTime},#{receiveName},#{receivePhone},#{receiveAddress},#{transportType},
+        #{serviceTime},#{orderState},#{orderStateCn})
     </insert>
 
     <delete id="delete" parameterType="Integer">

@@ -36,6 +36,15 @@ public class OrderPojo implements Serializable{
     //订单里边的商品
     private List<ProductOfOrderPojo> products;
 
+    //服务时间
+    private String serviceTime;
+
+    //订单状态
+    private int orderState;
+
+    //订单状态文字描述
+    private String orderStateCn;
+
     public int getId() {
         return id;
     }
@@ -98,5 +107,29 @@ public class OrderPojo implements Serializable{
 
     public void setProducts(List<ProductOfOrderPojo> products) {
         this.products = products;
+    }
+
+    public String getServiceTime() {
+        return serviceTime;
+    }
+
+    public void setServiceTime(String serviceTime) {
+        this.serviceTime = serviceTime;
+    }
+
+    public int getOrderState() {
+        return orderState;
+    }
+
+    public void setOrderState(int orderState) {
+        this.orderState = orderState;
+    }
+
+    public String getOrderStateCn() {
+        return orderStateCn;
+    }
+
+    public void setOrderStateCn(String orderStateCn) {
+        this.orderStateCn = orderStateCn;
     }
 }

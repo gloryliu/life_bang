@@ -16,4 +16,15 @@ public class ConstantUtils {
             return "http://localhost:8080";
         }
     }
+
+    public static class PayState{
+
+        public static final int WAIT_PAY = 1;
+
+        public static final String WAIT_PAY_CN = "待支付";
+
+        public static final int COMPLETE_PAY = 2;
+
+        public static final String COMPLETE_PAY_CN = "已支付";
+    }
 }
