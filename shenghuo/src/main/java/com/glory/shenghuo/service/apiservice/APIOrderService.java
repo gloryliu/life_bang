@@ -80,22 +80,22 @@ public class APIOrderService {
     public ResponseEntity<Object> addOrderList(List<SubmitOrderParam> orderParamList){
         ResponseEntity<Object> responseEntity = null;
 
-        OrderPojo orderPojo = new OrderPojo();
-        orderPojo.setUserId(orderParam.getUserId());
-        orderPojo.setCreateTime(new Date());
-        orderPojo.setReceiveName(orderParam.getReceiveName());
-        orderPojo.setReceivePhone(orderParam.getReceivePhone());
-        orderPojo.setReceiveAddress(orderParam.getReceiveAddress());
-        orderPojo.setTransportType(orderParam.getTransportType());
-        orderPojo.setServiceTime(orderParam.getServiceTime());
-        orderPojo.setOrderState(ConstantUtils.PayState.WAIT_PAY);
-        orderPojo.setOrderStateCn(ConstantUtils.PayState.WAIT_PAY_CN);
-
-        if(orderMapper.add(orderPojo)>0){
-            responseEntity = addProductOfOrder(orderPojo,orderParam);
-        }else {
-            responseEntity = MyResponseUtil.error("生成订单失败");
-        }
+//        OrderPojo orderPojo = new OrderPojo();
+//        orderPojo.setUserId(orderParam.getUserId());
+//        orderPojo.setCreateTime(new Date());
+//        orderPojo.setReceiveName(orderParam.getReceiveName());
+//        orderPojo.setReceivePhone(orderParam.getReceivePhone());
+//        orderPojo.setReceiveAddress(orderParam.getReceiveAddress());
+//        orderPojo.setTransportType(orderParam.getTransportType());
+//        orderPojo.setServiceTime(orderParam.getServiceTime());
+//        orderPojo.setOrderState(ConstantUtils.PayState.WAIT_PAY);
+//        orderPojo.setOrderStateCn(ConstantUtils.PayState.WAIT_PAY_CN);
+//
+//        if(orderMapper.add(orderPojo)>0){
+//            responseEntity = addProductOfOrder(orderPojo,orderParam);
+//        }else {
+//            responseEntity = MyResponseUtil.error("生成订单失败");
+//        }
 
         return responseEntity;
     }

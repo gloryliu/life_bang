@@ -1,10 +1,9 @@
 package com.glory.shenghuo.resource.appapi;
 
 import com.glory.shenghuo.api.cart.param.AddCartParam;
-import com.glory.shenghuo.service.apiservice.CartService;
+import com.glory.shenghuo.service.apiservice.APICartService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/cart")
 @Api(value = "cart", description = "购物车")
-public class CartResource {
+public class APICartResource {
 
     @Autowired
-    private CartService cartService;
+    private APICartService cartService;
 
     @ApiOperation("获取购物车列表")
     @RequestMapping(value = "/getCartList",method = RequestMethod.GET)
