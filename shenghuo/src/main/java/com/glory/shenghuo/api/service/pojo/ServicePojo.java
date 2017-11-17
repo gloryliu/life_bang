@@ -31,6 +31,12 @@ public class ServicePojo implements Serializable {
     //是否推荐服务
     private int isRec;
 
+    //是否优惠
+    private int isDiscount;
+
+    //优惠价格
+    private int discountPrice;
+
     public int getId() {
         return id;
     }
@@ -101,5 +107,21 @@ public class ServicePojo implements Serializable {
 
     public void setServiceType(int serviceType) {
         this.serviceType = serviceType;
+    }
+
+    public int getIsDiscount() {
+        return isDiscount;
+    }
+
+    public void setIsDiscount(int isDiscount) {
+        this.isDiscount = isDiscount;
+    }
+
+    public int getDiscountPrice() {
+        return discountPrice;
+    }
+
+    public void setDiscountPrice(int discountPrice) {
+        this.discountPrice = discountPrice;
     }
 }
