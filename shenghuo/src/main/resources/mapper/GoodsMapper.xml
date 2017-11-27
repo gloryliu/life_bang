@@ -17,7 +17,8 @@
         goods_detail=#{goodsDetail},
         stock=#{stock},
         is_banner=#{isBanner},
-        goods_img=#{goodsImg}
+        goods_img=#{goodsImg},
+        service_provider=#{serviceProvider}
         WHERE id=#{id}
     </update>
 
