@@ -38,6 +38,8 @@ var goodsObj = {
 
         if ($("#isBanner").val()) param["isBanner"] = $("#isBanner").val();
 
+        if ($("#serviceProvider").val()) param["serviceProvider"] = $("#serviceProvider").val();
+
         var contextDetail = window.euditorFrame.getContent();
         param["goodsDetail"] = contextDetail;
 

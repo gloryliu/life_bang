@@ -37,6 +37,10 @@ public class GoodsPojo implements Serializable{
     //是否特卖商品
     private int isRec;
 
+    //服务商信息
+    private String serviceProvider;
+
+
     public int getId() {
         return id;
     }
@@ -107,5 +111,13 @@ public class GoodsPojo implements Serializable{
 
     public void setIsRec(int isRec) {
         this.isRec = isRec;
+    }
+
+    public String getServiceProvider() {
+        return serviceProvider;
+    }
+
+    public void setServiceProvider(String serviceProvider) {
+        this.serviceProvider = serviceProvider;
     }
 }
