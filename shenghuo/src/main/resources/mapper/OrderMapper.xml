@@ -21,4 +21,8 @@
     <select id="getAllOrderByUserId" parameterType="Integer" resultType="com.glory.shenghuo.api.order.pojo.OrderPojo">
         SELECT * FROM tb_order WHERE user_id=#{userId}
     </select>
+
+    <select id="getOrderList" parameterType="com.glory.shenghuo.api.order.param.OrderListParam" resultType="com.glory.shenghuo.api.order.pojo.OrderPojo">
+        SELECT * FROM tb_order
+    </select>
 </mapper>

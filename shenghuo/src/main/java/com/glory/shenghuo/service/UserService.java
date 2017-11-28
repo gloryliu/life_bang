@@ -158,4 +158,10 @@ public class UserService {
         return UtilTools.pageChange(data,userPojos);
     }
 
+    /**
+     * 根据用户id号查询出用户信息
+     */
+    public UserPoJo getUserInfoById(Integer id){
+        return userMapper.getUserInfoById(id);
+    }
 }

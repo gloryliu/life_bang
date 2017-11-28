@@ -40,4 +40,9 @@ public interface UserMapper extends BaseMapper{
      * @return
      */
     Page<UserPoJo> getAllList(UserParam userParam);
+
+    /**
+     * 获取用户详细信息
+     */
+    UserPoJo getUserInfoById(int id);
 }

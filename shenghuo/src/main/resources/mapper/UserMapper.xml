@@ -54,4 +54,7 @@
         </where>
     </select>
 
+    <select id="getUserInfoById" parameterType="Integer" resultType="com.glory.shenghuo.api.user.pojo.UserPoJo">
+        SELECT * FROM tb_user WHERE id=#{userId}
+    </select>
 </mapper>

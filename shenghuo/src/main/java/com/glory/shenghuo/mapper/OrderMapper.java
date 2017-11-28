@@ -2,6 +2,7 @@ package com.glory.shenghuo.mapper;
 
 import com.fasterxml.jackson.databind.ser.Serializers;
 import com.github.pagehelper.Page;
+import com.glory.shenghuo.api.order.param.OrderListParam;
 import com.glory.shenghuo.api.order.pojo.OrderPojo;
 
 /**
@@ -23,4 +24,7 @@ public interface OrderMapper extends BaseMapper {
 
     //根据用户id获取订单列表
     Page<OrderPojo> getAllOrderByUserId(int userId);
+
+    //获取所有订单列表
+    Page<OrderPojo> getOrderList(OrderListParam orderListParam);
 }

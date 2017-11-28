@@ -33,8 +33,8 @@ public class OrderPojo implements Serializable{
     //配送方式1为快递2为携带
     private int transportType;
 
-    //订单里边的商品
-    private List<ProductOfOrderPojo> products;
+//    //订单里边的商品
+//    private List<ProductOfOrderPojo> products;
 
     //服务时间
     private String serviceTime;
@@ -44,6 +44,15 @@ public class OrderPojo implements Serializable{
 
     //订单状态文字描述
     private String orderStateCn;
+
+    //用户订单号
+    private String outTradeNo;
+
+    //支付宝交易号
+    private String tradeNo;
+
+    //微信交易号
+    private String transactionId;
 
     public int getId() {
         return id;
@@ -101,13 +110,13 @@ public class OrderPojo implements Serializable{
         this.transportType = transportType;
     }
 
-    public List<ProductOfOrderPojo> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<ProductOfOrderPojo> products) {
-        this.products = products;
-    }
+//    public List<ProductOfOrderPojo> getProducts() {
+//        return products;
+//    }
+//
+//    public void setProducts(List<ProductOfOrderPojo> products) {
+//        this.products = products;
+//    }
 
     public String getServiceTime() {
         return serviceTime;
@@ -131,5 +140,28 @@ public class OrderPojo implements Serializable{
 
     public void setOrderStateCn(String orderStateCn) {
         this.orderStateCn = orderStateCn;
+    }
+    public String getOutTradeNo() {
+        return outTradeNo;
+    }
+
+    public void setOutTradeNo(String outTradeNo) {
+        this.outTradeNo = outTradeNo;
+    }
+
+    public String getTradeNo() {
+        return tradeNo;
+    }
+
+    public void setTradeNo(String tradeNo) {
+        this.tradeNo = tradeNo;
+    }
+
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
 }
