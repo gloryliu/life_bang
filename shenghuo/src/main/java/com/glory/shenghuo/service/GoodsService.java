@@ -37,8 +37,9 @@ public class GoodsService {
      * @return
      */
     public int insert(GoodsInsertParam goodsParam){
+
         String[] banners = {};
-        String[] details = {};
+
         String bannersStr = goodsParam.getBanners();
 
         if(!StringUtil.isEmpty(bannersStr)){
@@ -49,6 +50,7 @@ public class GoodsService {
             goodsParam.setGoodsImg(banners[0]);
         }
 
+        goodsParam.setGoodsPrice(goodsParam.getOriginalPrice()+goodsParam.getProfit());//商品价格为原始价格加利润
         int count = goodsMapper.insert(goodsParam);
 
         GoodsImagePojo imagePojo = null;

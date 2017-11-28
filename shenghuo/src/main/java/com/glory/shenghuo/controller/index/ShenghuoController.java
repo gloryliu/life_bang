@@ -14,8 +14,8 @@ import java.io.PrintWriter;
 @Controller
 public class ShenghuoController {
 
-    @RequestMapping("/test")
-    public String wanba(){
+    @RequestMapping("/ueditor")
+    public String ueditor(){
         return "common/ueditor";
     }
 

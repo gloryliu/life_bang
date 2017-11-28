@@ -32,7 +32,9 @@ var goodsObj = {
 
         if ($("#stock").val()) param["stock"] = $("#stock").val();
 
-        if ($("#goodsPrice").val()) param["goodsPrice"] = $("#goodsPrice").val();
+        if ($("#originalPrice").val()) param["originalPrice"] = $("#originalPrice").val();
+
+        if ($("#profit").val()) param["profit"] = $("#profit").val();
 
         if ($("#goodstype").val()) param["goodstype"] = $("#goodstype").val();
 

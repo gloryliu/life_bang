@@ -21,8 +21,21 @@ public class ProductTypeResource {
         return productTypeService.getTypeList();
     }
 
-    @RequestMapping(value = "/getSelectDomList",method = RequestMethod.GET)
-    public String getSelectDomList(){
-        return productTypeService.getSelectDomList();
+    /**
+     * 获取建材的所有分类
+     * @return
+     */
+    @RequestMapping(value = "/getSelectDomListOfGoods",method = RequestMethod.GET)
+    public String getSelectDomListOfGoods(){
+        return productTypeService.getSelectDomList(1);
+    }
+
+    /**
+     * 获取服务的所有分类
+     * @return
+     */
+    @RequestMapping(value = "/getSelectDomListOfService",method = RequestMethod.GET)
+    public String getSelectDomListOfService(){
+        return productTypeService.getSelectDomList(2);
     }
 }

@@ -13,7 +13,7 @@ public interface ProductTypeMapper extends BaseMapper{
 
     int delete(int id);
 
-    ArrayList<ProductTypePoJo> getAllList();
+    ArrayList<ProductTypePoJo> getAllList(int type);
 
     ArrayList<ProductTypePoJo> getListByParentId(int id);
 

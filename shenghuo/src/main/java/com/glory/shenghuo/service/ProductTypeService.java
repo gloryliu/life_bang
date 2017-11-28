@@ -71,7 +71,7 @@ public class ProductTypeService {
         topMenu.setParentId(0);
         topMenu.setText("分类列表");
 
-        ArrayList<ProductTypePoJo> rootMenu = productTypeMapper.getAllList();
+        ArrayList<ProductTypePoJo> rootMenu = productTypeMapper.getAllList(0);
 
         ArrayList<ProductTypePoJo> menuList = new ArrayList<>();
 
@@ -94,9 +94,9 @@ public class ProductTypeService {
      * 添加商品时选择分类
      * @return
      */
-    public String getSelectDomList(){
+    public String getSelectDomList(int type){
 
-        ArrayList<ProductTypePoJo> rootMenu = productTypeMapper.getAllList();
+        ArrayList<ProductTypePoJo> rootMenu = productTypeMapper.getAllList(type);
 
         ArrayList<ProductTypePoJo> menuList = new ArrayList<>();
 

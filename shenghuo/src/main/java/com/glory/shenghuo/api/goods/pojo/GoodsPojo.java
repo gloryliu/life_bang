@@ -19,6 +19,12 @@ public class GoodsPojo implements Serializable{
     //商品价格
     private int goodsPrice;
 
+    //原始价格
+    private int originalPrice;
+
+    //利润
+    private int profit;
+
     //商品类型
     private int goodsType;
 
@@ -119,5 +125,21 @@ public class GoodsPojo implements Serializable{
 
     public void setServiceProvider(String serviceProvider) {
         this.serviceProvider = serviceProvider;
+    }
+
+    public int getOriginalPrice() {
+        return originalPrice;
+    }
+
+    public void setOriginalPrice(int originalPrice) {
+        this.originalPrice = originalPrice;
+    }
+
+    public int getProfit() {
+        return profit;
+    }
+
+    public void setProfit(int profit) {
+        this.profit = profit;
     }
 }

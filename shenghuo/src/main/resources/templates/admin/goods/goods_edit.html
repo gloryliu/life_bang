@@ -70,13 +70,25 @@
     <div class="row form-horizontal">
         <div class="col-md-12">
             <div class="form-group">
-                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>购买单价</label>
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>原始价格</label>
                 <div class="col-xs-4 col-sm-4 col-md-3">
-                    <input type="text" id="goodsPrice" class="form-control" placeholder="购买单价单位（元）" >
+                    <input type="text" id="originalPrice" class="form-control" placeholder="购买单价单位（元）" >
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="row form-horizontal">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>利润</label>
+                <div class="col-xs-4 col-sm-4 col-md-3">
+                    <input type="text" id="profit" class="form-control" placeholder="购买单价单位（元）" >
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <div class="row form-horizontal">
         <div class="col-md-12">
@@ -100,7 +112,7 @@
     <div class="row form-horizontal">
         <div class="col-md-12">
             <div class="form-group">
-                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>是否广告位展示</label>
+                <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>广告位展示</label>
                 <div class="col-xs-4 col-sm-4 col-md-3">
                     <p>
                         <select id="isBanner">
@@ -143,7 +155,7 @@
     </div>
 
     <div style="height: 900px">
-        <iframe name="euditorFrame" id="euditorFrame" src="/test" width="100%" height="100%" frameborder="0"></iframe>
+        <iframe name="euditorFrame" id="euditorFrame" src="/ueditor" width="100%" height="100%" frameborder="0"></iframe>
     </div>
 
     <div class="row form-horizontal">
@@ -165,7 +177,7 @@
 
     $('#global_location').cxSelect({
 
-        url: '/resource/productType/getSelectDomList',
+        url: '/resource/productType/getSelectDomListOfGoods',
 
         selects: ['country', 'state', 'city', 'region'],
 
