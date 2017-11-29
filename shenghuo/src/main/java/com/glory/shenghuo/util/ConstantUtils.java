@@ -17,6 +17,13 @@ public class ConstantUtils {
         }
     }
 
+    /**
+     * 产品的分类
+     */
+    public static final class ProductType{
+        public static final int GOODS = 1;//建材类
+        public static final int SERVICE = 2;//服务类
+    }
 
     /**
      * 订单支付状态
