@@ -17,14 +17,40 @@ public class ConstantUtils {
         }
     }
 
-    public static class PayState{
 
-        public static final int WAIT_PAY = 1;
+    /**
+     * 订单支付状态
+     */
+    public static final class PayState{
+
+        public static final int WAIT_PAY = 1;//待支付
 
         public static final String WAIT_PAY_CN = "待支付";
 
-        public static final int COMPLETE_PAY = 2;
+        public static final int COMPLETE_PAY = 2;//已支付
 
         public static final String COMPLETE_PAY_CN = "已支付";
+    }
+
+
+    /**
+     * 服务状态
+     */
+    public static final class ServiceState{
+
+        public static final int WAIT_SERVICE = 1;//待服务
+        public static final String WAIT_SERVICE_CN = "等待服务";
+
+        public static final int CONFIRM_SERVICE = 2;//确认服务
+        public static final String CONFIRM_SERVICE_CN = "确认服务";//确认服务
+
+        public static final int SEND_SERVICE = 3;//派单中
+        public static final String SEND_SERVICE_CN = "派单中";
+
+        public static final int SERVICEING = 4;//服务中
+        public static final String SERVICEING_CN = "服务中";
+
+        public static final int COMPLETE_SERVICE = 5;//结束
+        public static final String COMPLETE_SERVICE_CN = "结束";
     }
 }
