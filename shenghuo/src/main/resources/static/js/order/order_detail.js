@@ -1,4 +1,4 @@
-$(function () {
+window.onload = function(){
     /*初始化查询*/
     buyObj.getOrderList();
     /**
@@ -9,13 +9,13 @@ $(function () {
             buyObj.getOrderList();//调用分页查询接口
         }
     });
-});
+};
 
 var buyObj = {
     "getCondition": function () {/*获取查询条件*/
         var param = {};
         var orderid = $("#orderid").val();
-        if(orderid)  param["orderid"] = orderid;
+        if(orderid)  param["orderId"] = orderid;
 
         param["pageSize"] = basePageObj.pageObj.pageSize;
         param["pageNum"] = basePageObj.pageObj.pageNo;
@@ -23,7 +23,7 @@ var buyObj = {
     },
     "getOrderList": function () {/*获取组合列表信息*/
         var params = buyObj.getCondition();
-        var ajaxObj = {url: '/resource/order/orderlist', async:true, param:params, method: "POST"};
+        var ajaxObj = {url: '/resource/order/orderdetail', async:true, param:params, method: "POST"};
         commonJS.loading("open");
         commonJS.sendAjaxRequest(ajaxObj, function (value) {
             $("#data").html($("#dataTemplate").render(value.data));

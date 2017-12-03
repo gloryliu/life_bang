@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单详情</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="">
+    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/css/mars.css" rel="stylesheet">
+
+    <script src="/js/lib/jquery.min.js?v=2.1.4"></script>
+    <script src="/js/lib/jsrender.min.js"></script>
+    <script src="/js/lib/layer.js"></script>
+    <script src="/js/lib/WdatePicker.js"></script>
+    <script src="/js/common/common.js"></script>
+    <!-- 业务处理js -->
+    <script src="/js/order/order_detail.js"></script>
+</head>
+<body class="gray-bg">
+<div class="wrapper-content animated fadeInRight">
+    <div class="row mb20">
+        <div class="col-md-12">
+            <ol class="breadcrumb">
+                <li><a href="#">订单管理</a>
+                </li>
+                <li class="active">订单详情</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row mb20">
+        <div class="col-md-12">
+            <div class="jy-formBox w-label">
+                <div class="row mb15 form-inline">
+                    <div class="col-xs-6 col-sm-3 col-md-3 pr0">
+                        <label>下单用户：${userName}</label><br/>
+                        <label>订单号&nbsp;&nbsp;&nbsp;&nbsp;：${orderPojo.getOutTradeNo()}</label><br/>
+                        <label>下单时间：${orderPojo.getCreateTime()}</label>
+                        <input hidden="hidden" id="orderid" value="${orderId}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb20">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-condensed mb0">
+                    <thead>
+                    <tr>
+                        <th>商品类型</th>
+                        <th>商品名称</th>
+                        <th>商品价格</th>
+                        <th>商品数量</th>
+                        <th>商品图片</th>
+                    </tr>
+                    </thead>
+                    <tbody id="data"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    #page()
+</div>
+</body>
+<!-- 列表模板 -->
+<script id="dataTemplate" type="text/x-jsrender">
+    <tr>
+        <td>{{:productType}}</td>
+        <td>{{:productName}}</td>
+        <td>{{:productPrice}}</td>
+        <td>{{:productCount}}</td>
+        <td>{{:productImg}}</td>
+    </tr>
+</script>
+<script id="goodstype_template" type="text/x-jsrender">
+    <option value="{{:id}}" >{{:typename}}</option>
+</script>
+<script id="shop_template" type="text/x-jsrender">
+    <option value="{{:id}}" >{{:shopname}}</option>
+</script>
+</html>
