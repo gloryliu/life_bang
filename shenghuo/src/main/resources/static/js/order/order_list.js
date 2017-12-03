@@ -1,6 +1,9 @@
 $(function () {
     /*初始化查询*/
     buyObj.getOrderList();
+    $("#searchButton").on("click",function () {
+        buyObj.getOrderList();
+    });
     /**
      * 扩展jquery方法，调用公共分页
      */
@@ -15,7 +18,7 @@ var buyObj = {
     "getCondition": function () {/*获取查询条件*/
         var param = {};
         var orderid = $("#orderid").val();
-        if(orderid)  param["orderid"] = orderid;
+        if(orderid)  param["id"] = orderid;
 
         param["pageSize"] = basePageObj.pageObj.pageSize;
         param["pageNum"] = basePageObj.pageObj.pageNo;

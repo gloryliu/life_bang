@@ -23,5 +23,8 @@
     </select>
     <select id="getOrderList" parameterType="com.glory.shenghuo.api.order.param.OrderListParam" resultType="com.glory.shenghuo.api.order.pojo.OrderPojo">
         SELECT * FROM tb_order
+        <if test="id!=null and id!=''">
+            WHERE id=#{id}
+        </if>
     </select>
 </mapper>
