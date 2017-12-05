@@ -3,6 +3,7 @@ package com.glory.shenghuo.resource.web;
 import com.glory.shenghuo.api.goods.param.ChangeRecGoodsStateParam;
 import com.glory.shenghuo.api.goods.param.GoodsInsertParam;
 import com.glory.shenghuo.api.goods.param.GoodsListParam;
+import com.glory.shenghuo.api.goods.pojo.GoodsPojo;
 import com.glory.shenghuo.service.GoodsService;
 import com.glory.shenghuo.util.PageInfos;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,4 +49,15 @@ public class GoodsResource {
     public int changeRecGoodsState(ChangeRecGoodsStateParam param){
         return goodsService.changeRecGoodsState(param);
     }
+
+    /**
+     * 获取建材详情
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/getGoodsDetailById",method = RequestMethod.GET)
+    public GoodsPojo getGoodsDetailById(int id){
+        return goodsService.getGoodsById(id);
+    }
+
 }
