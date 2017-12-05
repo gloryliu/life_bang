@@ -51,17 +51,16 @@ var serviceObj = {
     "getDetail": function () {
         var ajaxObj = {url: '/resource/service/detailService?serviceId='+serviceObj.serviceId, async:true, method: "POST"};
         commonJS.sendAjaxRequest(ajaxObj, function (value) {
-            document.write(value.id());
-            // $("#serviceName").val(${value.getId()});
-            // $("#servicePrice").val();
-            // $("#seeType").val();
-            // $("#isBanner").val();
-            // $("#isRec").val();
+            $("#serviceName").val(value.id);
+            $("#servicePrice").val(value.servicePrice);
+             $("#seeType").val(value.seeType);
+            $("#isBanner").val(value.isBanner);
+            $("#isRec").val(value.isRec);
+            // $("#serviceName").val(value.);
             // $("#serviceName").val();
             // $("#serviceName").val();
-            // $("#serviceName").val();
-            // $("#serviceName").val();
-            // $("#serviceName").val();
+            $("#discountPrice").val(value.discountPrice);
+            $("#euditorFrame").setContent(value.serviceDetail);
         });
     },
     "update": function () {/*编辑服务*/

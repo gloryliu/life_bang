@@ -18,7 +18,9 @@
         service_detail=#{serviceDetail},
         service_img=#{serviceImg},
         see_type=#{seeType},
-        is_rec=#{isRec}
+        is_rec=#{isRec},
+        is_discount=#{isDiscount},
+        discount_price=#{discountPrice}
         WHERE id=#{id}
     </update>
 

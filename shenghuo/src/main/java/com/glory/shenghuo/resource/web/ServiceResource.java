@@ -5,6 +5,7 @@ import com.glory.shenghuo.api.service.pojo.ServicePojo;
 import com.glory.shenghuo.service.ServiceService;
 import com.glory.shenghuo.util.PageInfos;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,13 +26,10 @@ public class ServiceResource {
     }
     @RequestMapping("/updateService")
     public int updateService(ServicePojo pojo){
-        return serviceService.addService(pojo);
+        return serviceService.updateService(pojo);
     }
     @RequestMapping("/detailService")
     public ServicePojo detailService(Integer serviceId){
-//        System.out.println("resource:" + serviceId);
-//        ServicePojo ss =
-//        System.out.println(ss.getServiceName());
         return serviceService.getServiceDetail(serviceId);
     }
     /**
