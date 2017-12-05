@@ -23,7 +23,17 @@ public class ServiceResource {
     public int addService(ServicePojo pojo){
         return serviceService.addService(pojo);
     }
-
+    @RequestMapping("/updateService")
+    public int updateService(ServicePojo pojo){
+        return serviceService.addService(pojo);
+    }
+    @RequestMapping("/detailService")
+    public ServicePojo detailService(Integer serviceId){
+//        System.out.println("resource:" + serviceId);
+//        ServicePojo ss =
+//        System.out.println(ss.getServiceName());
+        return serviceService.getServiceDetail(serviceId);
+    }
     /**
      * web服务列表
      * @param serviceListParam

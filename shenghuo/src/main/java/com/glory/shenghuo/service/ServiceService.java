@@ -28,6 +28,15 @@ public class ServiceService {
     }
 
     /**
+     * 更新服务
+     * @param pojo
+     * @return
+     */
+    public int updateService(ServicePojo pojo){
+        return serviceMapper.update(pojo);
+    }
+
+    /**
      * web服务列表
      * @param serviceListParam
      * @return

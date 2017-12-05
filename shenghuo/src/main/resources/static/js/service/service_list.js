@@ -2,7 +2,7 @@ $(function () {
     /*初始化查询*/
     serviceListObj.getServiceList();
     $("#insert").on("click",function () {
-        window.location.href="/controller/service/serviceEdit";
+        window.location.href="/controller/service/serviceAdd";
     });
 
     $("#searchButton").on("click",function () {

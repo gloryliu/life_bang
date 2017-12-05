@@ -58,6 +58,8 @@
                         <th>服务名称</th>
                         <th>价格</th>
                         <th>是否需要实地查看</th>
+                        <th>是否优惠</th>
+                        <th>优惠价格</th>
                     </tr>
                     </thead>
                     <tbody id="data"></tbody>
@@ -73,7 +75,7 @@
 <script id="dataTemplate" type="text/x-jsrender">
     <tr>
         <td>
-            <a href="/controller/goods/edit?type=1&goodsId={{:id}}">编辑</a>
+            <a href="/controller/service/serviceEdit?type=1&serviceId={{:id}}">编辑</a>
         </td>
         <td>{{:id}}</td>
         <td><img src="{{:serviceImg}}" width="50px" height="50px"></td>
@@ -82,6 +84,10 @@
        <td>{{if seeType == "1"}}需要
             {{else}}不需要
             {{/if}}</td>
+       <td>{{if isDiscount == "1"}}优惠
+            {{else}}不优惠
+            {{/if}}</td>
+       <td>{{:discountPrice}}</td>
     </tr>
 </script>
 </html>

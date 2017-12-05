@@ -5,8 +5,8 @@
 <mapper namespace="com.glory.shenghuo.mapper.ServiceMapper">
 
     <insert id="add" parameterType="com.glory.shenghuo.api.service.pojo.ServicePojo" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO tb_service (service_name,service_price,service_type,is_banner,service_detail,service_img,see_type,is_rec)
-        VALUES (#{serviceName},#{servicePrice},#{serviceType},#{isBanner},#{serviceDetail},#{serviceImg},#{seeType},#{isRec})
+        INSERT INTO tb_service (service_name,service_price,service_type,is_banner,service_detail,service_img,see_type,is_rec,is_discount,discount_price)
+        VALUES (#{serviceName},#{servicePrice},#{serviceType},#{isBanner},#{serviceDetail},#{serviceImg},#{seeType},#{isRec},#{isDiscount},#{discountPrice})
     </insert>
 
     <update id="update" parameterType="com.glory.shenghuo.api.service.pojo.ServicePojo">

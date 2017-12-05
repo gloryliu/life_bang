@@ -1,32 +1,30 @@
-$(function () {
+window.onload = function() {
     /*编辑页面初始化查询*/
-    goodsObj.goodsId=$("#goodsId").val();
-    goodsObj.type=$("#type").val();
-    goodsObj.init();
+    serviceObj.serviceId=$("#serviceid").val();
+    serviceObj.type=$("#type").val();
+
+    serviceObj.init();
     $("#submit").on("click",function () {
-        goodsObj.insertupdate();
+        serviceObj.update();
     });
-});
+};
 
 var serviceObj = {
 
     "binners":[],
-    "goodsId":"",
+    "serviceId":"",
     "type":"",
     "init":function () {
-        goodsObj.getGoodstypeList();
-        goodsObj.getShopList();
-        if(goodsObj.type == 1){
-            goodsObj.getDetail();
+        if(serviceObj.type == 1){
+            serviceObj.getDetail();
         }
     },
     "getParam":function () {
         var param = {};
-        if(goodsObj.binners.length>0){
-            var strimage1 = goodsObj.binners.join("|");
-            param["banners"] = strimage1;
-        }
-
+        // if(serviceObj.binners.length>0){
+        //     var strimage1 = serviceObj.binners.join("|");
+        //     param["banners"] = strimage1;
+        // }
 
         if ($("#serviceName").val()) param["serviceName"] = $("#serviceName").val();
 
@@ -38,48 +36,47 @@ var serviceObj = {
 
         if ($("#isRec").val()) param["isRec"] = $("#isRec").val();
 
+        if ($("#isDiscount").val()) param["isDiscount"] = $("#isDiscount").val();
+
+        if ($("#discountPrice").val()) param["discountPrice"] = $("#discountPrice").val();
 
         var contextDetail = window.euditorFrame.getContent();
         param["serviceDetail"] = contextDetail;
 
-        if (goodsObj.type == 1){
-            param["id"] = goodsObj.goodsId;
+        if (serviceObj.type == 1){
+            param["id"] = serviceObj.serviceId;
         }
         return param;
     },
     "getDetail": function () {
-        var ajaxObj = {url: '/resource/goods/getDetail?id='+goodsObj.goodsId, async:true, method: "GET"};
+        var ajaxObj = {url: '/resource/service/detailService?serviceId='+serviceObj.serviceId, async:true, method: "POST"};
         commonJS.sendAjaxRequest(ajaxObj, function (value) {
-            $("#name").val(value.name);
-            $("#deposit").val(value.deposit);
-            $("#stock").val(value.stock);
-            $("#price").val(value.price);
-            $("#vipprice").val(value.vipprice);
-            $("#purchase").val(value.purchase);
-            $("#goodsdetail").text(value.goodsdetail);
-            $("#stars1").val(value.stars1);
-            $("#stars2").val(value.stars2);
-            $("#stars3").val(value.stars3);
-            $("#stars4").val(value.stars4);
-            $("#stars5").val(value.stars5);
-
-            $("#goodstype").val(value.goodstype);
-            $("#shop").val(value.shop);
+            document.write(value.id());
+            // $("#serviceName").val(${value.getId()});
+            // $("#servicePrice").val();
+            // $("#seeType").val();
+            // $("#isBanner").val();
+            // $("#isRec").val();
+            // $("#serviceName").val();
+            // $("#serviceName").val();
+            // $("#serviceName").val();
+            // $("#serviceName").val();
+            // $("#serviceName").val();
         });
     },
-    "insertupdate": function () {/*新增编辑*/
-
-        var param = goodsObj.getParam();
+    "update": function () {/*编辑服务*/
+        var param = serviceObj.getParam();
         console.log(param.toString());
-        var url = '/resource/service/addService';
-        if (goodsObj.type == 1) {
-            url = '/resource/goods/update';
-        }
+        var url = '/resource/service/updateService';
+        // if (serviceObj.type == 1) {
+        //     url = '/resource/service/update';
+        // }
         var ajaxObj = {url:url, async:true, param:param, method: "POST"};
         commonJS.sendAjaxRequest(ajaxObj, function (value) {
-            window.location.href="/controller/goods/list";
+            window.location.href="/controller/service/serviceList";
         });
-    },
+    }
+    /*,
     "getGoodstypeList": function () {
         var ajaxObj = {url: '/resource/goodstype/getAllList', async:true, method: "GET"};
         commonJS.sendAjaxRequest(ajaxObj, function (value) {
@@ -122,4 +119,5 @@ var serviceObj = {
         });
         layer.full(index);
     }
+    */
 };

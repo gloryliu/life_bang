@@ -22,10 +22,15 @@ public class ServiceController {
         return "admin/service/service_list";
     }
 
+    @RequestMapping("/serviceAdd")
+    public String serviceAdd(){
+        return "admin/service/service_add";
+    }
+
     @RequestMapping("/serviceEdit")
-    public String serviceEdit(ModelMap map, Integer goodsId, Integer type){
-        if (goodsId != null && goodsId != 0){
-            map.put("goodsId",goodsId);
+    public String serviceEdit(ModelMap map, Integer type, Integer serviceId){
+        if (serviceId != null && serviceId != 0){
+            map.put("serviceId",serviceId);
         }
         if (type != null && type != 0){
             map.put("type",type);//type=1，编辑；其他值，新增
