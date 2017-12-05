@@ -30,6 +30,11 @@ public interface ServiceMapper extends BaseMapper {
     //获取推荐的服务列表
     List<ServicePojo> getRecServiceList();
 
+    //获取优惠的服务列表
+    List<ServicePojo> getDiscountServiceList();
+
     //app获取服务列表
     Page<ServicePojo> appGetServiceList(AppGetDataListParam param);
+
+
 }

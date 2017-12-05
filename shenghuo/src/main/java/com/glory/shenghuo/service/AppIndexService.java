@@ -7,6 +7,7 @@ import com.glory.shenghuo.api.service.pojo.ServicePojo;
 import com.glory.shenghuo.common.MyResponseUtil;
 import com.glory.shenghuo.mapper.GoodsMapper;
 import com.glory.shenghuo.mapper.ServiceMapper;
+import com.glory.shenghuo.util.ConstantUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -38,14 +39,19 @@ public class AppIndexService {
         AppIndexJson appIndexJson = new AppIndexJson();
         List<AppBannerJson> bannerJsons = new ArrayList<>();
 
+        //组件轮播信息
         List<ServicePojo> servicePojoList = serviceMapper.getBannerServiceList();
         for (ServicePojo service: servicePojoList) {
-            bannerJsons.add(new AppBannerJson(service.getId(),service.getServiceImg(),2));
+            bannerJsons.add(new AppBannerJson(service.getId(),service.getServiceImg(), ConstantUtils.ProductType.SERVICE));
         }
-
+        //推荐的服务
         List<ServicePojo> recServices = serviceMapper.getRecServiceList();
+        //优惠的服务
+        List<ServicePojo> discountService = serviceMapper.getDiscountServiceList();
+
         appIndexJson.setBanners(bannerJsons);
         appIndexJson.setRecService(recServices);
+        appIndexJson.setNewDiscount(discountService);
         return MyResponseUtil.ok(appIndexJson);
     }
 
@@ -58,7 +64,7 @@ public class AppIndexService {
         List<AppBannerJson> bannerJsons = new ArrayList<>();
         List<GoodsPojo> goodsPojoList = goodsMapper.getBannerGoodsList();
         for (GoodsPojo goods: goodsPojoList) {
-            bannerJsons.add(new AppBannerJson(goods.getId(),goods.getGoodsImg(),1));
+            bannerJsons.add(new AppBannerJson(goods.getId(),goods.getGoodsImg(),ConstantUtils.ProductType.SERVICE));
         }
 
         List<GoodsPojo> recGoods = goodsMapper.getRecGoodsList();
