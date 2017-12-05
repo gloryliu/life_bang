@@ -66,4 +66,10 @@
         </where>
     </select>
 
+    <!--获取是优惠的服务-->
+    <select id="getDiscountServiceList" resultType="com.glory.shenghuo.api.service.pojo.ServicePojo">
+         SELECT
+          *
+        FROM tb_service WHERE is_iscount=1
+    </select>
 </mapper>
