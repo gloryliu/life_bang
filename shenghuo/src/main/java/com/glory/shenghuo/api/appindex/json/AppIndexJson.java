@@ -20,8 +20,20 @@ public class AppIndexJson implements Serializable{
     //推荐的服务
     private List<ServicePojo> recService;
 
-    //特卖
+    //最新优惠服务
+    private List<ServicePojo> newDiscount;
+
+    //本周优惠建材
     private List<GoodsPojo> recGoods;
+
+
+    public List<ServicePojo> getNewDiscount() {
+        return newDiscount;
+    }
+
+    public void setNewDiscount(List<ServicePojo> newDiscount) {
+        this.newDiscount = newDiscount;
+    }
 
     public List<AppBannerJson> getBanners() {
         return banners;
