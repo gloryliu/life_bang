@@ -38,6 +38,12 @@ public class GoodsController {
         return "admin/goods/goods_edit";
     }
 
+    /**
+     * 建材详情
+     * @param map
+     * @param goodsId
+     * @return
+     */
     @RequestMapping("/detail")
     public String detail(ModelMap map, Integer goodsId){
         if (goodsId != null && goodsId != 0){
@@ -46,6 +52,10 @@ public class GoodsController {
         return "admin/goods/goods_detail";
     }
 
+    /**
+     * 建材列表
+     * @return
+     */
     @RequestMapping("/list")
     public String goodsList(){
         return "admin/goods/goods_list";
