@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.ServiceProviderMapper">
+
+    <!--添加服务商信息-->
+    <insert id="add" parameterType="com.glory.shenghuo.api.serviceprovider.pojo.ServiceProviderPoJo" useGeneratedKeys="true" keyProperty="id">
+      INSERT INTO tb_service_provider (user_id,controller,contacts,company_address,service_range,status)
+      VALUES (#{userId},#{controller},#{contacts},#{companyAddress},#{serviceRange},#{status})
+    </insert>
+
+    <!--更新服务商信息-->
+    <update id="update" parameterType="com.glory.shenghuo.api.serviceprovider.pojo.ServiceProviderPoJo">
+        UPDATE tb_service_provider SET
+        user_id=#{userId},
+        controller=#{controller},
+        contacts=#{contacts},
+        company_address=#{companyAddress},
+        service_range=#{serviceRange},
+        status=#{status}
+        WHERE id=#{id}
+    </update>
+
+    <!--根据用户id获取服务商信息-->
+    <select id="getProviderInfoByUserId" parameterType="Integer" resultType="com.glory.shenghuo.api.serviceprovider.pojo.ServiceProviderPoJo">
+        SELECT * FROM tb_service_provider WHERE user_id=#{userId}
+    </select>
+</mapper>
