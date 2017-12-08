@@ -1,7 +1,7 @@
 package com.glory.shenghuo.resource.appapi;
 
 import com.glory.shenghuo.api.user.param.*;
-import com.glory.shenghuo.service.UserService;
+import com.glory.shenghuo.service.apiservice.APIUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,35 +18,41 @@ public class APIUserResource {
 
 
     @Autowired
-    private UserService userService;
+    private APIUserService apiUserService;
 
     @ApiOperation("用户注册")
     @RequestMapping(value = "/registerUser",method = RequestMethod.POST)
     public ResponseEntity<Object> registerUser(@RequestBody UserRegisterParam param){
-        return userService.registerUser(param);
+        return apiUserService.registerUser(param);
     }
 
     @ApiOperation("用户登陆")
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public ResponseEntity<Object> login(@RequestBody UserLoginParam loginParam){
-        return userService.login(loginParam);
+        return apiUserService.login(loginParam);
     }
 
     @ApiOperation("修改手机号码")
     @RequestMapping(value = "/updateUserPhone",method = RequestMethod.POST)
     public ResponseEntity<Object> updateUserPhone(@RequestBody UpdatePhoneParam param){
-        return userService.updateUserPhone(param);
+        return apiUserService.updateUserPhone(param);
     }
 
     @ApiOperation("修改用户姓名")
     @RequestMapping(value = "/updateUserName",method = RequestMethod.POST)
     public ResponseEntity<Object> updateUserName(@RequestBody UpdateNameParam param){
-        return userService.updateUserName(param);
+        return apiUserService.updateUserName(param);
     }
 
     @ApiOperation("修改密码")
     @RequestMapping(value = "/updateUserPwd",method = RequestMethod.POST)
     public ResponseEntity<Object> updateUserPwd(@RequestBody UpdatePwdParam param){
-        return userService.updateUserPwd(param);
+        return apiUserService.updateUserPwd(param);
+    }
+
+    @ApiOperation("修改头像")
+    @RequestMapping(value = "/updateUserHeadImg",method = RequestMethod.POST)
+    public ResponseEntity<Object> updateUserHeadImg(@RequestBody UpdateImgParam param){
+        return apiUserService.updateUserHeadImg(param);
     }
 }

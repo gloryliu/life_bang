@@ -1,7 +1,7 @@
 package com.glory.shenghuo.resource.web;
 
 import com.glory.shenghuo.api.serviceprovider.param.ServiceProviderListParam;
-import com.glory.shenghuo.service.ServiceProviderService;
+import com.glory.shenghuo.service.web.ServiceProviderService;
 import com.glory.shenghuo.util.PageInfos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

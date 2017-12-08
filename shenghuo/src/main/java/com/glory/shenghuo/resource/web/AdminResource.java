@@ -2,7 +2,7 @@ package com.glory.shenghuo.resource.web;
 
 
 import com.glory.shenghuo.api.admin.pojo.AdminPojo;
-import com.glory.shenghuo.service.AdminService;
+import com.glory.shenghuo.service.web.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

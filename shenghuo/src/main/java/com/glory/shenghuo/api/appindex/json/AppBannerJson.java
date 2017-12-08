@@ -1,5 +1,7 @@
 package com.glory.shenghuo.api.appindex.json;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -10,13 +12,13 @@ import java.io.Serializable;
  **/
 public class AppBannerJson implements Serializable {
 
-    //id
+    @ApiModelProperty("产品id")
     private int id;
 
-    //图片
+    @ApiModelProperty("图片")
     private String img;
 
-    //广告类型：1为建材类，2为服务类
+    @ApiModelProperty("广告类型：1为建材类，2为服务类")
     private int type;
 
     public AppBannerJson(){

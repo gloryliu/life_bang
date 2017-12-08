@@ -24,12 +24,21 @@
         WHERE id=#{id}
     </delete>
 
-    <select id="getListByParentId" parameterType="Integer" resultType="com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo">
-        SELECT * FROM tb_producttype WHERE parent_id=#{id} AND delete_flag=0
+    <!--给app提供分类根据parentId和type查询子节点-->
+    <select id="getListByParentIdAndType" parameterType="Map" resultType="com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo">
+        SELECT * FROM tb_producttype WHERE parent_id=#{parentId} AND type=#{type} AND delete_flag=0
     </select>
 
     <select id="getAllList" parameterType="Integer" resultType="com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo">
         SELECT  * FROM tb_producttype WHERE delete_flag=0 AND type=#{type}
     </select>
 
+    <!--根据一组id批量查询分类-->
+    <select id="getListByIds" resultType="com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo">
+        SELECT * FROM tb_producttype
+        WHERE id IN
+        <foreach collection="Ids" item="dramaId" open="(" close=")" separator=",">
+            #{dramaId}
+        </foreach>
+    </select>
 </mapper>

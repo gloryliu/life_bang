@@ -1,7 +1,7 @@
 package com.glory.shenghuo.controller.admin;
 
 import com.glory.shenghuo.api.service.pojo.ServicePojo;
-import com.glory.shenghuo.service.ServiceService;
+import com.glory.shenghuo.service.web.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

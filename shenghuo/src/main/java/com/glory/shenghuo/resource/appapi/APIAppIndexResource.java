@@ -1,7 +1,7 @@
 package com.glory.shenghuo.resource.appapi;
 
 import com.glory.shenghuo.common.MyResponseUtil;
-import com.glory.shenghuo.service.AppIndexService;
+import com.glory.shenghuo.service.web.AppIndexService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

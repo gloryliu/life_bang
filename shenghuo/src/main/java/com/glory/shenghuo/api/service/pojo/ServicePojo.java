@@ -1,40 +1,42 @@
 package com.glory.shenghuo.api.service.pojo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 public class ServicePojo implements Serializable {
 
-    //主键
+    @ApiModelProperty("主键")
     private int id;
 
-    //服务名称
+    @ApiModelProperty("服务名称")
     private String serviceName;
 
-    //服务价格
+    @ApiModelProperty("服务价格")
     private int servicePrice;
 
-    //服务类型
+    @ApiModelProperty("服务类型")
     private int serviceType;
 
-    //是否广告位展示
+    @ApiModelProperty("是否广告位展示")
     private int isBanner;
 
-    //服务详情
+    @ApiModelProperty("服务详情")
     private String serviceDetail;
 
-    //服务图片
+    @ApiModelProperty("服务图片")
     private String serviceImg;
 
-    //考察类型
+    @ApiModelProperty("考察类型")
     private int seeType;
 
-    //是否推荐服务
+    @ApiModelProperty("是否推荐服务")
     private int isRec;
 
-    //是否优惠
+    @ApiModelProperty("是否优惠")
     private int isDiscount;
 
-    //优惠价格
+    @ApiModelProperty("优惠价格")
     private int discountPrice;
 
     public int getId() {

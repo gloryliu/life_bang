@@ -7,7 +7,19 @@ package com.glory.shenghuo.util;
  **/
 public class ConstantUtils {
 
+
     public static final boolean isDebug = false;
+
+    /**
+     * 生成session中验证码的名称
+     * @param phone
+     * @return
+     */
+    public static String getCheckCodeName(String phone){
+        return "checkCode"+phone;
+    }
+
+
     public static String getBaseHost(){
 
         if(!isDebug){

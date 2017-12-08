@@ -2,7 +2,7 @@ package com.glory.shenghuo.resource.appapi;
 
 import com.glory.shenghuo.api.deliveryaddress.param.DeliveryAddressParam;
 import com.glory.shenghuo.api.deliveryaddress.pojo.DeliveryAddressPojo;
-import com.glory.shenghuo.service.DeliveryAddressService;
+import com.glory.shenghuo.service.web.DeliveryAddressService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;

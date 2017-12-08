@@ -2,6 +2,8 @@ package com.glory.shenghuo.api.appindex.json;
 
 import com.glory.shenghuo.api.goods.pojo.GoodsPojo;
 import com.glory.shenghuo.api.service.pojo.ServicePojo;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiParam;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,16 +16,16 @@ import java.util.List;
  **/
 public class AppIndexJson implements Serializable{
 
-    //广告位的数据
+    @ApiModelProperty("广告位的数据")
     private List<AppBannerJson> banners;
 
-    //推荐的服务
+    @ApiModelProperty("推荐的服务")
     private List<ServicePojo> recService;
 
-    //最新优惠服务
+    @ApiModelProperty("最新优惠服务")
     private List<ServicePojo> newDiscount;
 
-    //本周优惠建材
+    @ApiModelProperty("本周优惠建材")
     private List<GoodsPojo> recGoods;
 
 

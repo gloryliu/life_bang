@@ -1,5 +1,7 @@
 package com.glory.shenghuo.api.goods.pojo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -10,40 +12,40 @@ import java.util.List;
  **/
 public class GoodsPojo implements Serializable{
 
-    //商品id
+    @ApiModelProperty("商品id")
     private int id ;
 
-    //商品名称
+    @ApiModelProperty("商品名称")
     private String goodsName;
 
-    //商品价格
+    @ApiModelProperty("商品价格")
     private int goodsPrice;
 
-    //原始价格
+    @ApiModelProperty("原始价格")
     private int originalPrice;
 
-    //利润
+    @ApiModelProperty("利润")
     private int profit;
 
-    //商品类型
+    @ApiModelProperty("商品类型")
     private int goodsType;
 
-    //商品详情
+    @ApiModelProperty("商品详情")
     private String goodsDetail;
 
-    //库存
+    @ApiModelProperty("库存")
     private int stock;
 
-    //是否在广告位展示商品
+    @ApiModelProperty("是否在广告位展示商品")
     private int isBanner;
 
-    //商品图片
+    @ApiModelProperty("商品图片")
     private String goodsImg;
 
-    //是否特卖商品
+    @ApiModelProperty("是否特卖商品")
     private int isRec;
 
-    //服务商信息
+    @ApiModelProperty("服务商信息")
     private String serviceProvider;
 
 

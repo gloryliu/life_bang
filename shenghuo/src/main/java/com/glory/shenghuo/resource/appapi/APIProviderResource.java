@@ -1,6 +1,8 @@
 package com.glory.shenghuo.resource.appapi;
 
+import com.glory.shenghuo.api.serviceprovider.json.ServiceProvideJson;
 import com.glory.shenghuo.api.serviceprovider.param.ServiceProviderParam;
+import com.glory.shenghuo.api.serviceprovider.pojo.ServiceProviderPoJo;
 import com.glory.shenghuo.common.BusinessException;
 import com.glory.shenghuo.service.apiservice.APIServiceProviderService;
 import io.swagger.annotations.Api;
@@ -34,7 +36,7 @@ public class APIProviderResource {
         return apiServiceProviderService.add(param);
     }
 
-    @ApiOperation("获取服务商信息")
+    @ApiOperation(value = "获取服务商信息",response = ServiceProvideJson.class)
     @ApiImplicitParam(name = "userId", value = "用户id", required = true, paramType = "query", dataType = "int")
     @RequestMapping(value = "/getProviderInfo",method = RequestMethod.GET)
     public ResponseEntity<Object> getProviderInfo(int userId){

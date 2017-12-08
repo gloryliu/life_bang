@@ -1,5 +1,7 @@
 package com.glory.shenghuo.api.serviceprovider.pojo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -11,19 +13,19 @@ import java.io.Serializable;
  **/
 public class ServiceProviderPoJo implements Serializable{
 
-    //主键
+    @ApiModelProperty("主键")
     private int id;
-    //用户id
+    @ApiModelProperty("用户id")
     private int userId;
-    //负责人
+    @ApiModelProperty("负责人")
     private String controller;
-    //联系人
+    @ApiModelProperty("联系人电话")
     private String contacts;
-    //公司地址
+    @ApiModelProperty("公司地址")
     private String companyAddress;
-    //服务范围
+    @ApiModelProperty("服务范围")
     private String serviceRange;
-    //审核状态0为未审核1为审核通过2为审核未通过
+    @ApiModelProperty("审核状态0为未审核1为审核通过2为审核未通过")
     private int status;
 
     public int getId() {

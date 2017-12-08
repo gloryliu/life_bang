@@ -1,4 +1,4 @@
-package com.glory.shenghuo.service;
+package com.glory.shenghuo.service.apiservice;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -8,16 +8,22 @@ import com.glory.shenghuo.api.user.param.*;
 import com.glory.shenghuo.api.user.pojo.UserPoJo;
 import com.glory.shenghuo.common.MyResponseUtil;
 import com.glory.shenghuo.mapper.UserMapper;
+import com.glory.shenghuo.util.ConstantUtils;
+import com.glory.shenghuo.util.LogUtils;
 import com.glory.shenghuo.util.PageInfos;
 import com.glory.shenghuo.util.UtilTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 @Service
-public class UserService {
+public class APIUserService {
+
+    @Autowired
+    HttpSession session;
 
     @Autowired
     private UserMapper userMapper;
@@ -93,6 +99,13 @@ public class UserService {
             return MyResponseUtil.error("密码不正确");
         }
 
+        String checkCode = (String) session.getAttribute(ConstantUtils.getCheckCodeName(param.getPhone()));
+        LogUtils.info("checkCode="+checkCode);
+
+        if(!param.getCheckCode().equals(checkCode)){
+            return MyResponseUtil.error("验证码错误");
+        }
+
         userPoJo.setPhone(param.getPhone());
 
         if(userMapper.updateUser(userPoJo)>0){
@@ -138,6 +151,26 @@ public class UserService {
         }
 
         userPoJo.setPwd(param.getNewPwd());
+
+        if(userMapper.updateUser(userPoJo)>0){
+            return MyResponseUtil.ok("修改成功");
+        }else{
+            return MyResponseUtil.error("修改失败");
+        }
+    }
+
+
+    /**
+     * 修改用户头像
+     * @param param
+     * @return
+     */
+    public ResponseEntity<Object> updateUserHeadImg(UpdateImgParam param){
+        UserPoJo  userPoJo = userMapper.findUserByUserId(param.getUserId());
+        if(userPoJo==null){
+            return MyResponseUtil.error("用户不存在");
+        }
+        userPoJo.setHeadImg(param.getImgUrl());
 
         if(userMapper.updateUser(userPoJo)>0){
             return MyResponseUtil.ok("修改成功");

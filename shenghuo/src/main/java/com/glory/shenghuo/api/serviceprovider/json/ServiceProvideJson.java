@@ -1,17 +1,16 @@
-package com.glory.shenghuo.api.serviceprovider.param;
+package com.glory.shenghuo.api.serviceprovider.json;
 
 import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author liuzhenrong
  * @email liuzhenrong008@gmail.com
  * @QQ 1031807749
- * @create 2017-12-07 11:40
+ * @create 2017-12-08 13:48
  **/
-public class ServiceProviderParam implements Serializable {
+public class ServiceProvideJson implements Serializable {
 
     @ApiModelProperty("用户id")
     private int userId;
@@ -21,8 +20,8 @@ public class ServiceProviderParam implements Serializable {
     private String contacts;
     @ApiModelProperty("公司地址")
     private String companyAddress;
-    @ApiModelProperty("服务内容id")
-    private List<Integer> typeIds;
+    @ApiModelProperty("服务范围")
+    private String serviceRange;
 
     public int getUserId() {
         return userId;
@@ -56,11 +55,11 @@ public class ServiceProviderParam implements Serializable {
         this.companyAddress = companyAddress;
     }
 
-    public List<Integer> getTypeIds() {
-        return typeIds;
+    public String getServiceRange() {
+        return serviceRange;
     }
 
-    public void setTypeIds(List<Integer> typeIds) {
-        this.typeIds = typeIds;
+    public void setServiceRange(String serviceRange) {
+        this.serviceRange = serviceRange;
     }
 }

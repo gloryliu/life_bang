@@ -1,4 +1,4 @@
-package com.glory.shenghuo.service;
+package com.glory.shenghuo.service.web;
 
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.StringUtil;

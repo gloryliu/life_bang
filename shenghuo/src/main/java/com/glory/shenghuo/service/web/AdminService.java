@@ -1,4 +1,4 @@
-package com.glory.shenghuo.service;
+package com.glory.shenghuo.service.web;
 
 import com.glory.shenghuo.api.admin.pojo.AdminPojo;
 import com.glory.shenghuo.mapper.AdminMapper;

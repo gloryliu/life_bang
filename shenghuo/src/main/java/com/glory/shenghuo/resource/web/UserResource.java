@@ -1,7 +1,7 @@
 package com.glory.shenghuo.resource.web;
 
 import com.glory.shenghuo.api.user.param.UserParam;
-import com.glory.shenghuo.service.UserService;
+import com.glory.shenghuo.service.web.UserService;
 import com.glory.shenghuo.util.PageInfos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

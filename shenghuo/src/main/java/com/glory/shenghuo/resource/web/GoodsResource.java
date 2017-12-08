@@ -4,7 +4,7 @@ import com.glory.shenghuo.api.goods.param.ChangeRecGoodsStateParam;
 import com.glory.shenghuo.api.goods.param.GoodsInsertParam;
 import com.glory.shenghuo.api.goods.param.GoodsListParam;
 import com.glory.shenghuo.api.goods.pojo.GoodsPojo;
-import com.glory.shenghuo.service.GoodsService;
+import com.glory.shenghuo.service.web.GoodsService;
 import com.glory.shenghuo.util.PageInfos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

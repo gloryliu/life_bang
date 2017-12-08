@@ -1,4 +1,4 @@
-package com.glory.shenghuo.service;
+package com.glory.shenghuo.service.web;
 
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,8 @@ package com.glory.shenghuo.resource.web;
 
 import com.glory.shenghuo.api.order.param.OrderListParam;
 import com.glory.shenghuo.api.order.param.ProductOfOrderParam;
-import com.glory.shenghuo.service.*;
+import com.glory.shenghuo.service.web.OrderService;
+import com.glory.shenghuo.service.web.ProductOfOrderService;
 import com.glory.shenghuo.util.PageInfos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

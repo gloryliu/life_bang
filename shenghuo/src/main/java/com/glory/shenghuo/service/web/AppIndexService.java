@@ -1,4 +1,4 @@
-package com.glory.shenghuo.service;
+package com.glory.shenghuo.service.web;
 
 import com.glory.shenghuo.api.appindex.json.AppBannerJson;
 import com.glory.shenghuo.api.appindex.json.AppIndexJson;

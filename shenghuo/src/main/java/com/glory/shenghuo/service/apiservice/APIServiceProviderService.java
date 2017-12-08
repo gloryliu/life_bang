@@ -1,15 +1,20 @@
 package com.glory.shenghuo.service.apiservice;
 
 import com.alibaba.fastjson.JSON;
+import com.glory.shenghuo.api.producttype.pojo.ProductTypePoJo;
+import com.glory.shenghuo.api.serviceprovider.json.ServiceProvideJson;
 import com.glory.shenghuo.api.serviceprovider.param.ServiceProviderParam;
 import com.glory.shenghuo.api.serviceprovider.pojo.ServiceProviderPoJo;
 import com.glory.shenghuo.common.BusinessException;
 import com.glory.shenghuo.common.MyResponseUtil;
+import com.glory.shenghuo.mapper.ProductTypeMapper;
 import com.glory.shenghuo.mapper.ServiceProviderMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author liuzhenrong
@@ -20,8 +25,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class APIServiceProviderService {
 
+    /**
+     * 服务
+     */
     @Autowired
     ServiceProviderMapper serviceProviderMapper;
+
+    /**
+     * 产品分类
+     */
+    @Autowired
+    ProductTypeMapper productTypeMapper;
 
     /**
      * 添加服务商申请信息
@@ -66,6 +80,20 @@ public class APIServiceProviderService {
      * @return
      */
     public ResponseEntity<Object> getProviderInfo(int userId){
-        return MyResponseUtil.ok(serviceProviderMapper.getProviderInfoByUserId(userId));
+        ServiceProvideJson json = new ServiceProvideJson();
+        ServiceProviderPoJo providerPoJo = serviceProviderMapper.getProviderInfoByUserId(userId);
+        if(providerPoJo!=null){
+            BeanUtils.copyProperties(providerPoJo,json);
+            List<Integer> ids = JSON.parseArray(providerPoJo.getServiceRange(),Integer.class);
+            List<ProductTypePoJo> typePoJos = productTypeMapper.getListByIds(ids);
+            StringBuffer sb = new StringBuffer();
+            for (ProductTypePoJo type:typePoJos) {
+                sb.append(type.getText()+"  ");
+            }
+            json.setServiceRange(sb.toString());
+            return MyResponseUtil.ok(json);
+        }else {
+            return MyResponseUtil.error("没有服务商信息");
+        }
     }
 }
