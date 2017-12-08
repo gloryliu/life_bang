@@ -1,6 +1,7 @@
 package com.glory.shenghuo.resource.appapi;
 
 import com.glory.shenghuo.api.collection.param.AddCollectionParam;
+import com.glory.shenghuo.api.collection.pojo.CollectionPojo;
 import com.glory.shenghuo.service.apiservice.APICollectionService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -40,7 +41,7 @@ public class APICollectionResource {
         return apiCollectionService.deleteCollection(id);
     }
 
-    @ApiOperation("获取所有收藏")
+    @ApiOperation(value = "获取所有收藏",response = CollectionPojo.class)
     @RequestMapping(value = "/getAllCollection",method = RequestMethod.GET)
     @ApiImplicitParam(name = "userId", value = "用户id", required = true, paramType = "query", dataType = "Integer")
     public ResponseEntity<Object> getAllCollection(int userId){

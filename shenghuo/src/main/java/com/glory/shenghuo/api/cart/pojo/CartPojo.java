@@ -1,5 +1,7 @@
 package com.glory.shenghuo.api.cart.pojo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -10,28 +12,28 @@ import java.io.Serializable;
  **/
 public class CartPojo implements Serializable {
 
-    //主键
+    @ApiModelProperty("主键")
     private int id;
 
-    //产品id
+    @ApiModelProperty("产品id")
     private int productId;
 
-    //产品名称
+    @ApiModelProperty("产品名称")
     private String productName;
 
-    //产品价格
+    @ApiModelProperty("产品价格")
     private int productPrice;
 
-    //产品数量
+    @ApiModelProperty("产品数量")
     private int productCount;
 
-    //产品图片
+    @ApiModelProperty("产品图片")
     private String productImg;
 
-    //产品类型
+    @ApiModelProperty("产品类型")
     private int productType;
 
-    //用户id
+    @ApiModelProperty("用户id")
     private int userId;
 
     public int getId() {

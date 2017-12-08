@@ -1,6 +1,7 @@
 package com.glory.shenghuo.resource.appapi;
 
 import com.glory.shenghuo.api.cart.param.AddCartParam;
+import com.glory.shenghuo.api.cart.pojo.CartPojo;
 import com.glory.shenghuo.service.apiservice.APICartService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -26,7 +27,7 @@ public class APICartResource {
     @Autowired
     private APICartService cartService;
 
-    @ApiOperation("获取购物车列表")
+    @ApiOperation(value = "获取购物车列表",response = CartPojo.class)
     @RequestMapping(value = "/getCartList",method = RequestMethod.GET)
     @ApiImplicitParam(name = "userId", value = "用户id", required = true, paramType = "query", dataType = "Integer")
     public ResponseEntity<Object> getCartList(int userId){
@@ -39,7 +40,7 @@ public class APICartResource {
         return cartService.addCart(param);
     }
 
-    @ApiOperation("获取产品详情")
+    @ApiOperation("删除产品")
     @RequestMapping(value = "/deleteCart",method = RequestMethod.GET)
     @ApiImplicitParam(name = "id", value = "购物车id", required = true, paramType = "query", dataType = "Integer")
     public ResponseEntity<Object> deleteCart(int id){
