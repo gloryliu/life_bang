@@ -72,6 +72,6 @@
     <select id="getDiscountServiceList" resultType="com.glory.shenghuo.api.service.pojo.ServicePojo">
          SELECT
           *
-        FROM tb_service WHERE is_iscount=1
+        FROM tb_service WHERE is_discount=1
     </select>
 </mapper>

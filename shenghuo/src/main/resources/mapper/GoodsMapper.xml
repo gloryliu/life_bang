@@ -54,6 +54,10 @@
         is_rec=#{state}
         WHERE id = #{goodsId}
     </update>
+<!--获取推荐的建材-->
+    <select id="getRecGoodsList" resultType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
+        SELECT * FROM tb_goods WHERE is_rec=1
+    </select>
 
     <select id="appGetGoodsList" parameterType="com.glory.shenghuo.api.goods.param.AppGetDataListParam" resultType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
         SELECT

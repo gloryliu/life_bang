@@ -5,8 +5,15 @@ $(function () {
 });
 
 var serviceObj = {
+    "binners":[],
     "getParam":function () {
         var param = {};
+
+        if(serviceObj.binners.length>0){
+            var strimage1 = serviceObj.binners.join("|");
+            param["banners"] = strimage1;
+        }
+
         if ($("#serviceName").val()) param["serviceName"] = $("#serviceName").val();
 
         if ($("#servicePrice").val()) param["servicePrice"] = $("#servicePrice").val();
@@ -34,5 +41,29 @@ var serviceObj = {
         commonJS.sendAjaxRequest(ajaxObj, function (value) {
             window.location.href="/controller/service/serviceList";
         });
+    },
+    "uploadImagCallBack":function (response) {
+        serviceObj.addBinner(response._raw);
+    },
+    "addBinner":function (obj) {
+
+        serviceObj.binners.push(obj);
+
+        $("#banner").empty();
+        $(serviceObj.binners).each(function (i,item) {
+            $("#banner").append("<img src='"+item+"' class='smallImage'/>");
+        });
+    },
+    "selectImg":function () {
+        var index = layer.open({
+            type: 2,
+            content: '/upload',
+            area: ['320px', '195px'],
+            maxmin: true,
+            end:function () {
+                //alert(window.test);
+            }
+        });
+        layer.full(index);
     }
 };
