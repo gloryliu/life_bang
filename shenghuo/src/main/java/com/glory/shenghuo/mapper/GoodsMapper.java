@@ -40,4 +40,7 @@ public interface GoodsMapper extends BaseMapper {
 
     //app获取建材列表
     Page<GoodsPojo> appGetGoodsList(AppGetDataListParam param);
+
+    //根据id修改商品删除状态
+    int changeGoodsDeleteFlag(int goodsId);
 }

@@ -99,4 +99,13 @@ public class GoodsService {
     public int changeRecGoodsState(ChangeRecGoodsStateParam param){
         return goodsMapper.changeRecGoodsState(param);
     }
+
+    /**
+     * 根据id改变商品删除状态
+     * @param goodsId
+     * @return
+     */
+    public int changeGoodsDeleteFlag(int goodsId){
+        return goodsMapper.changeGoodsDeleteFlag(goodsId);
+    }
 }

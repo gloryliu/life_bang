@@ -60,4 +60,13 @@ public class GoodsResource {
         return goodsService.getGoodsById(id);
     }
 
+    /**
+     * 根据商品id号，修改商品的删除状态
+     * @param goodsId
+     * @return
+     */
+    @RequestMapping("/changeGoodsDeleteFlag")
+    public int changeGoodsDeleteFlag(int goodsId){
+        return goodsService.changeGoodsDeleteFlag(goodsId);
+    }
 }

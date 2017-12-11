@@ -74,4 +74,16 @@
           *
         FROM tb_service WHERE is_discount=1
     </select>
+
+    <!--根据服务id修改其删除状态-->
+    <update id="changeServiceDeleteFlag" parameterType="Integer">
+        UPDATE tb_service
+        SET delete_flag =(
+        CASE
+        WHEN delete_flag = 0 THEN 1
+        WHEN delete_flag = 1 THEN 0
+        END
+        )
+        WHERE id=#{serviceId}
+    </update>
 </mapper>

@@ -39,6 +39,9 @@ public class ServicePojo implements Serializable {
     @ApiModelProperty("优惠价格")
     private int discountPrice;
 
+    @ApiModelProperty("是否删除该服务")
+    private int deleteFlag;
+
     public int getId() {
         return id;
     }
@@ -125,5 +128,12 @@ public class ServicePojo implements Serializable {
 
     public void setDiscountPrice(int discountPrice) {
         this.discountPrice = discountPrice;
+    }
+    public int getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    public void setDeleteFlag(int deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 }

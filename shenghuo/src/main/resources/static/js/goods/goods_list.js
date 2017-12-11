@@ -78,7 +78,6 @@ var goodsListObj = {
         layer.confirm('确定要特卖？', {
             btn: ['确定','取消'] //按钮
         }, function(){
-
             var params = {};
             if(goodsId)  params["goodsId"] = goodsId;
             if(obj.checked){
@@ -99,3 +98,21 @@ var goodsListObj = {
         });
     }
 };
+//根据id改变商品删除状态
+function changeGoodsDeleteFlag(goodsid, deleteflag){
+    var infostr = '是否删除该商品？';
+    if(deleteflag == 1){
+        infostr = '是否恢复该商品？'
+    }
+    layer.confirm(infostr, {
+        btn: ['确定','取消'] //按钮
+    }, function () {
+        var ajaxObj = {url: '/resource/goods/changeGoodsDeleteFlag?goodsId=' + goodsid, async:true, method: "POST"};
+        commonJS.sendAjaxRequest(ajaxObj, function (value) {
+            goodsListObj.getGoodsList();
+            layer.closeAll();
+        });
+    }, function () {
+
+    });
+}

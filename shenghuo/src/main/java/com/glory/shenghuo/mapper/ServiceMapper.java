@@ -36,5 +36,6 @@ public interface ServiceMapper extends BaseMapper {
     //app获取服务列表
     Page<ServicePojo> appGetServiceList(AppGetDataListParam param);
 
-
+    //根据服务id修改其删除状态
+    int changeServiceDeleteFlag(int serviceId);
 }

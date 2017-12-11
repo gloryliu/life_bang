@@ -41,4 +41,13 @@ public class ServiceResource {
     public PageInfos getServiceList(ServiceListParam serviceListParam){
         return serviceService.getServiceList(serviceListParam);
     }
+
+    /**
+     * //根据服务id修改其删除状态
+     * @param serviceId
+     */
+    @RequestMapping("/changeServiceDeleteFlag")
+    public int changeServiceDeleteFlag(int serviceId){
+        return serviceService.changeServiceDeleteFlag(serviceId);
+    }
 }

@@ -48,6 +48,8 @@ public class GoodsPojo implements Serializable{
     @ApiModelProperty("服务商信息")
     private String serviceProvider;
 
+    @ApiModelProperty("是否删除商品")
+    private int deleteFlag;
 
     public int getId() {
         return id;
@@ -143,5 +145,12 @@ public class GoodsPojo implements Serializable{
 
     public void setProfit(int profit) {
         this.profit = profit;
+    }
+    public int getDeleteFlag() {
+        return deleteFlag;
+    }
+
+    public void setDeleteFlag(int deleteFlag) {
+        this.deleteFlag = deleteFlag;
     }
 }

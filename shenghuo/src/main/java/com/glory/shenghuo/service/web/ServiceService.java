@@ -95,4 +95,9 @@ public class ServiceService {
     public ServicePojo getServiceDetail(int id){
         return serviceMapper.getDetail(id);
     }
+
+    //根据服务id修改其删除状态
+    public int changeServiceDeleteFlag(int serviceId){
+        return serviceMapper.changeServiceDeleteFlag(serviceId);
+    }
 }

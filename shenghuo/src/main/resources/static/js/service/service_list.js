@@ -48,3 +48,21 @@ var serviceListObj = {
         commonJS.loading("close");
     }
 };
+//根据id改变服务删除状态
+function changeServiceDeleteFlag(serviceid, deleteflag){
+    var infostr = '是否删除该服务？';
+    if(deleteflag == 1){
+        infostr = '是否恢复该服务？'
+    }
+    layer.confirm(infostr, {
+        btn: ['确定','取消'] //按钮
+    }, function () {
+        var ajaxObj = {url: '/resource/service/changeServiceDeleteFlag?serviceId=' + serviceid, async:true, method: "POST"};
+        commonJS.sendAjaxRequest(ajaxObj, function (value) {
+            serviceListObj.getServiceList();
+            layer.closeAll();
+        });
+    }, function () {
+
+    });
+}
