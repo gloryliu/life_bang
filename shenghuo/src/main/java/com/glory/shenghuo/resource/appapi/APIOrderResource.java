@@ -28,7 +28,7 @@ public class APIOrderResource {
 
     @ApiOperation("单品购买提交订单")
     @RequestMapping(value = "/submitOrder",method = RequestMethod.POST)
-    public ResponseEntity<Object> submitOrder(@RequestBody SubmitOrderParam orderParam){
+    public ResponseEntity<Object> submitOrder(@RequestBody SubmitOrderParam orderParam) throws Exception{
         return apiOrderService.addOrder(orderParam);
     }
 }
