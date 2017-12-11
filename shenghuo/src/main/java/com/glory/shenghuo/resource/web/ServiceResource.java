@@ -1,5 +1,6 @@
 package com.glory.shenghuo.resource.web;
 
+import com.glory.shenghuo.api.service.param.ServiceInsertParam;
 import com.glory.shenghuo.api.service.param.ServiceListParam;
 import com.glory.shenghuo.api.service.pojo.ServicePojo;
 import com.glory.shenghuo.service.web.ServiceService;
@@ -20,8 +21,8 @@ public class ServiceResource {
     private ServiceService serviceService;
 
     @RequestMapping("/addService")
-    public int addService(ServicePojo pojo){
-        return serviceService.addService(pojo);
+    public int addService(ServiceInsertParam param){
+        return serviceService.addService(param);
     }
     @RequestMapping("/updateService")
     public int updateService(ServicePojo pojo){

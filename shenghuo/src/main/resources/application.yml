@@ -7,7 +7,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/shenghuo?useUnicode=true&characterEncoding=UTF-8
     username: root
-    password:
+    password: 123456
   velocity:
     suffix: .html
     cache: false

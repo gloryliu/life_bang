@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.glory.shenghuo.mapper.ImageMapper">
+
+    <insert id="insert" parameterType="com.glory.shenghuo.api.image.pojo.ImagePojo">
+        INSERT INTO tb_images (url,product_id,product_type) VALUES (#{url},#{productId},#{productType})
+    </insert>
+
+    <delete id="delete" parameterType="Integer">
+      DELETE FROM tb_images WHERE id=#{id}
+    </delete>
+
+    <select id="getImagesByProductIdAndType" parameterType="com.glory.shenghuo.api.image.param.GetImageParam" resultType="com.glory.shenghuo.api.image.pojo.ImagePojo">
+        SELECT * FROM tb_images WHERE product_id=#{productId} AND product_type=#{productType}
+    </select>
+</mapper>

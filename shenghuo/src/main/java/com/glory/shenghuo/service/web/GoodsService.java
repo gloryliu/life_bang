@@ -7,10 +7,11 @@ import com.github.pagehelper.StringUtil;
 import com.glory.shenghuo.api.goods.param.ChangeRecGoodsStateParam;
 import com.glory.shenghuo.api.goods.param.GoodsInsertParam;
 import com.glory.shenghuo.api.goods.param.GoodsListParam;
-import com.glory.shenghuo.api.goods.pojo.GoodsImagePojo;
+import com.glory.shenghuo.api.image.pojo.ImagePojo;
 import com.glory.shenghuo.api.goods.pojo.GoodsPojo;
-import com.glory.shenghuo.mapper.GoodsImageMapper;
+import com.glory.shenghuo.mapper.ImageMapper;
 import com.glory.shenghuo.mapper.GoodsMapper;
+import com.glory.shenghuo.util.ConstantUtils;
 import com.glory.shenghuo.util.PageInfos;
 import com.glory.shenghuo.util.UtilTools;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class GoodsService {
      * 商品图片操作
      */
     @Autowired
-    private GoodsImageMapper goodsImageMapper;
+    private ImageMapper goodsImageMapper;
 
     /**
      * 添加商品
@@ -53,12 +54,13 @@ public class GoodsService {
         goodsParam.setGoodsPrice(goodsParam.getOriginalPrice()+goodsParam.getProfit());//商品价格为原始价格加利润
         int count = goodsMapper.insert(goodsParam);
 
-        GoodsImagePojo imagePojo = null;
+        ImagePojo imagePojo = null;
         if(count>0){
 
             for (int i=0;i<banners.length;i++){
-                imagePojo = new GoodsImagePojo();
-                imagePojo.setGoodsId(goodsParam.getId());
+                imagePojo = new ImagePojo();
+                imagePojo.setProductId(goodsParam.getId());
+                imagePojo.setProductType(ConstantUtils.ProductType.GOODS);
                 imagePojo.setUrl(banners[i]);
                 goodsImageMapper.insert(imagePojo);
             }

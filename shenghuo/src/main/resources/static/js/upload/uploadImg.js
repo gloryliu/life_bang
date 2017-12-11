@@ -195,6 +195,9 @@
             if(window.parent.goodsObj!=null){
                 window.parent.goodsObj.uploadImagCallBack(response);
             }
+            if(window.parent.serviceObj!=null){
+                window.parent.serviceObj.uploadImagCallBack(response);
+            }
         });
 
         uploader.on('dialogOpen', function() {

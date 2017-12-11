@@ -43,6 +43,7 @@ var serviceObj = {
         });
     },
     "uploadImagCallBack":function (response) {
+        console.log(response._raw);
         serviceObj.addBinner(response._raw);
     },
     "addBinner":function (obj) {

@@ -6,9 +6,10 @@ import com.github.pagehelper.PageInfo;
 import com.glory.shenghuo.api.goods.json.DataDetailJson;
 import com.glory.shenghuo.api.goods.param.AppGetDataListParam;
 import com.glory.shenghuo.api.goods.pojo.GoodsPojo;
+import com.glory.shenghuo.api.image.param.GetImageParam;
 import com.glory.shenghuo.api.service.pojo.ServicePojo;
 import com.glory.shenghuo.common.MyResponseUtil;
-import com.glory.shenghuo.mapper.GoodsImageMapper;
+import com.glory.shenghuo.mapper.ImageMapper;
 import com.glory.shenghuo.mapper.GoodsMapper;
 import com.glory.shenghuo.mapper.ServiceMapper;
 import com.glory.shenghuo.util.ConstantUtils;
@@ -42,7 +43,7 @@ public class APIDataService {
      * 图片
      */
     @Autowired
-    private GoodsImageMapper goodsImageMapper;
+    private ImageMapper goodsImageMapper;
 
 
     /**
@@ -56,7 +57,7 @@ public class APIDataService {
         if(goodsPojo!=null){
             dataDetailJson = new DataDetailJson();
             dataDetailJson.setId(goodsPojo.getId());
-            dataDetailJson.setImages(goodsImageMapper.getAllImagesByGoodsId(id));
+            dataDetailJson.setImages(goodsImageMapper.getImagesByProductIdAndType(new GetImageParam(id,ConstantUtils.ProductType.GOODS)));
             dataDetailJson.setName(goodsPojo.getGoodsName());
             dataDetailJson.setPrice(goodsPojo.getGoodsPrice());
             dataDetailJson.setImg(goodsPojo.getGoodsImg());
@@ -77,7 +78,7 @@ public class APIDataService {
         if(servicePojo!=null){
             dataDetailJson = new DataDetailJson();
             dataDetailJson.setId(servicePojo.getId());
-            dataDetailJson.setImages(goodsImageMapper.getAllImagesByGoodsId(id));
+            dataDetailJson.setImages(goodsImageMapper.getImagesByProductIdAndType(new GetImageParam(id,ConstantUtils.ProductType.SERVICE)));
             dataDetailJson.setName(servicePojo.getServiceName());
             dataDetailJson.setPrice(servicePojo.getServicePrice());
             dataDetailJson.setImg(servicePojo.getServiceImg());

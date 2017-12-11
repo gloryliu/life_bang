@@ -1,9 +1,8 @@
 package com.glory.shenghuo.api.goods.json;
 
-import com.glory.shenghuo.api.goods.pojo.GoodsImagePojo;
+import com.glory.shenghuo.api.image.pojo.ImagePojo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +17,7 @@ public class DataDetailJson implements Serializable{
     private int id;
 
     //轮播图片
-    private List<GoodsImagePojo> images;
+    private List<ImagePojo> images;
 
     //名称
     private String name;
@@ -43,11 +42,11 @@ public class DataDetailJson implements Serializable{
         this.id = id;
     }
 
-    public List<GoodsImagePojo> getImages() {
+    public List<ImagePojo> getImages() {
         return images;
     }
 
-    public void setImages(List<GoodsImagePojo> images) {
+    public void setImages(List<ImagePojo> images) {
         this.images = images;
     }
 
