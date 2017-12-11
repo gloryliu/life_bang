@@ -1,5 +1,7 @@
 package com.glory.shenghuo.api.order.pojo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -12,47 +14,53 @@ import java.util.List;
  **/
 public class OrderPojo implements Serializable{
 
-    //主键
+    @ApiModelProperty("主键")
     private int id;
 
-    //用户id
+    @ApiModelProperty("用户id")
     private int userId;
 
-    //创建时间
+    @ApiModelProperty("创建时间")
     private Date createTime;
 
-    //收货人姓名
+    @ApiModelProperty("收货人姓名")
     private String receiveName;
 
-    //收货人电话
+    @ApiModelProperty("收货人电话")
     private String receivePhone;
 
-    //收货地址
+    @ApiModelProperty("收货地址")
     private String receiveAddress;
 
-    //配送方式1为快递2为携带
+    @ApiModelProperty("配送方式1为快递2为携带")
     private int transportType;
 
-//    //订单里边的商品
-//    private List<ProductOfOrderPojo> products;
-
-    //服务时间
+    @ApiModelProperty("服务时间")
     private String serviceTime;
 
-    //订单状态
+    @ApiModelProperty("订单状态")
     private int orderState;
 
-    //订单状态文字描述
+    @ApiModelProperty("订单状态文字描述")
     private String orderStateCn;
 
-    //用户订单号
+    @ApiModelProperty("商户订单号")
     private String outTradeNo;
 
-    //支付宝交易号
+    @ApiModelProperty("支付宝交易号")
     private String tradeNo;
 
-    //微信交易号
+    @ApiModelProperty("微信交易号")
     private String transactionId;
+
+    @ApiModelProperty("服务商id")
+    private int serviceProviderId;
+
+    @ApiModelProperty("订单类型1为建材2为服务")
+    private int orderType;
+
+    @ApiModelProperty("订单总金额")
+    private int orderAmount;
 
     public int getId() {
         return id;
@@ -110,14 +118,6 @@ public class OrderPojo implements Serializable{
         this.transportType = transportType;
     }
 
-//    public List<ProductOfOrderPojo> getProducts() {
-//        return products;
-//    }
-//
-//    public void setProducts(List<ProductOfOrderPojo> products) {
-//        this.products = products;
-//    }
-
     public String getServiceTime() {
         return serviceTime;
     }
@@ -163,5 +163,29 @@ public class OrderPojo implements Serializable{
 
     public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
+    }
+
+    public int getServiceProviderId() {
+        return serviceProviderId;
+    }
+
+    public void setServiceProviderId(int serviceProviderId) {
+        this.serviceProviderId = serviceProviderId;
+    }
+
+    public int getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(int orderType) {
+        this.orderType = orderType;
+    }
+
+    public int getOrderAmount() {
+        return orderAmount;
+    }
+
+    public void setOrderAmount(int orderAmount) {
+        this.orderAmount = orderAmount;
     }
 }
