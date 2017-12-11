@@ -13,6 +13,7 @@ var goodsObj = {
     "binners":[],
     "goodsId":"",
     "type":"",
+    "checkIsOK":true,
     "init":function () {
         goodsObj.getGoodstypeList();
         goodsObj.getShopList();
@@ -27,6 +28,13 @@ var goodsObj = {
             param["banners"] = strimage1;
         }
 
+        if($("#type1").val()==0){
+            commonJS.alert("请选择类型");
+            serviceObj.checkIsOK = false;
+            return;
+        }
+
+        if ($("#type2").val()) param["goodsType"] = $("#type2").val();
 
         if ($("#goodsName").val()) param["goodsName"] = $("#goodsName").val();
 
@@ -74,6 +82,9 @@ var goodsObj = {
 
         var param = goodsObj.getParam();
         console.log(param.toString());
+        if(!goodsObj.checkIsOK){
+            return;
+        }
         var url = '/resource/goods/insert';
         if (goodsObj.type == 1) {
             url = '/resource/goods/update';

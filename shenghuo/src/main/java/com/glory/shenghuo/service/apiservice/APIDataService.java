@@ -96,6 +96,9 @@ public class APIDataService {
     public ResponseEntity<Object> appGetGoodsList(AppGetDataListParam param){
         PageHelper.startPage(param.getPageNum(),param.getPageSize(),true);
         Page<GoodsPojo> goodsList = goodsMapper.appGetGoodsList(param);
+        for (GoodsPojo pojo: goodsList) {
+            pojo.setGoodsDetail(ConstantUtils.getBaseHost()+"/controller/goods/getGoodsDetailHtml?id="+pojo.getId());
+        }
         PageInfo<GoodsPojo> pageInfo = new PageInfo<>(goodsList);
         return MyResponseUtil.ok(UtilTools.pageChange(pageInfo,goodsList));
     }
@@ -108,6 +111,9 @@ public class APIDataService {
     public ResponseEntity<Object> appGetServiceList(AppGetDataListParam param){
         PageHelper.startPage(param.getPageNum(),param.getPageSize(),true);
         Page<ServicePojo> serviceList = serviceMapper.appGetServiceList(param);
+        for (ServicePojo pojo: serviceList) {
+            pojo.setServiceDetail(ConstantUtils.getBaseHost()+"/controller/service/getServiceDetailHtml?id="+pojo.getId());
+        }
         PageInfo<ServicePojo> pageInfo = new PageInfo<>(serviceList);
         return MyResponseUtil.ok(UtilTools.pageChange(pageInfo,serviceList));
     }

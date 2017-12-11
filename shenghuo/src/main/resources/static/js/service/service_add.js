@@ -6,6 +6,7 @@ $(function () {
 
 var serviceObj = {
     "binners":[],
+    "checkIsOK":true,
     "getParam":function () {
         var param = {};
 
@@ -13,6 +14,14 @@ var serviceObj = {
             var strimage1 = serviceObj.binners.join("|");
             param["banners"] = strimage1;
         }
+
+        if($("#type1").val()==0){
+            commonJS.alert("请选择类型");
+            serviceObj.checkIsOK = false;
+            return;
+        }
+
+        if ($("#type2").val()) param["serviceType"] = $("#type2").val();
 
         if ($("#serviceName").val()) param["serviceName"] = $("#serviceName").val();
 
@@ -36,6 +45,9 @@ var serviceObj = {
     "insert": function () {/*添加服务*/
         var param = serviceObj.getParam();
         console.log(param.toString());
+        if(!serviceObj.checkIsOK){
+            return;
+        }
         var url = '/resource/service/addService';
         var ajaxObj = {url:url, async:true, param:param, method: "POST"};
         commonJS.sendAjaxRequest(ajaxObj, function (value) {

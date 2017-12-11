@@ -96,13 +96,13 @@
                 <label class="col-xs-2 col-sm-2 col-md-1 control-label pr0"><i class="form-star">*</i>商品类别</label>
                 <div class="col-xs-4 col-sm-4 col-md-3" id="global_location">
                     <p>
-                        <select class="country" data-first-title="请选择" disabled="disabled"></select>
+                        <select id="type1" class="type1" data-first-title="请选择" disabled="disabled"></select>
 
-                        <select class="state" disabled="disabled"></select>
+                        <select id="type2" class="type2" disabled="disabled"></select>
 
-                        <select class="city" disabled="disabled"></select>
+                        <select id="type3" class="type3" disabled="disabled"></select>
 
-                        <select class="region" disabled="disabled"></select>
+                        <select id="type4" class="type4" disabled="disabled"></select>
                     </p>
                 </div>
             </div>
@@ -179,7 +179,7 @@
 
         url: '/resource/productType/getSelectDomListOfGoods',
 
-        selects: ['country', 'state', 'city', 'region'],
+        selects: ['type1', 'type2', 'type3', 'type4'],
 
         required:false,
 
