@@ -18,12 +18,11 @@ var buyObj = {
     "getCondition": function () {/*获取查询条件*/
         var param = {};
         var servicestate = $("#servicestate").val();
-        if(servicestate) {
+        if(servicestate > 0) {
             param["serviceState"] = servicestate;
+        }else{
+            param["serviceState"] = "";
         }
-        // else{
-        //     param["serviceState"] = "";
-        // }
 
         param["pageSize"] = basePageObj.pageObj.pageSize;
         param["pageNum"] = basePageObj.pageObj.pageNo;
