@@ -17,16 +17,16 @@
     <script src="/js/lib/WdatePicker.js"></script>
     <script src="/js/common/common.js"></script>
     <!-- 业务处理js -->
-    <script src="/js/order/order_list.js"></script>
+    <script src="/js/order/serviceorder_list.js"></script>
 </head>
 <body class="gray-bg">
 <div class="wrapper-content animated fadeInRight">
     <div class="row mb20">
         <div class="col-md-12">
             <ol class="breadcrumb">
-                <li><a href="#">订单管理</a>
+                <li><a href="#">分配中心</a>
                 </li>
-                <li class="active">订单列表</li>
+                <li class="active">分发服务</li>
             </ol>
         </div>
     </div>
@@ -36,8 +36,15 @@
                 <div class="row mb15 form-inline">
                     <div class="col-xs-6 col-sm-3 col-md-3 pr0">
                         <div class="form-group">
-                            <label>订单号</label>
-                            <input type="text" class="form-control" id="orderid" placeholder="订单号">
+                            <label>服务状态</label>
+                                <select id="servicestate">
+                                    <option value="0">请选择</option>
+                                    <option value="1">等待服务</option>
+                                    <option value="2">确认服务</option>
+                                    <option value="3">派单中</option>
+                                    <option value="4">服务中</option>
+                                    <option value="5">结束</option>
+                                </select>
                         </div>
                     </div>
                     <button class="btn btn-primary" id="searchButton">查询</button>
@@ -84,6 +91,7 @@
         <td>
             <a href="/controller/order/detail?orderId={{:id}}">详情</a>
         </td>
+        <!--<td>{{:userId}}</td>-->
         <td>{{:createTime}}</td>
         <td>{{:receiveName}}</td>
         <td>{{:receivePhone}}</td>
@@ -98,7 +106,8 @@
         <td>{{:serviceProviderId}}</td>
         <td>{{if orderType == "1"}}建材
             {{else}}服务
-            {{/if}}</td>
+            {{/if}}
+        </td>
         <td>{{:orderAmount}}</td>
         <td>{{:serviceState}}</td>
     </tr>

@@ -62,6 +62,9 @@ public class OrderPojo implements Serializable{
     @ApiModelProperty("订单总金额")
     private int orderAmount;
 
+    @ApiModelProperty("服务状态")
+    private int serviceState;
+
     public int getId() {
         return id;
     }
@@ -187,5 +190,13 @@ public class OrderPojo implements Serializable{
 
     public void setOrderAmount(int orderAmount) {
         this.orderAmount = orderAmount;
+    }
+
+    public int getServiceState() {
+        return serviceState;
+    }
+
+    public void setServiceState(int serviceState) {
+        this.serviceState = serviceState;
     }
 }

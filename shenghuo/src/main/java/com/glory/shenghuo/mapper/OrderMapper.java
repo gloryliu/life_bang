@@ -2,6 +2,7 @@ package com.glory.shenghuo.mapper;
 
 import com.fasterxml.jackson.databind.ser.Serializers;
 import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.glory.shenghuo.api.order.param.OrderListParam;
 import com.glory.shenghuo.api.order.pojo.OrderPojo;
 
@@ -49,4 +50,11 @@ public interface OrderMapper extends BaseMapper {
      * @return
      */
     Page<OrderPojo> getOrderList(OrderListParam orderListParam);
+
+    /**
+     * 获取购买的所有服务列表
+     * @param orderListParam
+     * @return
+     */
+    Page<OrderPojo> getServiceOrderList(OrderListParam orderListParam);
 }

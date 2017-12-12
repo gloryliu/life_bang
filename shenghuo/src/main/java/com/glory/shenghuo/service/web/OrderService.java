@@ -31,6 +31,17 @@ public class OrderService {
         return UtilTools.pageChange(data,orderPojos);
     }
 
+    /**
+     * 获取购买的所有服务列表
+     * @param orderListParam
+     * @return
+     */
+    public PageInfos getServiceOrderList(OrderListParam orderListParam){
+        PageHelper.startPage(orderListParam.getPageNum(),orderListParam.getPageSize(),true);
+        Page<OrderPojo> orderPojos = orderMapper.getServiceOrderList(orderListParam);
+        PageInfo<OrderPojo> data = new PageInfo<>(orderPojos);
+        return UtilTools.pageChange(data,orderPojos);
+    }
     //根据orderid查询订单信息（姓名、电话、地址等）
     public OrderPojo getOrderDetail(Integer orderId){
         return orderMapper.getOrderDetail(orderId);

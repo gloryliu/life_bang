@@ -33,4 +33,14 @@ public class OrderResource {
     public List<ProductOfOrderPojo> getProductByOrderId(int orderId){
         return productOfOrderService.getAllProductByOrderId(orderId);
     }
+
+    /**
+     * 获取购买的所有服务列表
+     * @param orderListParam
+     * @return
+     */
+    @RequestMapping("/serviceOrderList")
+    public PageInfos getServiceOrderList(OrderListParam orderListParam){
+        return orderService.getServiceOrderList(orderListParam);
+    }
 }

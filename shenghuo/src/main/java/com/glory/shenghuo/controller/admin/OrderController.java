@@ -40,4 +40,13 @@ public class OrderController {
 
         return "admin/order/order_detail";
     }
+
+    /**
+     * 获取购买的所有服务的列表
+     * @return
+     */
+    @RequestMapping("/serviceOrderList")
+    public String getServiceOrderList(){
+        return "admin/order/serviceorder_list";
+    }
 }
