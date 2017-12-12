@@ -12,6 +12,7 @@ import com.glory.shenghuo.util.UtilTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,14 +23,10 @@ public class ProductOfOrderService {
 
     /**
      * 根据订单id号查询出所有的订单信息
-     * @param productOfOrderParam
+     * @param orderId
      * @return
      */
-    public PageInfos getAllProductByOrderId(ProductOfOrderParam productOfOrderParam){
-
-        PageHelper.startPage(productOfOrderParam.getPageNum(),productOfOrderParam.getPageSize(),true);
-        Page<ProductOfOrderPojo> productOfOrderPojos = productOfOrderMapper.getAllProductByOrderId(productOfOrderParam.getOrderId());
-        PageInfo<ProductOfOrderPojo> data = new PageInfo<>(productOfOrderPojos);
-        return UtilTools.pageChange(data,productOfOrderPojos);
+    public List<ProductOfOrderPojo> getAllProductByOrderId(int orderId){
+        return productOfOrderMapper.getAllProductByOrderId(orderId);
     }
 }

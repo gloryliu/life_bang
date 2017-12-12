@@ -1,6 +1,5 @@
 package com.glory.shenghuo.mapper;
 
-import com.github.pagehelper.Page;
 import com.glory.shenghuo.api.order.pojo.ProductOfOrderPojo;
 
 import java.util.List;
@@ -13,13 +12,25 @@ import java.util.List;
  **/
 public interface ProductOfOrderMapper extends BaseMapper{
 
-    //向订单中添加产品
+    /**
+     * 向订单中添加产品
+     * @param productOfOrderPojo
+     * @return
+     */
     int add(ProductOfOrderPojo productOfOrderPojo);
 
-    //查询订单中的所有产品
-    Page<ProductOfOrderPojo> getAllProductByOrderId(int orderId);
+    /**
+     * 查询订单中的所有产品
+     * @param orderId
+     * @return
+     */
+    List<ProductOfOrderPojo> getAllProductByOrderId(int orderId);
 
-    //删除订单中的所有产品
+    /**
+     * 删除订单中的所有产品
+     * @param orderId
+     * @return
+     */
     int deleteProductByOrderId(int orderId);
 
 }

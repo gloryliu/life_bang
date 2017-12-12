@@ -36,9 +36,9 @@
                 <div class="row mb15 form-inline">
                     <div class="col-xs-6 col-sm-3 col-md-3 pr0">
                         <label>下单用户：${userName}</label><br/>
-                        <label>订单号  ：${orderPojo.getOutTradeNo()}</label><br/>
-                        <label>下单时间：${orderPojo.getCreateTime()}</label>
-                        <input hidden="hidden" id="orderid" value="${orderId}"/>
+                        <label>订单号  ：${orderPojo.outTradeNo}</label><br/>
+                        <label>下单时间：${orderPojo.createTime}</label>
+                        <input hidden="hidden" id="orderId" value="${orderId}"/>
                     </div>
                 </div>
             </div>
@@ -50,11 +50,11 @@
                 <table class="table table-bordered table-hover table-condensed mb0">
                     <thead>
                     <tr>
-                        <th>商品类型</th>
                         <th>商品名称</th>
+                        <th>商品图片</th>
+                        <th>商品类型</th>
                         <th>商品价格</th>
                         <th>商品数量</th>
-                        <th>商品图片</th>
                     </tr>
                     </thead>
                     <tbody id="data"></tbody>
@@ -62,28 +62,21 @@
             </div>
         </div>
     </div>
-    #page()
 </div>
 </body>
 <!-- 列表模板 -->
 <script id="dataTemplate" type="text/x-jsrender">
     <tr>
-        <!--<td>{{:productType}}</td>-->
+        <td>{{:productName}}</td>
+        <td><img src="{{:productImg}}" width="50px" height="50px"></td>
         <td>
-            {{if productType == "1"}}购买建材
-            {{else}}购买服务
+            {{if productType == "1"}}建材
+            {{else}}服务
             {{/if}}
         </td>
-        <td>{{:productName}}</td>
         <td>{{:productPrice}}</td>
         <td>{{:productCount}}</td>
-        <td>{{:productImg}}</td>
     </tr>
 </script>
-<script id="goodstype_template" type="text/x-jsrender">
-    <option value="{{:id}}" >{{:typename}}</option>
-</script>
-<script id="shop_template" type="text/x-jsrender">
-    <option value="{{:id}}" >{{:shopname}}</option>
-</script>
+
 </html>

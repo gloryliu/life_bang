@@ -1,8 +1,13 @@
 package com.glory.shenghuo.resource.appapi;
 
+import com.glory.shenghuo.api.order.json.OrderDetailJson;
+import com.glory.shenghuo.api.order.json.OrderListItemJson;
+import com.glory.shenghuo.api.order.param.SubmitOrderListParam;
 import com.glory.shenghuo.api.order.param.SubmitOrderParam;
+import com.glory.shenghuo.common.BusinessException;
 import com.glory.shenghuo.service.apiservice.APIOrderService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,5 +35,25 @@ public class APIOrderResource {
     @RequestMapping(value = "/submitOrder",method = RequestMethod.POST)
     public ResponseEntity<Object> submitOrder(@RequestBody SubmitOrderParam orderParam) throws Exception{
         return apiOrderService.addOrder(orderParam);
+    }
+
+    @ApiOperation("批量购买提交订单")
+    @RequestMapping(value = "/submitOrderList",method = RequestMethod.POST)
+    public ResponseEntity<Object> addOrderList(@RequestBody SubmitOrderListParam orderListParam) throws BusinessException {
+        return apiOrderService.addOrderList(orderListParam);
+    }
+
+    @ApiOperation(value = "订单列表",response = OrderListItemJson.class)
+    @RequestMapping(value = "/getOrderListByUserId",method = RequestMethod.GET)
+    @ApiImplicitParam(name = "userId", value = "商品id", required = true, paramType = "query", dataType = "Integer")
+    public ResponseEntity<Object> getOrderListByUserId(int userId){
+        return apiOrderService.getOrderListByUserId(userId);
+    }
+
+    @ApiOperation(value = "订单详情",response = OrderDetailJson.class)
+    @RequestMapping(value = "/getOrderDetail",method = RequestMethod.GET)
+    @ApiImplicitParam(name = "orderId", value = "订单id", required = true, paramType = "query", dataType = "Integer")
+    public ResponseEntity<Object> getOrderDetail(int orderId) throws BusinessException {
+        return apiOrderService.getOrderDetail(orderId);
     }
 }

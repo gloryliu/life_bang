@@ -36,8 +36,8 @@ public class SubmitOrderParam implements Serializable {
     @ApiModelProperty("收货人详细地址")
     private String receiveAddress;
 
-//    @ApiModelProperty("服务时间，只有服务有这个字段")
-//    private String serviceTime;
+    @ApiModelProperty("服务时间，只有服务有这个字段")
+    private String serviceTime;
 
     public int getUserId() {
         return userId;
@@ -95,13 +95,13 @@ public class SubmitOrderParam implements Serializable {
         this.receiveAddress = receiveAddress;
     }
 
-//    public String getServiceTime() {
-//        return serviceTime;
-//    }
-//
-//    public void setServiceTime(String serviceTime) {
-//        this.serviceTime = serviceTime;
-//    }
+    public String getServiceTime() {
+        return serviceTime;
+    }
+
+    public void setServiceTime(String serviceTime) {
+        this.serviceTime = serviceTime;
+    }
 
     public int getProductId() {
         return productId;

@@ -16,21 +16,16 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
-    @Autowired
-    private ProductOfOrderService productOfOrderService;
 
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private GoodsService goodsService;
 
-    @Autowired
-    private ServiceService serviceService;
     @RequestMapping("/list")
     public String getOrderList(){
         return "admin/order/order_list";
     }
+
     @RequestMapping("/detail")
     public String getOrderDetail(ModelMap modelMap, Integer orderId){
         //根据订单id查询出订单详情

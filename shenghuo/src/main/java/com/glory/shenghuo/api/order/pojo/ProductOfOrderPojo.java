@@ -1,5 +1,7 @@
 package com.glory.shenghuo.api.order.pojo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -10,31 +12,31 @@ import java.io.Serializable;
  **/
 public class ProductOfOrderPojo implements Serializable {
 
-    //主键
+    @ApiModelProperty("主键")
     private int id;
 
-    //订单id
+    @ApiModelProperty("订单id")
     private int orderId;
 
-    //用户id
+    @ApiModelProperty("用户id")
     private int userId;
 
-    //产品id
+    @ApiModelProperty("产品id")
     private int productId;
 
-    //产品类型1为建材2为服务
+    @ApiModelProperty("产品类型1为建材2为服务")
     private int productType;
 
-    //产品价格
+    @ApiModelProperty("产品价格")
     private int productPrice;
 
-    //产品名称
+    @ApiModelProperty("产品名称")
     private String productName;
 
-    //产品数量
+    @ApiModelProperty("产品数量")
     private int productCount;
 
-    //产品图片
+    @ApiModelProperty("产品图片")
     private String productImg;
 
     public int getId() {

@@ -5,6 +5,8 @@ import com.github.pagehelper.Page;
 import com.glory.shenghuo.api.order.param.OrderListParam;
 import com.glory.shenghuo.api.order.pojo.OrderPojo;
 
+import java.util.List;
+
 /**
  * @author liuzhenrong
  * @email liuzhenrong008@gmail.com
@@ -13,18 +15,38 @@ import com.glory.shenghuo.api.order.pojo.OrderPojo;
  **/
 public interface OrderMapper extends BaseMapper {
 
-    //添加订单
+    /**
+     * 添加订单
+     * @param orderPojo
+     * @return
+     */
     int add(OrderPojo orderPojo);
 
-    //删除订单
+    /**
+     * 删除订单
+     * @param id
+     * @return
+     */
     int delete(int id);
 
-    //获取订单详情
+    /**
+     * 获取订单详情
+     * @param id
+     * @return
+     */
     OrderPojo getOrderDetail(int id);
 
-    //根据用户id获取订单列表
-    Page<OrderPojo> getAllOrderByUserId(int userId);
+    /**
+     * 根据用户id获取订单列表
+     * @param userId
+     * @return
+     */
+    List<OrderPojo> getAllOrderByUserId(int userId);
 
-    //获取所有订单列表
+    /**
+     * 获取所有订单列表
+     * @param orderListParam
+     * @return
+     */
     Page<OrderPojo> getOrderList(OrderListParam orderListParam);
 }

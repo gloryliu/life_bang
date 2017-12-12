@@ -25,15 +25,46 @@ public class OrderListItemParam implements Serializable {
     @ApiModelProperty("配送方式1为快递2为携带上门")
     private int transportType;
 
-    @ApiModelProperty("收货人姓名")
-    private String receiveName;
-
-    @ApiModelProperty("收货人电话")
-    private String receivePhone;
-
-    @ApiModelProperty("收货人详细地址")
-    private String receiveAddress;
-
     @ApiModelProperty("服务时间，只有服务有这个字段")
     private String serviceTime;
+
+    public int getProductType() {
+        return productType;
+    }
+
+    public void setProductType(int productType) {
+        this.productType = productType;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
+
+    public int getProductCount() {
+        return productCount;
+    }
+
+    public void setProductCount(int productCount) {
+        this.productCount = productCount;
+    }
+
+    public int getTransportType() {
+        return transportType;
+    }
+
+    public void setTransportType(int transportType) {
+        this.transportType = transportType;
+    }
+
+    public String getServiceTime() {
+        return serviceTime;
+    }
+
+    public void setServiceTime(String serviceTime) {
+        this.serviceTime = serviceTime;
+    }
 }
