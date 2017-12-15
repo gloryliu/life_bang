@@ -64,7 +64,7 @@ public class AppIndexService {
         List<AppBannerJson> bannerJsons = new ArrayList<>();
         List<GoodsPojo> goodsPojoList = goodsMapper.getBannerGoodsList();
         for (GoodsPojo goods: goodsPojoList) {
-            bannerJsons.add(new AppBannerJson(goods.getId(),goods.getGoodsImg(),ConstantUtils.ProductType.SERVICE));
+            bannerJsons.add(new AppBannerJson(goods.getId(),goods.getGoodsImg(),ConstantUtils.ProductType.GOODS));
         }
 
         List<GoodsPojo> recGoods = goodsMapper.getRecGoodsList();
