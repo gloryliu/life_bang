@@ -16,6 +16,7 @@
     <script src="/js/lib/layer.js"></script>
     <script src="/js/lib/WdatePicker.js"></script>
     <script src="/js/common/common.js"></script>
+    <script src="/js/lib/jquery.cxselect.min.js"></script>
     <!-- 业务处理js -->
     <script src="/js/goods/goods_list.js"></script>
 </head>
@@ -34,14 +35,17 @@
         <div class="col-md-12">
             <div class="jy-formBox w-label">
                 <div class="row mb15 form-inline">
-                    <div class="col-xs-6 col-sm-3 col-md-3 pr0">
-                        <div class="form-group w20">
-                            <label>商品类别</label>
-                            <select id="goodstype" class="form-control">
-                                <option value="">请选择</option>
-                            </select>
-                        </div>
-                    </div>
+                    <!--<div class="col-xs-6 col-sm-3 col-md-3 pr0">-->
+                        <!--<div class="form-group">-->
+                            <!--<label>商品类别</label>-->
+                            <!--<div class="col-xs-4 col-sm-4 col-md-3" id="global_location">-->
+                                <!--<p>-->
+                                    <!--<select id="type1" class="type1" data-first-title="请选择" disabled="disabled"></select>-->
+                                    <!--<select id="type2" class="type2" disabled="disabled"></select>-->
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
                     <div class="col-xs-6 col-sm-3 col-md-3 pr0">
                         <div class="form-group">
                             <label>商品名称</label>
@@ -68,7 +72,10 @@
                         <th>库存</th>
                         <th>购买单价</th>
                         <th>商品类别</th>
+                        <th>是否展示</th>
                         <th>服务商</th>
+                        <th>运费</th>
+                        <th>是否可携带</th>
                         <th>删除/恢复</th>
                     </tr>
                     </thead>
@@ -95,7 +102,18 @@
         <td>{{:stock}}</td>
         <td>{{:goodsPrice}}</td>
         <td>{{:goodsType}}</td>
+        <td>
+            {{if isBanner == "0"}}否
+            {{else}}是
+            {{/if}}
+        </td>
         <td>{{:serviceProvider}}</td>
+        <td>{{:freight}}</td>
+        <td>
+            {{if isCarry == "0"}}否
+            {{else}}是
+            {{/if}}
+        </td>
         <td>
             {{if deleteFlag == "0"}}<a onclick="changeGoodsDeleteFlag({{:id}},{{:deleteFlag}})">删除</a>
             {{else}}<a onclick="changeGoodsDeleteFlag({{:id}},{{:deleteFlag}})">恢复</a>
@@ -103,4 +121,14 @@
         </td>
     </tr>
 </script>
+<!--<script>-->
+    <!--$('#global_location').cxSelect({-->
+        <!--url: '/resource/productType/getSelectDomListOfGoods',-->
+        <!--selects: ['type1', 'type2'],-->
+        <!--required:false,-->
+        <!--firstTitle:"请选择",-->
+        <!--firstValue:"0",-->
+        <!--nodata: 'none'-->
+    <!--});-->
+<!--</script>-->
 </html>
