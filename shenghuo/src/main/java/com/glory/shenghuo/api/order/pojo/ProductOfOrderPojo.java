@@ -39,6 +39,9 @@ public class ProductOfOrderPojo implements Serializable {
     @ApiModelProperty("产品图片")
     private String productImg;
 
+    @ApiModelProperty("服务商id")
+    private int serviceProviderId;
+
     public int getId() {
         return id;
     }
@@ -109,5 +112,13 @@ public class ProductOfOrderPojo implements Serializable {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public int getServiceProviderId() {
+        return serviceProviderId;
+    }
+
+    public void setServiceProviderId(int serviceProviderId) {
+        this.serviceProviderId = serviceProviderId;
     }
 }

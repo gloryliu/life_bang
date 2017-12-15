@@ -6,9 +6,9 @@
 
     <insert id="add" parameterType="com.glory.shenghuo.api.order.pojo.ProductOfOrderPojo" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO tb_order_products (order_id,user_id,product_id,product_type,product_price,
-        product_name,product_count,product_img)
+        product_name,product_count,product_img,service_provider_id)
         VALUES (#{orderId},#{userId},#{productId},#{productType},#{productPrice},
-        #{productName},#{productCount},#{productImg})
+        #{productName},#{productCount},#{productImg},#{serviceProviderId})
     </insert>
 
     <select id="getAllProductByOrderId"  parameterType="Integer" resultType="com.glory.shenghuo.api.order.pojo.ProductOfOrderPojo">
