@@ -51,6 +51,12 @@ public class GoodsPojo implements Serializable{
     @ApiModelProperty("是否删除商品")
     private int deleteFlag;
 
+    @ApiModelProperty("运费")
+    private int freight;
+
+    @ApiModelProperty("是否可携带")
+    private int isCarry;
+
     public int getId() {
         return id;
     }
@@ -152,5 +158,21 @@ public class GoodsPojo implements Serializable{
 
     public void setDeleteFlag(int deleteFlag) {
         this.deleteFlag = deleteFlag;
+    }
+
+    public int getFreight() {
+        return freight;
+    }
+
+    public void setFreight(int freight) {
+        this.freight = freight;
+    }
+
+    public int getIsCarry() {
+        return isCarry;
+    }
+
+    public void setIsCarry(int isCarry) {
+        this.isCarry = isCarry;
     }
 }
