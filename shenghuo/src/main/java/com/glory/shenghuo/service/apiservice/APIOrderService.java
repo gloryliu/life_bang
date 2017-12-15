@@ -293,4 +293,24 @@ public class APIOrderService {
         return MyResponseUtil.ok(detailJson);
     }
 
+
+    /**
+     * 取消订单
+     * @param orderId
+     * @return
+     */
+    @Transactional
+    public ResponseEntity<Object> cancleOrder(int orderId){
+        ResponseEntity<Object> responseEntity = null;
+        if (orderMapper.delete(orderId)>0){
+            if(productOfOrderMapper.deleteProductByOrderId(orderId)>0){
+                responseEntity = MyResponseUtil.ok("删除成功");
+            }else {
+                responseEntity = MyResponseUtil.error("删除产品失败");
+            }
+        }else {
+            responseEntity = MyResponseUtil.error("删除订单失败");
+        }
+        return responseEntity;
+    }
 }

@@ -56,4 +56,11 @@ public class APIOrderResource {
     public ResponseEntity<Object> getOrderDetail(int orderId) throws BusinessException {
         return apiOrderService.getOrderDetail(orderId);
     }
+
+    @ApiOperation(value = "取消订单",response = OrderDetailJson.class)
+    @RequestMapping(value = "/cancleOrder",method = RequestMethod.GET)
+    @ApiImplicitParam(name = "orderId", value = "订单id", required = true, paramType = "query", dataType = "Integer")
+    public ResponseEntity<Object> cancleOrder(int orderId){
+        return apiOrderService.cancleOrder(orderId);
+    }
 }
