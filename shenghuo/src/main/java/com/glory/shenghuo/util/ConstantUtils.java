@@ -30,6 +30,14 @@ public class ConstantUtils {
     }
 
     /**
+     * 支付方式
+     */
+    public static final class PayType{
+        public static final int AliPay = 1;//支付宝支付
+        public static final int WeiXIn = 2;//微信支付
+    }
+
+    /**
      * 产品的分类
      */
     public static final class ProductType{
