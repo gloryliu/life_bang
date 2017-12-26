@@ -32,7 +32,7 @@ var goodsListObj = {
         if(shop)  param["shop"] = shop;
 
         var name = $("#name").val();
-        if(name)  param["name"] = name;
+        if(name)  param["goodsName"] = name;
 
         param["pageSize"] = basePageObj.pageObj.pageSize;
         param["pageNum"] = basePageObj.pageObj.pageNo;

@@ -5,8 +5,8 @@
 <mapper namespace="com.glory.shenghuo.mapper.GoodsMapper">
 
     <insert id="insert" parameterType="com.glory.shenghuo.api.goods.param.GoodsInsertParam" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO tb_goods (goods_name,goods_price,goods_type,goods_detail,stock,is_banner,goods_img,service_provider,original_price,profit)
-        VALUES (#{goodsName},#{goodsPrice},#{goodsType},#{goodsDetail},#{stock},#{isBanner},#{goodsImg},#{serviceProvider},#{originalPrice},#{profit})
+        INSERT INTO tb_goods (goods_name,goods_price,goods_type,goods_detail,stock,is_banner,goods_img,original_price,profit,service_provider,freight,is_carry)
+        VALUES (#{goodsName},#{goodsPrice},#{goodsType},#{goodsDetail},#{stock},#{isBanner},#{goodsImg},#{originalPrice},#{profit},#{serviceProvider},#{freight},#{isCarry})
     </insert>
 
     <update id="update" parameterType="com.glory.shenghuo.api.goods.pojo.GoodsPojo">
@@ -37,7 +37,7 @@
             AND id = #{id}
         </if>
         <if test="goodsName!=null and goodsName!=''">
-            AND goodsName like CONCAT('%', #{goodsName}, '%')
+            AND goods_name like CONCAT('%', #{goodsName}, '%')
         </if>
 
     </select>

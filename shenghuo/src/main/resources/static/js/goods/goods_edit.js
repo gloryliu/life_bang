@@ -33,25 +33,29 @@ var goodsObj = {
             serviceObj.checkIsOK = false;
             return;
         }
+        if ($("#goodsName").val()) param["goodsName"] = $("#goodsName").val();
 
         if ($("#type2").val()) param["goodsType"] = $("#type2").val();
 
-        if ($("#goodsName").val()) param["goodsName"] = $("#goodsName").val();
+        var contextDetail = window.euditorFrame.getContent();
+        param["goodsDetail"] = contextDetail;
 
         if ($("#stock").val()) param["stock"] = $("#stock").val();
+
+        if ($("#isBanner").val()) param["isBanner"] = $("#isBanner").val();
 
         if ($("#originalPrice").val()) param["originalPrice"] = $("#originalPrice").val();
 
         if ($("#profit").val()) param["profit"] = $("#profit").val();
 
-        if ($("#goodstype").val()) param["goodstype"] = $("#goodstype").val();
-
-        if ($("#isBanner").val()) param["isBanner"] = $("#isBanner").val();
+        if ($("#goodsImg").val()) param["goodsImg"] = $("#goodsImg").val();
+        // if ($("#goodstype").val()) param["goodsType"] = $("#goodstype").val();
 
         if ($("#serviceProvider").val()) param["serviceProvider"] = $("#serviceProvider").val();
 
-        var contextDetail = window.euditorFrame.getContent();
-        param["goodsDetail"] = contextDetail;
+        if ($("#freight").val()) param["freight"] = $("#freight").val();
+
+        if ($("#isCarry").val()) param["isCarry"] = $("#isCarry").val();
 
         if (goodsObj.type == 1){
             param["id"] = goodsObj.goodsId;
