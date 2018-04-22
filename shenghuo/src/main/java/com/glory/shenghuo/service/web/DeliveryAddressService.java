@@ -1,10 +1,12 @@
 package com.glory.shenghuo.service.web;
 
 
+import com.github.pagehelper.StringUtil;
 import com.glory.shenghuo.api.deliveryaddress.param.DeliveryAddressParam;
 import com.glory.shenghuo.api.deliveryaddress.pojo.DeliveryAddressPojo;
 import com.glory.shenghuo.common.MyResponseUtil;
 import com.glory.shenghuo.mapper.DeliveryAddressMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -30,20 +32,24 @@ public class DeliveryAddressService {
      */
      public ResponseEntity<Object> insert(DeliveryAddressParam param){
 
-         ResponseEntity<Object> responseEntity = null;
+         if(StringUtil.isEmpty(param.getName())||
+                 StringUtil.isEmpty(param.getPhone())||
+                 StringUtil.isEmpty(param.getDetail())||
+                 StringUtil.isEmpty(param.getProvinceId())||
+                 StringUtil.isEmpty(param.getCityId())||
+                 StringUtil.isEmpty(param.getAreaId())){
+             return MyResponseUtil.error(MyResponseUtil.FAIL,"参数为空");
+         }
 
         DeliveryAddressPojo deliveryAddressPojo = new DeliveryAddressPojo();
-        deliveryAddressPojo.setName(param.getName());
-        deliveryAddressPojo.setDetail(param.getDetail());
-        deliveryAddressPojo.setPhone(param.getPhone());
-        deliveryAddressPojo.setUserId(param.getUserId());
+        BeanUtils.copyProperties(param,deliveryAddressPojo);
+
         if(deliveryAddressPojoMapper.insert(deliveryAddressPojo)>0){
-            responseEntity = MyResponseUtil.ok("添加成功");
+            return MyResponseUtil.ok("添加成功");
         }else{
-            responseEntity = MyResponseUtil.error(MyResponseUtil.FAIL,"添加失败");
+            return MyResponseUtil.error(MyResponseUtil.FAIL,"添加失败");
         }
 
-        return responseEntity;
     }
 
     /**A

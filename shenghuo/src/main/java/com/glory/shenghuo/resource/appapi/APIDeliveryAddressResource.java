@@ -42,7 +42,7 @@ public class APIDeliveryAddressResource {
      * @param userid
      * @return
      */
-    @ApiOperation("根据userId获取列表")
+    @ApiOperation(value = "根据userId获取列表",response = DeliveryAddressPojo.class)
     @RequestMapping(value = "/getAllDeliveryAddress",method = RequestMethod.GET)
     @ApiImplicitParam(name = "userid", value = "用户id", required = true, paramType = "query", dataType = "int")
     public ResponseEntity<Object> getAllListByUserid(int userid){

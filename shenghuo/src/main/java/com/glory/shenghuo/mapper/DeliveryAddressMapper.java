@@ -12,16 +12,45 @@ import java.util.List;
  **/
 public interface DeliveryAddressMapper extends BaseMapper {
 
+    /**
+     *
+     * @param deliveryAddressPojo
+     * @return
+     */
     int insert(DeliveryAddressPojo deliveryAddressPojo);
 
+    /**
+     *
+     * @param deliveryAddressPojo
+     * @return
+     */
     int update(DeliveryAddressPojo deliveryAddressPojo);
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     DeliveryAddressPojo getDeliveryAddressById(int id);
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     int deleteById(int id);
 
+    /**
+     *
+     * @return
+     */
     List<DeliveryAddressPojo> getAllList();
 
+    /**
+     *
+     * @param userId
+     * @return
+     */
     List<DeliveryAddressPojo> getAllListByUserid(int userId);
 
 }

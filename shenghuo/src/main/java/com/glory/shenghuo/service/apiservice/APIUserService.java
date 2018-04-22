@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.StringUtil;
+import com.glory.shenghuo.api.user.json.UserJson;
 import com.glory.shenghuo.api.user.param.*;
 import com.glory.shenghuo.api.user.pojo.UserPoJo;
 import com.glory.shenghuo.common.MyResponseUtil;
@@ -12,6 +13,7 @@ import com.glory.shenghuo.util.ConstantUtils;
 import com.glory.shenghuo.util.LogUtils;
 import com.glory.shenghuo.util.PageInfos;
 import com.glory.shenghuo.util.UtilTools;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -35,33 +37,30 @@ public class APIUserService {
      */
     public ResponseEntity<Object> registerUser(UserRegisterParam registerParam){
 
-        ResponseEntity<Object> responseEntity = null;
-
-        if(!StringUtil.isEmpty(registerParam.getPhone())&&
-                !StringUtil.isEmpty(registerParam.getPwd())&&
-                !StringUtil.isEmpty(registerParam.getCheckCode())){
-
-            UserPoJo existUser = userMapper.findUserByPhone(registerParam.getPhone());
-            if(existUser!=null){
-                return MyResponseUtil.error("该用户已被注册");
-            }
-
-            UserPoJo userPoJo = new UserPoJo();
-            userPoJo.setPhone(registerParam.getPhone());
-            userPoJo.setPwd(registerParam.getPwd());
-            userPoJo.setUserType(1);
-            userPoJo.setCreateTime(new Date());
-
-            if(userMapper.add(userPoJo)>0){
-                responseEntity = MyResponseUtil.ok("注册成功");
-            }else{
-                responseEntity = MyResponseUtil.error("注册失败");
-            }
-
-        }else {
-            responseEntity = MyResponseUtil.error("参数为空");
+        if(StringUtil.isEmpty(registerParam.getPhone())||
+                StringUtil.isEmpty(registerParam.getPwd())||
+                StringUtil.isEmpty(registerParam.getCheckCode())){
+            return MyResponseUtil.error("参数为空");
         }
-        return responseEntity;
+
+        //是否已经注册了
+        UserPoJo existUser = userMapper.findUserByPhone(registerParam.getPhone());
+        if(existUser!=null){
+            return MyResponseUtil.error("该用户已被注册");
+        }
+
+        UserPoJo userPoJo = new UserPoJo();
+        userPoJo.setPhone(registerParam.getPhone());
+        userPoJo.setPwd(registerParam.getPwd());
+        userPoJo.setUserType(1);
+        userPoJo.setCreateTime(new Date());
+
+        if(userMapper.add(userPoJo)>0){
+            return MyResponseUtil.ok("注册成功");
+        }else{
+            return MyResponseUtil.error("注册失败");
+        }
+
     }
 
     /**
@@ -80,7 +79,9 @@ public class APIUserService {
             return MyResponseUtil.error("密码错误");
         }
 
-        return MyResponseUtil.ok(userPoJo);
+        UserJson userJson = new UserJson();
+        BeanUtils.copyProperties(userPoJo,userJson);
+        return MyResponseUtil.ok(userJson);
     }
 
     /**

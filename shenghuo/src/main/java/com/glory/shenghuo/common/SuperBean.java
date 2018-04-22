@@ -1,5 +1,7 @@
 package com.glory.shenghuo.common;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 
 /**
@@ -8,8 +10,12 @@ import java.io.Serializable;
  * @create 2017-07-01 13:14
  **/
 public class SuperBean<T> implements Serializable {
+
+    @ApiModelProperty("1000为成功，1001为失败")
     private int code;
+    @ApiModelProperty("失败信息")
     private String msg;
+    @ApiModelProperty("数据")
     private T data;
 
     public SuperBean(){

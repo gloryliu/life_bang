@@ -1,5 +1,6 @@
 package com.glory.shenghuo.resource.appapi;
 
+import com.glory.shenghuo.api.user.json.UserJson;
 import com.glory.shenghuo.api.user.param.*;
 import com.glory.shenghuo.service.apiservice.APIUserService;
 import io.swagger.annotations.Api;
@@ -26,7 +27,7 @@ public class APIUserResource {
         return apiUserService.registerUser(param);
     }
 
-    @ApiOperation("用户登陆")
+    @ApiOperation(value = "用户登陆",response = UserJson.class)
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public ResponseEntity<Object> login(@RequestBody UserLoginParam loginParam){
         return apiUserService.login(loginParam);

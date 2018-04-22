@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="/css/mars.css" rel="stylesheet">
+
+    <script src="/js/lib/jquery.min.js?v=2.1.4"></script>
+    <script src="/js/lib/jsrender.min.js"></script>
+    <script src="/js/lib/layer.js"></script>
+    <script src="/js/lib/WdatePicker.js"></script>
+    <script src="/js/common/common.js"></script>
+    <!--业务处理-->
+    <script src="/js/village/village.js"/>
+    <title>小区管理</title>
+</head>
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+
+        <td>
+
+            <!-- 暂无 港澳台 如需要可在city.json文件中添加-->
+            <select id="province" name="province" onchange="doProvAndCityRelation();">
+                　　　　　　　　<option id="choosePro"value="-1">请选择您所在省份</option>
+                　　　　　　</select>
+        </td>
+    </tr>
+
+    <tr>
+
+        <td>
+            <select id="citys" name="city" onchange="doCityAndCountyRelation();">
+                　　　　　　　　<option id='chooseCity' value='-1'>请选择您所在城市</option>
+                　　　　　　</select>
+        </td>
+    </tr>
+
+    <tr>
+
+        <td>
+            <select id="county" name="county">
+                　　　　　　　　<option id='chooseCounty' value='-1'>请选择您所在区/县</option>
+                　　　　　　</select>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -7,8 +7,8 @@
     <!--新增收货地址-->
     <insert id="insert" parameterType="com.glory.shenghuo.api.deliveryaddress.pojo.DeliveryAddressPojo">
         INSERT INTO tb_deliveryaddress
-        (name,detail,phone,userId)
-        VALUES (#{name},#{detail},#{phone},#{userId})
+        (name,detail,phone,userId,province_id,province_cn,city_id,city_cn,area_id,area_cn)
+        VALUES (#{name},#{detail},#{phone},#{userId},#{provinceId},#{provinceCn},#{cityId},#{cityCn},#{areaId},#{areaCn})
     </insert>
 
     <!--编辑收货地址-->
@@ -16,7 +16,13 @@
         UPDATE tb_deliveryaddress SET
         name=#{name},
         detail=#{detail},
-        phone=#{phone}
+        phone=#{phone},
+        province_id=#{provinceId},
+        province_cn=#{provinceCn},
+        city_id=#{cityId},
+        city_cn=#{cityCn},
+        area_id=#{areaId},
+        area_cn=#{areaCn}
         WHERE id=#{id} AND userId=#{userId}
     </update>
 

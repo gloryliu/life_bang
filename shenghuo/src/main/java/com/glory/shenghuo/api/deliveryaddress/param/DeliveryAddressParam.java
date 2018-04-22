@@ -23,6 +23,24 @@ public class DeliveryAddressParam implements Serializable{
     @ApiModelProperty("用户id")
     private int userId;
 
+    @ApiModelProperty("省id")
+    private String provinceId;
+
+    @ApiModelProperty("省")
+    private String provinceCn;
+
+    @ApiModelProperty("市id")
+    private String cityId;
+
+    @ApiModelProperty("市")
+    private String cityCn;
+
+    @ApiModelProperty("区县id")
+    private String areaId;
+
+    @ApiModelProperty("区县")
+    private String areaCn;
+
     public String getName() {
         return name;
     }
@@ -55,4 +73,51 @@ public class DeliveryAddressParam implements Serializable{
         this.userId = userId;
     }
 
+    public String getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(String provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    public String getProvinceCn() {
+        return provinceCn;
+    }
+
+    public void setProvinceCn(String provinceCn) {
+        this.provinceCn = provinceCn;
+    }
+
+    public String getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(String cityId) {
+        this.cityId = cityId;
+    }
+
+    public String getCityCn() {
+        return cityCn;
+    }
+
+    public void setCityCn(String cityCn) {
+        this.cityCn = cityCn;
+    }
+
+    public String getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(String areaId) {
+        this.areaId = areaId;
+    }
+
+    public String getAreaCn() {
+        return areaCn;
+    }
+
+    public void setAreaCn(String areaCn) {
+        this.areaCn = areaCn;
+    }
 }

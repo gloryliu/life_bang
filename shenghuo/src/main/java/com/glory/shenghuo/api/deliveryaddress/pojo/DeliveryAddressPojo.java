@@ -1,25 +1,54 @@
 package com.glory.shenghuo.api.deliveryaddress.pojo;
+
+import io.swagger.annotations.ApiModelProperty;
+
+import java.io.Serializable;
+
 /**
  * @author liuzhenrong
  * @email liuzhenrong008@gmail.com
  * @create 2017-06-18 11:22
  **/
-public class DeliveryAddressPojo {
-    private Integer id;
+public class DeliveryAddressPojo implements Serializable {
 
+    @ApiModelProperty("主键id")
+    private int id;
+
+    @ApiModelProperty("收货人姓名")
     private String name;
 
+    @ApiModelProperty("详细地址")
     private String detail;
 
+    @ApiModelProperty("收货人电话")
     private String phone;
 
-    private Integer userId;
+    @ApiModelProperty("用户id")
+    private int userId;
 
-    public Integer getId() {
+    @ApiModelProperty("省id")
+    private String provinceId;
+
+    @ApiModelProperty("省")
+    private String provinceCn;
+
+    @ApiModelProperty("市id")
+    private String cityId;
+
+    @ApiModelProperty("市")
+    private String cityCn;
+
+    @ApiModelProperty("区县id")
+    private String areaId;
+
+    @ApiModelProperty("区县")
+    private String areaCn;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -47,11 +76,59 @@ public class DeliveryAddressPojo {
         this.phone = phone;
     }
 
-    public Integer getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(String provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    public String getProvinceCn() {
+        return provinceCn;
+    }
+
+    public void setProvinceCn(String provinceCn) {
+        this.provinceCn = provinceCn;
+    }
+
+    public String getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(String cityId) {
+        this.cityId = cityId;
+    }
+
+    public String getCityCn() {
+        return cityCn;
+    }
+
+    public void setCityCn(String cityCn) {
+        this.cityCn = cityCn;
+    }
+
+    public String getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(String areaId) {
+        this.areaId = areaId;
+    }
+
+    public String getAreaCn() {
+        return areaCn;
+    }
+
+    public void setAreaCn(String areaCn) {
+        this.areaCn = areaCn;
     }
 }
